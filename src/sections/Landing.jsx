@@ -22,28 +22,36 @@ const TitleContainer = styled.div`
   text-align: center;
 
   h1 {
+    font-family: "Josefin Sans";
     font-size: ${(props) => props.theme.font5xl};
+    font-weight: 500;
+    color: ${(props) => `rgba(${props.theme.black}, 1)`};
+  }
+
+  p {
+    font-size: ${(props) => props.theme.fontxs};
+    font-weight: 300;
+    color: ${(props) => `rgba(${props.theme.black}, 1)`};
   }
 
   @media (max-width: ${(props) => props.theme.mobile}) {
     width: 80%;
 
     h1 {
-      font-size: ${(props) => props.theme.font4xl};
+      font-size: 5rem;
     }
   }
 `;
 
 const Landing = () => {
   return (
-    <Section className="landingSection">
+    <Section className="landingSection" data-scroll-section>
       <Container>
         <TitleContainer>
           <h1>THE NEW MATS</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur. Enim in in adipiscing lectus
-            diam sit.Lorem ipsum dolor sit amet consectetur. Enim in in
-            adipiscing lectus diam sit.
+            diam sit.
           </p>
         </TitleContainer>
       </Container>

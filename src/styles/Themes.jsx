@@ -11,6 +11,7 @@ export const lightTheme = {
     textRgba: '0, 0, 0',
 
     white: '255, 255, 255',
+    black: '0, 0, 0',
 
     fontxxs: '1em', // 1 em = 16px     
     fontxs: '1.25em', 
@@ -23,6 +24,7 @@ export const lightTheme = {
     font3xl: '3em', // 48px
     font4xl: '4.25em', // 70px
     font5xl: '4.75em',
+    font5xl: '5.5em',
 
     navHeight: '5rem',
 }
