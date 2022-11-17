@@ -24,7 +24,7 @@ export const lightTheme = {
     font3xl: '3em', // 48px
     font4xl: '4.25em', // 70px
     font5xl: '4.75em',
-    font5xl: '5.5em',
+    font6xl: '5.25em',
 
     navHeight: '5rem',
 }
