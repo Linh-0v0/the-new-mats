@@ -5,12 +5,13 @@ import { lightTheme } from "./styles/Themes";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import ScrollerTriggerProxy from "./components/ScrollerTriggerProxy";
 import { AnimatePresence } from "framer-motion";
-import { useRef } from 'react';
+import { useRef } from "react";
 import Landing from "./sections/Landing";
 import Service from "./sections/Service";
 
 function App() {
   const containerRef = useRef(null);
+
   return (
     <>
       <GlobalStyles />
@@ -29,11 +30,15 @@ function App() {
           }
           containerRef={containerRef}
         >
+          <div className="experience">
+            <canvas className="experience-canvas"></canvas>
+          </div>
           <ScrollerTriggerProxy />
           <AnimatePresence>
             <main className="App" data-scroll-container ref={containerRef}>
-              <Landing />
-              <Service />
+              {/* <main className="App"> */}
+              {/* <Landing />
+              <Service /> */}
               {/* Put Sections Here ! */}
             </main>
           </AnimatePresence>
