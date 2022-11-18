@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import InfoDetail from "../components/InfoDetail";
 
 const Section = styled.section`
   position: relative;
@@ -9,6 +10,9 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  
   h1 {
     font-weight: 200;
     font-size: ${(props) => props.theme.font3xl};
@@ -20,6 +24,18 @@ const IndividualInfo = () => {
     <Section data-scroll-section>
       <Container>
         <h1>InSectionidualInfo</h1>
+        <InfoDetail
+          title="ABout"
+          parag="Design and create website along with customer requests fully interactive with mostly every devices "
+        />
+        <InfoDetail
+          title="Streng"
+          parag="Design and create website along with customer requests fully interactive with mostly every devices "
+        />
+        <InfoDetail
+          title="sdfds"
+          parag="Design and create website along with customer requests fully interactive with mostly every devices "
+        />
       </Container>
     </Section>
   );
