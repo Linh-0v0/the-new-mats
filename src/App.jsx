@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { useRef } from 'react';
 import Landing from "./sections/Landing";
 import Service from "./sections/Service";
+import IndividualInfo from "./sections/IndividualInfo";
 
 function App() {
   const containerRef = useRef(null);
@@ -34,6 +35,7 @@ function App() {
             <main className="App" data-scroll-container ref={containerRef}>
               <Landing />
               <Service />
+              <IndividualInfo />
               {/* Put Sections Here ! */}
             </main>
           </AnimatePresence>
