@@ -7,7 +7,7 @@ export default class Cat {
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
     this.cat = this.resources.items.pinkcat;
-    console.log(this.cat);
+    // console.log(this.cat);
 
     if (this.cat) {
       this.actualCat = this.cat.scene;
@@ -18,12 +18,25 @@ export default class Cat {
   }
 
   setModel() {
-    this.scene.add(this.actualCat);
+    if (this.cat) {
+      this.actualCat.children.forEach((child) => {
+        child.castShadow = true;
+        child.receiveShadow = true;
+
+        if (child instanceof THREE.Group) {
+          child.children.forEach((grandChild) => {
+            grandChild.castShadow = true;
+            grandChild.receiveShadow = true;
+          });
+        }
+      })
+
+      this.scene.add(this.actualCat);
+      this.actualCat.scale.set(0.11, 0.11, 0.11);
+    }
   }
 
-  resize() {
-  }
+  resize() {}
 
-  update() {
-  }
+  update() {}
 }

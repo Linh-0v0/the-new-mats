@@ -2,6 +2,6 @@ export default [
     {
         name: "pinkcat",
         type: "glbModel",
-        path: "/models/pinkcat.glb",
+        path: "/models/catprincipledglb.glb",
     }
 ];
