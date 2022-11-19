@@ -1,5 +1,6 @@
-import React from "react";
 import styled from "styled-components";
+import React from "react";
+
 
 const Section = styled.section`
   position: relative;
@@ -9,23 +10,22 @@ const Section = styled.section`
 `;
 
 const ServiceContainer = styled.div`
- h1 {
-    font-family: "Josefin Sans"
-    font-size: ${(props) => props.theme.font5xl};
-    font-weight: 800;
-    color: ${(props) => `rgba(${props.theme.black}, 0.2)`};
- }
+  h1 {
+    font-size: 50px;
+  }
 `;
 
 const Service = () => {
-  return (
-    <Section data-scroll-section>
-      <ServiceContainer>
-        <h1>Service</h1>
-        <p>aloooooooooooooooooooo</p>
-      </ServiceContainer>
-    </Section>
-  );
+    return (
+        <Section className="">
+            <ServiceContainer>
+                <h1>Service</h1>
+                    <h2>Websites and platforms</h2>
+                    <p>Information</p>
+            </ServiceContainer>
+
+        </Section>
+    );
 };
 
 export default Service;
