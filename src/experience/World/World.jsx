@@ -3,6 +3,8 @@ import Experience from "../Experience";
 import Environment from "./Environment";
 
 import Cat from "./Cat";
+import Floor from "./Floor"
+import Controls from "./Controls";
 
 export default class World {
   constructor() {
@@ -17,16 +19,21 @@ export default class World {
     this.resources.on("ready", () => {
       this.environment = new Environment();
       this.cat = new Cat();
-      
-    })
-
-    this.cat = new Cat();
-    
+      this.floor = new Floor();
+      this.controls = new Controls();
+    })    
   }
 
   resize() {
   }
 
   update() {
+    if (this.cat) {
+      this.cat.update();
+    }
+
+    if (this.controls) {
+      this.controls.update();
+    }
   }
 }

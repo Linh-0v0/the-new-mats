@@ -1,4 +1,5 @@
 import {EventEmitter} from 'events';
+//Sizes class: detect window size
 
 // EventEmitter: emits event that can be listened to and acted on
 // cuz I need other classes to update 

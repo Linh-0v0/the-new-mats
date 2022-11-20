@@ -8,6 +8,7 @@ import { AnimatePresence } from "framer-motion";
 import { useRef } from "react";
 import Landing from "./sections/Landing";
 import Service from "./sections/Service";
+import LandingMain from "./sections/LandingMain";
 
 function App() {
   const containerRef = useRef(null);
@@ -37,6 +38,7 @@ function App() {
           <AnimatePresence>
             <main className="App" data-scroll-container ref={containerRef}>
               {/* <main className="App"> */}
+              <LandingMain />
               {/* <Landing />
               <Service /> */}
               {/* Put Sections Here ! */}
