@@ -19,6 +19,14 @@ function App() {
           options={{
             smooth: true,
             // ... all available Locomotive Scroll instance options
+            mobile: {
+              breakpoint: 0,
+              smooth: true,
+            },
+            tablet: {
+              breakpoint: 0,
+              smooth: true,
+            },
           }}
           watch={
             [
@@ -28,8 +36,9 @@ function App() {
             ]
           }
           containerRef={containerRef}
+          
         >
-          <ScrollerTriggerProxy />
+          {/* <ScrollerTriggerProxy /> */}
           <AnimatePresence>
             <main className="App" data-scroll-container ref={containerRef}>
               <Landing />
