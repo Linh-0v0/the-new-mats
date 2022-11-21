@@ -10,7 +10,9 @@ const Section = styled.section`
 
 
 const ContactContainer = styled.div`
-  
+h1 {
+    font-size: 50px;
+  }
 `;
 
 
@@ -18,7 +20,7 @@ const ContactContainer = styled.div`
 
 const Contact = () => {
     return (
-        <Section className="">
+        <Section className=""data-scroll-section>
             <ContactContainer>
                 <h1>Contact</h1>
                     <p>Icon</p>
