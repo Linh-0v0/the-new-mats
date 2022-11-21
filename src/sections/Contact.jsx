@@ -20,7 +20,7 @@ h1 {
 
 const Contact = () => {
     return (
-        <Section className=""data-scroll-section>
+        <Section className="" data-scroll-section>
             <ContactContainer>
                 <h1>Contact</h1>
                     <p>Icon</p>
