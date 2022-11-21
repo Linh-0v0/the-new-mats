@@ -5,14 +5,18 @@ import { lightTheme } from "./styles/Themes";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import ScrollerTriggerProxy from "./components/ScrollerTriggerProxy";
 import { AnimatePresence } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useLayoutEffect } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger"; 
 import Landing from "./sections/Landing";
 import Service from "./sections/Service";
 import LandingMain from "./sections/LandingMain";
 
 function App() {
   const containerRef = useRef(null);
-
+  useLayoutEffect(() => {
+    let element = containerRef.current;
+  }, []);
   return (
     <>
       <GlobalStyles />
@@ -20,7 +24,15 @@ function App() {
         <LocomotiveScrollProvider
           options={{
             smooth: true,
-            // ... all available Locomotive Scroll instance options
+            // ... all available Locomotive Scroll instance options,
+            mobile: {
+              breakpoint: 0,
+              smooth: true,
+            },
+            tablet: {
+              breakpoint: 0,
+              smooth: true,
+            },
           }}
           watch={
             [
@@ -31,16 +43,19 @@ function App() {
           }
           containerRef={containerRef}
         >
-          <div className="experience">
-            <canvas className="experience-canvas"></canvas>
-          </div>
           <ScrollerTriggerProxy />
           <AnimatePresence>
             <main className="App" data-scroll-container ref={containerRef}>
-              {/* <main className="App"> */}
+              <div className="experience">
+                <canvas className="experience-canvas"></canvas>
+              </div>
+
               <LandingMain />
-              {/* <Landing />
-              <Service /> */}
+
+              <div className="first-move"></div>
+              <Landing />
+
+              <Service />
               {/* Put Sections Here ! */}
             </main>
           </AnimatePresence>

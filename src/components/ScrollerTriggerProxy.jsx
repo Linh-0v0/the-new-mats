@@ -17,9 +17,10 @@ const ScrollerTriggerProxy = () => {
 
       // on scroll of locomotive, update ScrollTrigger
       scroll.on("scroll", ScrollTrigger.update);
+      // scroll.on("scroll");
 
       // use scrollerProxy?
-      // tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+      // tell ScrollTrigger to use these proxy methods for the "element" element since Locomotive Scroll is hijacking things
       ScrollTrigger.scrollerProxy(element, {
         scrollTop(value) {
           return arguments.length

@@ -8,6 +8,7 @@ const Section = styled.section`
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  // background-color: ${props => `rgba(${props.theme.white}, 1)`};
 `;
 
 const Container = styled.div`
@@ -45,7 +46,7 @@ const TitleContainer = styled.div`
 
 const Landing = () => {
   return (
-    <Section className="landingSection" data-scroll-section>
+    <Section data-scroll-section>
       {/* <Container> */}
       <h1>THE NEW MATS</h1>
         {/* <TitleContainer>
