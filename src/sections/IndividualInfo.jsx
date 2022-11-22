@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import InfoDetail from "../components/InfoDetail";
+import InfoPic from "../components/InfoPic";
 
 const Section = styled.section`
   position: relative;
@@ -23,6 +24,9 @@ const IndividualInfo = () => {
   return (
     <Section data-scroll-section>
       <Container>
+        <InfoPic>
+          <img src={profileImageSrc} alt="Your Avatar" />
+        </InfoPic>
         <h1>InSectionidualInfo</h1>
         <InfoDetail
           title="ABout"
