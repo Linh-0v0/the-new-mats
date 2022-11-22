@@ -1,16 +1,20 @@
 import * as THREE from "three";
 import GSAP from "gsap";
+import { EventEmitter } from "events";
+
 import Experience from "../Experience";
 
-export default class Cat {
+export default class Cat extends EventEmitter {
   constructor() {
+    super();
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
     this.cat = this.resources.items.pinkcat;
-    console.log(this.cat);
-
+    this.camera = this.experience.camera;
+    // console.log(this.cat);
+    
     if (this.cat) {
       this.actualCat = this.cat.scene;
     }
@@ -68,16 +72,14 @@ export default class Cat {
   resize() {}
 
   update() {
-    
-      this.lerp.current = GSAP.utils.interpolate(
-        this.lerp.current,
-        this.lerp.target,
-        this.lerp.ease
-      );
+    // Move cat's head
+    this.lerp.current = GSAP.utils.interpolate(
+      this.lerp.current,
+      this.lerp.target,
+      this.lerp.ease
+    );
+    this.actualCat.rotation.y = this.lerp.current;
 
-      this.actualCat.rotation.y = this.lerp.current;
-
-      this.mixer.update(this.time.delta * 0.0008);
-    
+    this.mixer.update(this.time.delta * 0.0008);
   }
 }

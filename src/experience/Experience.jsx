@@ -8,6 +8,8 @@ import Camera from "./Camera";
 import Renderer from "./Renderer";
 
 import World from "./World/World";
+import GoToLanding from "./GoToLanding"
+// import Controls from "./World/Controls.js";
 
 // MANAGES Camera, Scene,
 export default class Experience {
@@ -26,15 +28,18 @@ export default class Experience {
     this.renderer = new Renderer();
     this.resources = new Resources(assets);
     this.world = new World();
+    this.goToLanding = new GoToLanding();
+
+    console.log("resource", this.goToLanding)
 
     // listen to emitted event
     this.time.on("update", () => {
       this.update();
-    })
+    });
 
     this.sizes.on("resize", () => {
       this.resize();
-    })
+    });
   }
 
   resize() {
@@ -47,6 +52,8 @@ export default class Experience {
     this.camera.update();
     this.world.update();
     this.renderer.update();
+    // if (this.controls) {
+    //   this.controls.update();
+    // }
   }
-
 }

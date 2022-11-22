@@ -2,6 +2,7 @@ export default [
     {
         name: "pinkcat",
         type: "glbModel",
-        path: "/models/catprinciplednoshadow-ani.glb",
-    }
+        path: "/models/catalltextures.glb",
+        link: "/scene/cat-eating"
+    },
 ];

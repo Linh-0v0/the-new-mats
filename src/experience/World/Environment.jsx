@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import GUI from 'lil-gui';
 import Experience from "../Experience";
 
 //Deal with environment (lighting)
@@ -7,6 +8,11 @@ export default class Environment {
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
+    
+    // this.gui = new GUI();
+    this.obj = {
+      
+    }
 
     this.setSunlight();
   }
