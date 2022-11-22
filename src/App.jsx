@@ -45,13 +45,14 @@ function App() {
               <Service />
               <IndividualInfo
                 profileImageSrc=""
-                aboutTitle=""
-                aboutParag=""
-                strengthTitle=""
-                strengthParag=""
-                sthTitle=""
-                sthParag=""
+                aboutTitle="LOP"
+                aboutParag="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis delectus facilis tempore odit rem? Aut numquam facilis consequuntur perferendis iste recusandae, et odio ad quidem. Ut, consectetur. Harum, temporibus officia."
+                strengthTitle="LOP"
+                strengthParag="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis delectus facilis tempore odit rem? Aut numquam facilis consequuntur perferendis iste recusandae, et odio ad quidem. Ut, consectetur. Harum, temporibus officia."
+                sthTitle="LOP"
+                sthParag="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis delectus facilis tempore odit rem? Aut numquam facilis consequuntur perferendis iste recusandae, et odio ad quidem. Ut, consectetur. Harum, temporibus officia."
               />
+              
               {/* Put Sections Here ! */}
             </main>
           </AnimatePresence>

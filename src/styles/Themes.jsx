@@ -16,7 +16,7 @@ export const lightTheme = {
     fontxxs: '1em', // 1 em = 16px     
     fontxs: '1.25em', 
     fontsm: '1.5em',
-    fontmd: '1.75em',
+    fontmd: '1.75em',   
     fontlg: '2em', // 32px
     // Title
     fontxl: '2.5em', // 40px
