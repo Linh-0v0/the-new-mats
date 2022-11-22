@@ -5,7 +5,7 @@ import { lightTheme } from "./styles/Themes";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import ScrollerTriggerProxy from "./components/ScrollerTriggerProxy";
 import { AnimatePresence } from "framer-motion";
-import { useRef } from 'react';
+import { useRef } from "react";
 import Landing from "./sections/Landing";
 import Service from "./sections/Service";
 import IndividualInfo from "./sections/IndividualInfo";
@@ -20,7 +20,15 @@ function App() {
           options={{
             smooth: true,
             // ... all available Locomotive Scroll instance options
-          }}
+            mobile: {
+              breakpoint: 0,
+              smooth: true,
+            },
+            tablet: {
+              breakpoint: 0,
+              smooth: true,
+            },
+        }}
           watch={
             [
               //..all the dependencies you want to watch to update the scroll.
@@ -35,7 +43,15 @@ function App() {
             <main className="App" data-scroll-container ref={containerRef}>
               <Landing />
               <Service />
-              <IndividualInfo />
+              <IndividualInfo
+                profileImageSrc=""
+                aboutTitle=""
+                aboutParag=""
+                strengthTitle=""
+                strengthParag=""
+                sthTitle=""
+                sthParag=""
+              />
               {/* Put Sections Here ! */}
             </main>
           </AnimatePresence>
