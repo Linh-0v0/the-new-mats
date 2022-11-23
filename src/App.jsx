@@ -8,6 +8,8 @@ import { AnimatePresence } from "framer-motion";
 import { useRef } from 'react';
 import Landing from "./sections/Landing";
 import Service from "./sections/Service";
+import Benefits from "./sections/Benefits";
+
 
 function App() {
   const containerRef = useRef(null);
@@ -35,14 +37,14 @@ function App() {
               //  For exemple, on Next.js you would want to watch properties like `router.asPath` (you may want to add more criterias if the instance should be update on locations with query parameters)
             ]
           }
-          containerRef={containerRef}
-          
+          containerRef={containerRef}  
         >
           {/* <ScrollerTriggerProxy /> */}
           <AnimatePresence>
             <main className="App" data-scroll-container ref={containerRef}>
               <Landing />
               <Service />
+              <Benefits />
               {/* Put Sections Here ! */}
             </main>
           </AnimatePresence>
