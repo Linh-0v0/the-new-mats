@@ -56,10 +56,9 @@ export default class Renderer {
 
       //First screen
       // this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
-      
-     
+
       this.renderer.render(this.scene, this.camera.orthographicCamera);
-      
+
 
       //Second screen
       // this.renderer.setScissorTest(true);

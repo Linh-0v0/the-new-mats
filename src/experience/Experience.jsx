@@ -27,7 +27,7 @@ export default class Experience {
     this.eatingCatScene = new THREE.Scene();
     this.playingCatScene = new THREE.Scene();
 
-    if (this.currentPath == "") {
+    if (this.currentPath == "/") {
       this.scene = this.eatingCatScene;
     } else if (this.currentPath == assets[1].urlPathname) {
       this.scene = this.playingCatScene;
@@ -54,17 +54,17 @@ export default class Experience {
   }
 
   resize() {
-    this.camera.resize();
-    this.world.update();
-    this.renderer.resize();
+      this.camera.resize();
+      this.world.update();
+      this.renderer.resize();
   }
 
   update() {
-    this.camera.update();
-    this.world.update();
-    this.renderer.update();
-    // if (this.controls) {
-    //   this.controls.update();
-    // }
+      this.camera.update();
+      this.world.update();
+      this.renderer.update();
+      // if (this.controls) {
+      //   this.controls.update();
+      // }
   }
 }

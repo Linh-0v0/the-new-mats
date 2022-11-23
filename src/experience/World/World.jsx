@@ -22,15 +22,20 @@ export default class World {
     this.resources.on("ready", () => {
       console.log("ALL CAT IN RESOURCE");
       this.environment = new Environment();
-      if (this.currentPath == "") {
+      this.floor = new Floor();
+
+      if (this.currentPath == "/") {
+        console.log("EATING CAT NEEDS TOA APPEAR"); 
         this.cat = new Cat();
-      } else if (this.currentPath == asset[1].urlPathname) {
+        this.controls = new Controls();
+      }
+      if (this.currentPath == asset[1].urlPathname) {
         console.log("Playing CATTTT");
         this.cat = new PlayingCat();
+        this.controls = new Controls();
       }
 
-      this.floor = new Floor();
-      this.controls = new Controls();
+      // this.controls = new Controls();
     });
   }
 

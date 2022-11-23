@@ -1,4 +1,5 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
+import styled from "styled-components";
 import Landing from "../sections/Landing";
 import Service from "../sections/Service";
 import LandingMain from "../sections/LandingMain";
@@ -6,12 +7,12 @@ import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import ScrollerTriggerProxy from "../components/ScrollerTriggerProxy";
 
 const Home = () => {
-    const containerRef = useRef(null);
+  const containerRef = useRef(null);
 
   return (
     <div className="experience">
-    <canvas className="experience-canvas"></canvas>
-  </div>
+      <canvas className="experience-canvas"></canvas>
+    </div>
     // <LocomotiveScrollProvider
     //   options={{
     //     smooth: true,
@@ -36,7 +37,6 @@ const Home = () => {
     // >
     //   <ScrollerTriggerProxy />
     //   <main className="App" data-scroll-container ref={containerRef}>
-       
 
     //     <LandingMain />
 

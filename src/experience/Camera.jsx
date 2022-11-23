@@ -15,6 +15,7 @@ export default class Camera {
   }
 
   createPerspectiveCamera() {
+    if (this.scene) {
     this.perspectiveCamera = new THREE.PerspectiveCamera(
       75,
       this.sizes.aspect,
@@ -25,10 +26,11 @@ export default class Camera {
     this.perspectiveCamera.position.x = 10;
     this.perspectiveCamera.position.y = 5;
     this.perspectiveCamera.position.z = 5;
-
+    }
   }
 
   createOrthographicCamera() {
+    if (this.scene) {
     this.orthographicCamera = new THREE.OrthographicCamera(
       (-this.sizes.aspect * this.sizes.frustrum) / 2,
       (this.sizes.aspect * this.sizes.frustrum) / 2,
@@ -61,6 +63,7 @@ export default class Camera {
 
     const axesHelper = new THREE.AxesHelper(5);
     this.scene.add(axesHelper);
+    }
   }
 
   // Zoom, Pan, Move camera to see model
