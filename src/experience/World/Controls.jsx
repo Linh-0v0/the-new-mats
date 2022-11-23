@@ -54,7 +54,7 @@ export default class Controls {
     this.checkClickedCat();
     this.setCameraToTarget();
     this.goToLanding.on("goToLanding", (goBackMsg) => {
-      this.cameraToLanding(goBackMsg);
+      this.goBackToLanding(goBackMsg);
       this.goBackMsgReceived = goBackMsg;
     });
 
@@ -87,12 +87,12 @@ export default class Controls {
     if (this.intersects.length > 0) {
       if (this.intersects[0].object.parent.name === "Body003") {
         this.catClicked = "EatingCat";
-        window.location.href = "/scene/cat-eating"
+        window.location.href = "/scene/cat-eating";
         // this.emit("catClicked", this.catClicked);
       } else {
         if (this.intersects[0].object.parent.parent.name === "Body003") {
           this.catClicked = "EatingCat";
-          window.location.href = "/scene/cat-eating"
+          window.location.href = "/scene/cat-eating";
           // this.emit("catClicked", this.catClicked);
         }
       }
@@ -105,14 +105,14 @@ export default class Controls {
       // console.log(" CAT CLICKEE", this.catClicked);
       // console.log("SETCAMERA TO MOVE");
       this.movedToTarget.target[1] = 3;
-      
     } else if (this.catClicked === "") {
     }
   }
 
-  cameraToLanding(goBackMsg) {
+  goBackToLanding(goBackMsg) {
     console.log(goBackMsg);
     if (goBackMsg === "goback") {
+      window.location.href = "/";
       // Original position that sees all parts of the model
       // this.movedToTarget.target[0] = 3;
       // this.movedToTarget = this.originalCameraPosition;

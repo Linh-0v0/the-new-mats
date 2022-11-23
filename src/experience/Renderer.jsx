@@ -15,6 +15,7 @@ export default class Renderer {
   }
 
   setRenderer() {
+    if (this.canvas) {
     this.renderer = new THREE.WebGLRenderer({
         canvas: this.canvas,
         antialias: true,
@@ -29,13 +30,17 @@ export default class Renderer {
     this.renderer.setSize(this.sizes.width, this.sizes.height);
     this.renderer.setPixelRatio(this.sizes.pixelRatio);
   }
+  }
 
   resize() {
+    if (this.canvas) {
     this.renderer.setSize(this.sizes.width, this.sizes.height);
     this.renderer.setPixelRatio(this.sizes.pixelRatio);
+    }
   }
 
   update() {
+    if (this.canvas) {
     // this.renderer.render(this.scene, this.camera.perspectiveCamera);
 
     //First screen
@@ -60,5 +65,6 @@ export default class Renderer {
 
     // this.renderer.render(this.scene, this.camera.perspectiveCamera);
     // this.renderer.setScissorTest(false);
+    }
   }
 }

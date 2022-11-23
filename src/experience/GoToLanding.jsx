@@ -10,12 +10,13 @@ export default class GoToLanding extends EventEmitter {
   }
 
   setArrowEventListener() {
-    this.goBackArrow.addEventListener("click", () => {
-      this.goBackArrow.classList.add("blue-change");
-      this.goBackMsg = this.goBackMsg === "" ? "goback" : "";
-      document.body.classList.toggle("original-change")
-      this.emit("goToLanding", this.goBackMsg);
-    });
+    if (this.goBackArrow) {
+      this.goBackArrow.addEventListener("click", () => {
+        this.goBackArrow.classList.add("blue-change");
+        this.goBackMsg = this.goBackMsg === "" ? "goback" : "";
+        document.body.classList.toggle("original-change");
+        this.emit("goToLanding", this.goBackMsg);
+      });
+    }
   }
-
 }

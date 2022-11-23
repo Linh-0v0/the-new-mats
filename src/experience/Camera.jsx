@@ -65,9 +65,11 @@ export default class Camera {
 
   // Zoom, Pan, Move camera to see model
   setOrbitControls() {
+    if (this.canvas) {
     this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);
     this.controls.enableDamping = true;
     this.controls.enableZoom = false;
+    }
   }
 
   resize() {
@@ -86,6 +88,7 @@ export default class Camera {
   }
 
   update() {
+    if (this.canvas) {
     this.controls.update();
     // console.log(this.perspectiveCamera.position);
 
@@ -93,5 +96,6 @@ export default class Camera {
     // this.helper.update();
     // this.helper.position.copy(this.orthographicCamera.position);
     // this.helper.position.copy(this.orthographicCamera.rotation);
+    }
   }
 }
