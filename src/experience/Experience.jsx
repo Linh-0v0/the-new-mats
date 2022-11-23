@@ -8,8 +8,8 @@ import Camera from "./Camera";
 import Renderer from "./Renderer";
 
 import World from "./World/World";
-import GoToLanding from "./GoToLanding"
-// import Controls from "./World/Controls.js";
+import GoToLanding from "./GoToLanding";
+import Controls from "../experience/World/Controls";
 
 // MANAGES Camera, Scene,
 export default class Experience {
@@ -20,17 +20,28 @@ export default class Experience {
     }
     //if above is not exist, set
     Experience.instance = this;
+    this.currentPath = window.location.pathname;
+
     this.canvas = canvas;
     this.scene = new THREE.Scene();
+    this.eatingCatScene = new THREE.Scene();
+    this.playingCatScene = new THREE.Scene();
+
+    if (this.currentPath == "") {
+      this.scene = this.eatingCatScene;
+    } else if (this.currentPath == assets[1].urlPathname) {
+      this.scene = this.playingCatScene;
+    }
+
     this.time = new Time();
     this.sizes = new Sizes();
     this.camera = new Camera();
-    this.renderer = new Renderer();
     this.resources = new Resources(assets);
+    this.renderer = new Renderer();
+
     this.world = new World();
     this.goToLanding = new GoToLanding();
-
-    console.log("resource", this.goToLanding)
+    // this.controls = new Controls();
 
     // listen to emitted event
     this.time.on("update", () => {

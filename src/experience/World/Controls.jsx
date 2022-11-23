@@ -3,9 +3,11 @@ import Experience from "../Experience";
 import GSAP from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef } from "react";
+import EventEmitter from "events";
 
-export default class Controls {
+export default class Controls extends EventEmitter{
   constructor() {
+    super();
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.sizes = this.experience.sizes;
@@ -13,7 +15,9 @@ export default class Controls {
     this.resources = this.experience.resources;
     this.time = this.experience.time;
     this.camera = this.experience.camera;
+  
     this.cat = this.experience.world.cat.actualCat;
+    
     this.goToLanding = this.experience.goToLanding;
     this.goBackMsgReceived = "";
 
@@ -87,13 +91,23 @@ export default class Controls {
     if (this.intersects.length > 0) {
       if (this.intersects[0].object.parent.name === "Body003") {
         this.catClicked = "EatingCat";
-        window.location.href = "/scene/cat-eating";
-        // this.emit("catClicked", this.catClicked);
+        // this.scene = this.experience.playingCatScene;
+
+        this.emit("eatingCat");
+        // setTimeout(() => {
+          window.location.href = "/scene/cat-playing";
+
+        // })
       } else {
         if (this.intersects[0].object.parent.parent.name === "Body003") {
-          this.catClicked = "EatingCat";
-          window.location.href = "/scene/cat-eating";
-          // this.emit("catClicked", this.catClicked);
+          this.catClicked = "EatingCat"; 
+          // this.scene = this.experience.playingCatScene;
+        
+          this.emit("eatingCat");
+          // setTimeout(() => {
+            window.location.href = "/scene/cat-playing";
+
+          // })
         }
       }
     }
@@ -199,6 +213,9 @@ export default class Controls {
   resize() {}
 
   update() {
+    if (this.cat) {
+
+    }
     // if (this.goBackMsgReceived === "goback") {
     //   this.movedToTarget.target = this.originalCameraPosition.target;
     // }

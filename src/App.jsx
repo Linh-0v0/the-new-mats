@@ -12,6 +12,8 @@ import Landing from "./sections/Landing";
 import Service from "./sections/Service";
 import LandingMain from "./sections/LandingMain";
 import CatEating from "./pages/CatEating";
+import CatPlaying from "./pages/CatPlaying";
+
 import Home from "./pages/Home";
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/scene/cat-eating" element={<CatEating />} />
+            <Route path="/scene/cat-playing" element={<CatPlaying />} />
           </Routes>
         </AnimatePresence>
       </ThemeProvider>

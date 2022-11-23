@@ -4,17 +4,18 @@ import { EventEmitter } from "events";
 
 import Experience from "../Experience";
 
-export default class Cat extends EventEmitter {
+export default class PlayingCat extends EventEmitter {
   constructor() {
     super();
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
-    this.cat = this.resources.items.eatingCat;
+    this.cat = this.resources.items.playingCat;
     this.camera = this.experience.camera;
-    // console.log(this.cat);
 
+    // console.log(this.cat);
+    
     if (this.cat) {
       this.actualCat = this.cat.scene;
     }
@@ -54,7 +55,7 @@ export default class Cat extends EventEmitter {
   setAnimation() {
     if (this.cat) {
       this.mixer = new THREE.AnimationMixer(this.actualCat);
-      this.head = this.mixer.clipAction(this.cat.animations[4]);
+      this.head = this.mixer.clipAction(this.cat.animations[0]);
       this.head.play();
     }
   }

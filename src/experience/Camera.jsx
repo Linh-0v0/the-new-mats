@@ -50,14 +50,14 @@ export default class Camera {
     // );
     this.scene.add(this.orthographicCamera);    
     
-    // this.helper = new THREE.CameraHelper( this.orthographicCamera );
-    // this.scene.add(this.helper);
+    this.helper = new THREE.CameraHelper( this.orthographicCamera );
+    this.scene.add(this.helper);
 
-    const size = 20;
-    const divisions = 20;
+    const size = 10;
+    const divisions = 10;
 
-    // const gridHelper = new THREE.GridHelper(size, divisions);
-    // this.scene.add(gridHelper);
+    const gridHelper = new THREE.GridHelper(size, divisions);
+    this.scene.add(gridHelper);
 
     const axesHelper = new THREE.AxesHelper(5);
     this.scene.add(axesHelper);
@@ -68,7 +68,7 @@ export default class Camera {
     if (this.canvas) {
     this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);
     this.controls.enableDamping = true;
-    this.controls.enableZoom = false;
+    this.controls.enableZoom = true;
     }
   }
 
@@ -92,10 +92,10 @@ export default class Camera {
     this.controls.update();
     // console.log(this.perspectiveCamera.position);
 
-    // this.helper.matrixWorldNeedsUpdate = true;
-    // this.helper.update();
-    // this.helper.position.copy(this.orthographicCamera.position);
-    // this.helper.position.copy(this.orthographicCamera.rotation);
+    this.helper.matrixWorldNeedsUpdate = true;
+    this.helper.update();
+    this.helper.position.copy(this.orthographicCamera.position);
+    this.helper.position.copy(this.orthographicCamera.rotation);
     }
   }
 }
