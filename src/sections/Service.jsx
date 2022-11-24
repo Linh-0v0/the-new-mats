@@ -56,7 +56,7 @@ const Service = () => {
   return (
     <Section className="" data-scroll-section>
       <BigContainer>
-        <h1>Service</h1>
+        <h1>Services</h1>
         <Container>
           <ServiceContainer>
             <div className="block-1">

@@ -17,7 +17,13 @@ img{
     position: relative;
     width: 50px;
 }
-h1 {
+
+`;
+const BigContainer = styled.div`
+  width: 90%;
+  margin: 0 auto;
+
+  h1 {
     font-size: 50px;
   }
 `;
@@ -29,13 +35,16 @@ h1 {
 const Contact = () => {
     return (
         <Section className="" data-scroll-section>
+            <BigContainer>
+            <h1>Contact</h1>
             <ContactContainer>
-                <h1>Contact</h1>
+                
                 <img src="icon/facebook.svg" alt="" />
                 <img src="icon/github.svg" alt="" />
                 <img src="icon/gmail.svg" alt="" />
                 <img src="icon/contact.svg" alt="" />   
             </ContactContainer>
+            </BigContainer>
 
         </Section>
     );
