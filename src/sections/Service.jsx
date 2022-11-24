@@ -14,20 +14,31 @@ const Section = styled.section`
 `;
 
 const ServiceContainer = styled.div`
+display: grid;
+grid-template-columns: ;
+grid-column-gap: 30px;
   h1 {
     font-size: 50px;
   }
 
   h2 {
     padding-top: 20px;
-    font-size: 30px
+    font-size: 30px;
+    left: 50%
   }
 
   p {
+    margin: 3%;
     padding: 20px;
     font-size: 25px;
-    margin: 10px auto;
+    background-color: lightblue;
+    left: 5px;
+    top: 3px;
+    right: 30px;
 
+  }
+  img {
+    position: relative ;
   }
 `;
 
@@ -36,19 +47,27 @@ const Service = () => {
         <Section className=""data-scroll-section>
             <ServiceContainer>
                 <h1>Service</h1>
-                <i class="fa-regular fa-lightbulb-on"></i>
+              <div class="block-1">  
+                <img src = "lightbulb.svg"/>
                     <h2>Websites and platforms</h2>
                       <p>Design and create website along with the customer requests fully interactive with mostly every devices</p>
+              </div>
             </ServiceContainer>
 
             <ServiceContainer>
+              <div class="block-2">
+            <img src = "lightbulb.svg"/>
                     <h2>Mobile application</h2>
                       <p>Create fully function application separated from the website and more addons features</p>
+              </div>        
             </ServiceContainer>
 
             <ServiceContainer>
+              <div class="block-3">
+            <img src = "lightbulb.svg"/>
                     <h2>UI/UX Design</h2>
                       <p>Analyze the need of customer to perform on the designing section</p>
+              </div>
             </ServiceContainer>
 
         </Section>
