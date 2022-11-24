@@ -12,6 +12,12 @@ export const lightTheme = {
 
     white: '255, 255, 255',
     black: '0, 0, 0',
+    beige: '250, 248, 238',
+    orange: '255, 111, 96',
+    mint: '148, 208, 221',
+    pink: '247, 172, 179',
+    purple: '214, 196, 238',
+    sky: '152, 217, 255',
 
     fontxxs: '1em', // 1 em = 16px     
     fontxs: '1.25em', 

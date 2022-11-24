@@ -7,18 +7,21 @@ const Section = styled.section`
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  
 `;
 
 const Container = styled.div`
   width: 40%;
-  background-color: ${props => `rgba(${props.theme.sky}, 1)`};
+  // background-color: ${(props) => `rgba(${props.theme.sky}, 1)`};
   display: flex;
   flex-direction: column;
 
   h1 {
     font-weight: 200;
     font-size: ${(props) => props.theme.font3xl};
+  }
+
+  .imgContainer {
+    background-color: ${(props) => `rgba(${props.theme.sky}, 1)`};
   }
 
   @media (max-width: ${(props) => props.theme.mobile}) {
@@ -31,8 +34,7 @@ const InfoDetailContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   row-gap: 4rem;
-
-`
+`;
 
 const IndividualInfo = ({
   profileImageSrc,
@@ -46,7 +48,9 @@ const IndividualInfo = ({
   return (
     <Section data-scroll-section>
       <Container>
-        <img src={profileImageSrc} alt="Avatar" />
+        <div className="imgContainer">
+          <img src={profileImageSrc} alt="Avatar" />
+        </div>
 
         <h1>InSectionidualInfo</h1>
         <InfoDetailContainer>
