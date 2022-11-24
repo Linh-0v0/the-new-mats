@@ -16,7 +16,7 @@ const Section = styled.section`
 const ServiceContainer = styled.div`
 display: grid;
 grid-template-columns: ;
-grid-column-gap: 30px;
+grid-column-gap: ;
   h1 {
     font-size: 50px;
   }
@@ -56,7 +56,7 @@ const Service = () => {
 
             <ServiceContainer>
               <div class="block-2">
-              <img src="icon/lightbulb.svg" alt="" />
+              <img src="icon/lightbulb.svg " alt="" />
                     <h2>Mobile application</h2>
                       <p>Create fully function application separated from the website and more addons features</p>
               </div>        

@@ -10,7 +10,11 @@ const Section = styled.section`
 
 
 const ContactContainer = styled.div`
+display: grid;
+grid-template-columns: 50% 50%;
+grid-template-rows: 30vh 30vh;
 img{
+    position: relative;
     width: 50px;
 }
 h1 {
