@@ -4,14 +4,14 @@ import { EventEmitter } from "events";
 
 import Experience from "../Experience";
 
-export default class Cat extends EventEmitter {
+export default class EatingCat extends EventEmitter {
   constructor() {
     super();
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
-    this.cat = this.resources.items.eatingCat;
+    this.cat = this.resources.items.catPlayground;
     this.camera = this.experience.camera;
     // console.log(this.cat);
 

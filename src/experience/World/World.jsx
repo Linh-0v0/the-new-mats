@@ -2,11 +2,12 @@ import * as THREE from "three";
 import Experience from "../Experience";
 import Environment from "./Environment";
 
-import Cat from "./Cat";
-import EatingCat from "./PlayingCat";
+import CatPlayground from "./CatPlayground";
+import PlayingCat from "./PlayingCat";
+import EatingCat from "./EatingCat";
 import Floor from "./Floor";
 import Controls from "./Controls";
-import PlayingCat from "./PlayingCat";
+
 
 import asset from "../Utils/assets";
 
@@ -25,11 +26,16 @@ export default class World {
       this.floor = new Floor();
 
       if (this.currentPath == "/") {
-        console.log("EATING CAT NEEDS TOA APPEAR"); 
-        this.cat = new Cat();
+        console.log("cat playground");
+        this.cat = new CatPlayground();
         this.controls = new Controls();
       }
-      if (this.currentPath == asset[1].urlPathname) {
+      else if (this.currentPath == asset[1].urlPathname) {
+        console.log("eating CATTTT");
+        this.cat = new EatingCat();
+        this.controls = new Controls();
+      }
+      else if (this.currentPath == asset[2].urlPathname) {
         console.log("Playing CATTTT");
         this.cat = new PlayingCat();
         this.controls = new Controls();

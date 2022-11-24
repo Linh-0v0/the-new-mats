@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/josefin-sans": "^4.5.11",
     "framer-motion": "^7.6.6",
+    "framer-motion-3d": "^7.6.9",
     "gsap": "^3.11.3",
     "lil-gui": "^0.17.0",
     "locomotive-scroll": "^4.1.4",

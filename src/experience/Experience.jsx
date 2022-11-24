@@ -27,10 +27,14 @@ export default class Experience {
     this.eatingCatScene = new THREE.Scene();
     this.playingCatScene = new THREE.Scene();
 
-    console.log("EXPERIENCE", this.currentPath)
+    console.log("EXPERIENCE", this.currentPath);
     if (this.currentPath == "/") {
-      this.scene = this.eatingCatScene;
+      this.scene = this.scene;
     } else if (this.currentPath == assets[1].urlPathname) {
+      console.log("EATING CATTTT");
+      this.scene = this.eatingCatScene;
+    } 
+    else if (this.currentPath == assets[2].urlPathname) {
       console.log("PLAYING CATTTT");
       this.scene = this.playingCatScene;
     }
@@ -56,17 +60,17 @@ export default class Experience {
   }
 
   resize() {
-      this.camera.resize();
-      this.world.update();
-      this.renderer.resize();
+    this.camera.resize();
+    this.world.update();
+    this.renderer.resize();
   }
 
   update() {
-      this.camera.update();
-      this.world.update();
-      this.renderer.update();
-      // if (this.controls) {
-      //   this.controls.update();
-      // }
+    this.camera.update();
+    this.world.update();
+    this.renderer.update();
+    // if (this.controls) {
+    //   this.controls.update();
+    // }
   }
 }

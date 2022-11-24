@@ -2,8 +2,8 @@ import * as THREE from "three";
 import Experience from "../Experience";
 import GSAP from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useRef } from "react";
 import EventEmitter from "events";
+import assets from "../Utils/assets"
 
 export default class Controls extends EventEmitter {
   constructor() {
@@ -25,7 +25,6 @@ export default class Controls extends EventEmitter {
     this.intersects = [];
     this.catClicked = "";
     this.catHover = "";
-    console.log("ORIGINAL SCALE", this.originalScale);
 
     // this.originalCameraPosition = {
     //   current: [
@@ -59,6 +58,7 @@ export default class Controls extends EventEmitter {
     this.checkHoveredCat();
     this.checkClickedCat();
     this.setCameraToTarget();
+
     this.goToLanding.on("goToLanding", (goBackMsg) => {
       this.goBackToLanding(goBackMsg);
       this.goBackMsgReceived = goBackMsg;
@@ -128,12 +128,12 @@ export default class Controls extends EventEmitter {
       if (this.intersects[0].object.parent.name === "Body003") {
         this.catClicked = "EatingCat";
         this.emit("eatingCat");
-        window.location.href = "/scene/cat-playing";
+        window.location.href = assets[1].urlPathname;
       } else {
         if (this.intersects[0].object.parent.parent.name === "Body003") {
           this.catClicked = "EatingCat";
           this.emit("eatingCat");
-          window.location.href = "/scene/cat-playing";
+          window.location.href = assets[1].urlPathname;
         }
       }
     }

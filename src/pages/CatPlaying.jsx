@@ -5,6 +5,7 @@ import GoBackArrow from "../components/GoBackArrow";
 
 const Container = styled.div`
   position: relative;
+
   h1 {
     font-size: 3rem;
     z-index: 10;
@@ -14,15 +15,16 @@ const Container = styled.div`
 const CatPlaying = () => {
   return (
     <Transitions>
-       <div className="experience">
-          <canvas className="experience-canvas"></canvas>
-        </div>
+      <div className="experience">
+        <canvas className="experience-canvas"></canvas>
+      </div>
       <Container>
         <GoBackArrow />
-       
-        <h1 className="mt-5 text-center" style={{ color: "green" }}>
-          CAT PLAYING
-        </h1>
+        <div className="cat-section">
+          <h1 className="mt-5 text-center" style={{ color: "green" }}>
+            CAT PLAYING
+          </h1>
+        </div>
       </Container>
     </Transitions>
   );

@@ -19,7 +19,7 @@ svg:hover {
   fill: rgb(144, 144, 144);
 }
 
-.landing-main-section {
+.landing-main-section
+{
   cursor: url('/icons/paw-edit-50px.png'), url('/icons/paw-edit-50px.svg'), auto;
-
 }
