@@ -80,7 +80,6 @@ export default class PlayingCat extends EventEmitter {
       this.lerp.ease
     );
     this.actualCat.rotation.y = this.lerp.current;
-
     this.mixer.update(this.time.delta * 0.0008);
   }
 }

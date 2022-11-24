@@ -5,7 +5,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import EventEmitter from "events";
 
-export default class Controls extends EventEmitter{
+export default class Controls extends EventEmitter {
   constructor() {
     super();
     this.experience = new Experience();
@@ -15,9 +15,8 @@ export default class Controls extends EventEmitter{
     this.resources = this.experience.resources;
     this.time = this.experience.time;
     this.camera = this.experience.camera;
-  
     this.cat = this.experience.world.cat.actualCat;
-    
+
     this.goToLanding = this.experience.goToLanding;
     this.goBackMsgReceived = "";
 
@@ -25,36 +24,39 @@ export default class Controls extends EventEmitter{
     this.pointer = new THREE.Vector2();
     this.intersects = [];
     this.catClicked = "";
-    this.remainder = 0.000005;
+    this.catHover = "";
+    console.log("ORIGINAL SCALE", this.originalScale);
 
-    this.originalCameraPosition = {
-      current: [
-        // this.camera.orthographicCamera.position.x,
-        3, 5,
-      ],
-      target: [
-        // this.camera.orthographicCamera.position.x,
-        3, 5,
-      ],
-      ease: 0.1,
-    };
+    // this.originalCameraPosition = {
+    //   current: [
+    //     // this.camera.orthographicCamera.position.x,
+    //     3, 5,
+    //   ],
+    //   target: [
+    //     // this.camera.orthographicCamera.position.x,
+    //     3, 5,
+    //   ],
+    //   ease: 0.1,
+    // };
 
-    this.movedToTarget = {
-      current: [
-        // this.camera.orthographicCamera.position.x,
-        3, 5,
-      ],
-      target: [
-        // this.camera.orthographicCamera.position.x,
-        this.camera.orthographicCamera.position.y,
-        this.camera.orthographicCamera.position.z,
-      ],
-      ease: 0.1,
-    };
+    // this.movedToTarget = {
+    //   current: [
+    //     // this.camera.orthographicCamera.position.x,
+    //     3, 5,
+    //   ],
+    //   target: [
+    //     // this.camera.orthographicCamera.position.x,
+    //     this.camera.orthographicCamera.position.y,
+    //     this.camera.orthographicCamera.position.z,
+    //   ],
+    //   ease: 0.1,
+    // };
 
     GSAP.registerPlugin(ScrollTrigger);
 
     this.onClick();
+    this.onHover();
+    this.checkHoveredCat();
     this.checkClickedCat();
     this.setCameraToTarget();
     this.goToLanding.on("goToLanding", (goBackMsg) => {
@@ -64,6 +66,27 @@ export default class Controls extends EventEmitter{
 
     // this.setScrollTrigger();
     // this.setPath();
+  }
+
+  onHover() {
+    if (this.cat) {
+      console.log("ON enter", this.cat);
+      window.addEventListener("mousemove", (e) => {
+        this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+        this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+        this.raycaster.setFromCamera(
+          this.pointer,
+          this.experience.camera.orthographicCamera
+        );
+        this.intersects = this.raycaster.intersectObjects(
+          this.cat.children,
+          true
+        );
+
+        console.log("INTERSECT", this.intersects);
+        this.checkHoveredCat();
+      });
+    }
   }
 
   onClick() {
@@ -87,32 +110,35 @@ export default class Controls extends EventEmitter{
     }
   }
 
+  checkHoveredCat() {
+    if (this.intersects.length > 0) {
+      if (this.intersects[0].object.parent.name === "Body003") {
+        this.catHover = "EatingCat";
+      }
+      //   this.catClicked = "EatingCat";
+      else if (this.intersects[0].object.parent.parent.name === "Body003") {
+        this.catHover = "EatingCat";
+        //     this.catClicked = "EatingCat";
+      }
+    }
+  }
+
   checkClickedCat() {
     if (this.intersects.length > 0) {
       if (this.intersects[0].object.parent.name === "Body003") {
         this.catClicked = "EatingCat";
-        // this.scene = this.experience.playingCatScene;
-
         this.emit("eatingCat");
-        // setTimeout(() => {
-          window.location.href = "/scene/cat-playing";
-
-        // })
+        window.location.href = "/scene/cat-playing";
       } else {
         if (this.intersects[0].object.parent.parent.name === "Body003") {
-          this.catClicked = "EatingCat"; 
-          // this.scene = this.experience.playingCatScene;
-        
+          this.catClicked = "EatingCat";
           this.emit("eatingCat");
-          // setTimeout(() => {
-            window.location.href = "/scene/cat-playing";
-
-          // })
+          window.location.href = "/scene/cat-playing";
         }
       }
     }
-    // this.setCameraToTarget();
   }
+  // this.setCameraToTarget();
 
   setCameraToTarget() {
     if (this.catClicked === "EatingCat") {
@@ -214,8 +240,19 @@ export default class Controls extends EventEmitter{
 
   update() {
     if (this.cat) {
-
+      if (this.catHover == "EatingCat") {
+        this.cat.scale.set(0.5, 0.5, 0.5);
+        if (this.intersects.length === 0) {
+          this.catHover = "";
+        }
+      }
+      if (this.catHover == "") {
+        this.cat.scale.set(
+          0.3, 0.3, 0.3
+        );
+      }
     }
+
     // if (this.goBackMsgReceived === "goback") {
     //   this.movedToTarget.target = this.originalCameraPosition.target;
     // }

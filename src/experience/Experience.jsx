@@ -27,9 +27,11 @@ export default class Experience {
     this.eatingCatScene = new THREE.Scene();
     this.playingCatScene = new THREE.Scene();
 
+    console.log("EXPERIENCE", this.currentPath)
     if (this.currentPath == "/") {
       this.scene = this.eatingCatScene;
     } else if (this.currentPath == assets[1].urlPathname) {
+      console.log("PLAYING CATTTT");
       this.scene = this.playingCatScene;
     }
 
