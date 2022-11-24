@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import BenefitCompo from "../components/BenefitCompo";
 
-
 const Section = styled.section`
     position: relative
     height: 100vh;
@@ -11,11 +10,15 @@ const Section = styled.section`
 `;
 
 const Container = styled.div`
+    width: 80%;
+    margin: 0 auto;
     display: grid; 
     grid-template-columns: auto auto auto auto;
     grid-template-rows: 50vh 50vh;
-    margin: 1vw;
+    column-gap: 2rem;
+
     h1 {
+        width: 80%;
         font-family: "Josefin Sans"
         font-size: ${(props) => props.theme.font6xl};
         font-weight: 800;
@@ -23,47 +26,43 @@ const Container = styled.div`
         grid-column: 1/3;
         grid-row: 1/3;
     }    
-    div {
-        margin: 1vw;
-        
-    }
 `;
 
 const Benefits = () => {
-    return (
-        <Section data-scroll-section>
-            <Container>
-                <h1>Benefits of working with us</h1>
-                <BenefitCompo 
-                    benefit="Aesthetical"
-                    detail="What we can bring to our customer possibly the profound 
+  return (
+    <Section data-scroll-section>
+      <Container>
+        <h1>Benefits of working with us</h1>
+        <BenefitCompo
+          benefit="Aesthetical"
+          detail="What we can bring to our customer possibly the profound 
                     and creativity in every products which will fill in the need and 
                     requirements of our guests"
-                    svgSrc="/icons/GoodLooking.svg"
-                />
-                <BenefitCompo
-                    benefit="Technologies"
-                    detail="All the essentials that we use and implement will be the 
+          svgSrc="/icons/GoodLooking.svg"
+        />
+        <BenefitCompo
+          benefit="Technologies"
+          detail="All the essentials that we use and implement will be the 
                     top notch technologies nowaday to ensure that our and your visitor 
                     will experience the best performance in the product"
-                    svgSrc="/icons/Technology.svg"
-                />
-                <BenefitCompo 
-                    benefit="In time and precise"
-                    detail="We are highly on schedule with everything and without doubt 
+          svgSrc="/icons/Technology.svg"
+        />
+        <BenefitCompo
+          benefit="In time and precise"
+          detail="We are highly on schedule with everything and without doubt 
                     your time will be as valueable as ours"
-                    svgSrc="/icons/Time.svg"
-                />
-                <BenefitCompo
-                    benefit="Well trained team"
-                    detail="With strict filtering and selection our team form with skillful 
+          svgSrc="/icons/Time.svg"
+        />
+        <BenefitCompo
+          benefit="Well trained team"
+          detail="With strict filtering and selection our team form with skillful 
                     and professional members who will definitely assure that pleasant of our 
                     customer will always be prioritized"
-                    svgSrc="/icons/Teamwork.svg"
-                />
-            </Container>
-        </Section>
-    );
+          svgSrc="/icons/Teamwork.svg"
+        />
+      </Container>
+    </Section>
+  );
 };
 
 export default Benefits;
