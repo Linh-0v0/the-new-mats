@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import React from "react";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
 
-library.add(fas)
-
+library.add(fas);
 
 const Section = styled.section`
   position: relative;
@@ -13,18 +12,26 @@ const Section = styled.section`
   overflow: hidden;
 `;
 
-const ServiceContainer = styled.div`
-display: grid;
-grid-template-columns: ;
-grid-column-gap: ;
+const BigContainer = styled.div`
+  width: 90%;
+  margin: 0 auto;
+
   h1 {
     font-size: 50px;
   }
+`;
 
+const Container = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 3rem;
+`;
+
+const ServiceContainer = styled.div`
   h2 {
     padding-top: 20px;
     font-size: 30px;
-    left: 50%
+    height: 5rem;
   }
 
   p {
@@ -32,46 +39,60 @@ grid-column-gap: ;
     padding: 20px;
     font-size: 25px;
     background-color: lightblue;
-    left: 5px;
-    top: 3px;
-    right: 30px;
-
   }
-  img {
-    position: relative ;
+
+  @media (max-width: ${(props) => props.theme.tablet}) {
+    h2 {
+      font-size: 25px;
+    }
+
+    p {
+      font-size: 20px;
+    }
   }
 `;
 
 const Service = () => {
-    return (
-        <Section className=""data-scroll-section>
-            <ServiceContainer>
-                <h1>Service</h1>
-              <div class="block-1">  
+  return (
+    <Section className="" data-scroll-section>
+      <BigContainer>
+        <h1>Service</h1>
+        <Container>
+          <ServiceContainer>
+            <div className="block-1">
               <img src="icon/lightbulb.svg" alt="" />
-                    <h2>Websites and platforms</h2>
-                      <p>Design and create website along with the customer requests fully interactive with mostly every devices</p>
-              </div>
-            </ServiceContainer>
+              <h2>Websites and platforms</h2>
+              <p>
+                Design and create website along with the customer requests fully
+                interactive with mostly every devices
+              </p>
+            </div>
+          </ServiceContainer>
 
-            <ServiceContainer>
-              <div class="block-2">
+          <ServiceContainer>
+            <div className="block-2">
               <img src="icon/lightbulb.svg " alt="" />
-                    <h2>Mobile application</h2>
-                      <p>Create fully function application separated from the website and more addons features</p>
-              </div>        
-            </ServiceContainer>
+              <h2>Mobile application</h2>
+              <p>
+                Create fully function application separated from the website and
+                more addons features
+              </p>
+            </div>
+          </ServiceContainer>
 
-            <ServiceContainer>
-              <div class="block-3">
+          <ServiceContainer>
+            <div className="block-3">
               <img src="icon/lightbulb.svg" alt="" />
-                    <h2>UI/UX Design</h2>
-                      <p>Analyze the need of customer to perform on the designing section</p>
-              </div>
-            </ServiceContainer>
-
-        </Section>
-    );
+              <h2>UI/UX Design</h2>
+              <p>
+                Analyze the need of customer to perform on the designing section
+              </p>
+            </div>
+          </ServiceContainer>
+        </Container>
+      </BigContainer>
+    </Section>
+  );
 };
 
 export default Service;
