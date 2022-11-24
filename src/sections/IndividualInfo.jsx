@@ -14,6 +14,8 @@ const Container = styled.div`
   // background-color: ${(props) => `rgba(${props.theme.sky}, 1)`};
   display: flex;
   flex-direction: column;
+  position: relative;
+  right: -30px;
 
   h1 {
     font-weight: 200;
@@ -21,8 +23,19 @@ const Container = styled.div`
   }
 
   .imgContainer {
+    position: relative;
+    margin: 0;
+    display: flex;
+    width: 162px;
+    height: 162px;
+    right: -100px;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
     background-color: ${(props) => `rgba(${props.theme.sky}, 1)`};
   }
+  
 
   @media (max-width: ${(props) => props.theme.mobile}) {
     width: 100vw;
@@ -55,7 +68,7 @@ const IndividualInfo = ({
         <h1>InSectionidualInfo</h1>
         <InfoDetailContainer>
           <InfoDetail title={aboutTitle} parag={aboutParag} />
-          <InfoDetail title={strengthTitle} parag={strengthParag} />
+          <InfoDetail title={strengthTitle} parag ={strengthParag} />
           <InfoDetail title={sthTitle} parag={sthParag} />
         </InfoDetailContainer>
       </Container>
