@@ -27,36 +27,11 @@ export default class Controls extends EventEmitter {
     this.catClicked = "";
     this.catHover = "";
 
-    this.eatingCatPattern = /\w*_eatingCat/;
-    this.lyingCatPattern = /\w*_lyingCat/;
-    this.standingCatPattern = /\w*_standingCat/;
-    this.sideLyingCatPattern = /\w*_sideLyingCat/;
-    this.playingCatPattern = /\w*_playingCat/;
-
-    // this.originalCameraPosition = {
-    //   current: [
-    //     // this.camera.orthographicCamera.position.x,
-    //     3, 5,
-    //   ],
-    //   target: [
-    //     // this.camera.orthographicCamera.position.x,
-    //     3, 5,
-    //   ],
-    //   ease: 0.1,
-    // };
-
-    // this.movedToTarget = {
-    //   current: [
-    //     // this.camera.orthographicCamera.position.x,
-    //     3, 5,
-    //   ],
-    //   target: [
-    //     // this.camera.orthographicCamera.position.x,
-    //     this.camera.orthographicCamera.position.y,
-    //     this.camera.orthographicCamera.position.z,
-    //   ],
-    //   ease: 0.1,
-    // };
+    this.eatingCatPattern = /.*eatingCat/;
+    this.lyingCatPattern = /.*lyingCat/;
+    this.standingCatPattern = /.*standingCat/;
+    this.sideLyingCatPattern = /.*sideLyingCat/;
+    this.playingCatPattern = /.*playingCat/;
 
     GSAP.registerPlugin(ScrollTrigger);
 
@@ -64,7 +39,6 @@ export default class Controls extends EventEmitter {
     this.onHover();
     this.checkHoveredCat();
     this.checkClickedCat();
-    this.setCameraToTarget();
     this.setAppearAnimation();
 
     this.goToLanding.on("goToLanding", (goBackMsg) => {
@@ -79,21 +53,21 @@ export default class Controls extends EventEmitter {
   onHover() {
     if (this.cat) {
       console.log("ON enter", this.cat);
-      // window.addEventListener("mousemove", (e) => {
-      //   this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-      //   this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-      //   this.raycaster.setFromCamera(
-      //     this.pointer,
-      //     this.experience.camera.orthographicCamera
-      //   );
-      //   this.intersects = this.raycaster.intersectObjects(
-      //     this.cat.children,
-      //     true
-      //   );
+      window.addEventListener("mousemove", (e) => {
+        this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+        this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+        this.raycaster.setFromCamera(
+          this.pointer,
+          this.experience.camera.orthographicCamera
+        );
+        this.intersects = this.raycaster.intersectObjects(
+          this.cat.children,
+          true
+        );
 
-      //   console.log("INTERSECT", this.intersects);
-      //   this.checkHoveredCat();
-      // });
+        console.log("INTERSECT", this.intersects);
+        this.checkHoveredCat();
+      });
     }
   }
 
@@ -123,15 +97,15 @@ export default class Controls extends EventEmitter {
       let intersectObject = this.intersects[0].object.parent.name;
 
       if (this.eatingCatPattern.test(intersectObject)) {
-        this.catClicked = "EatingCat";
+        this.catHover = "EatingCat";
       } else if (this.playingCatPattern.test(intersectObject)) {
-        this.catClicked = "PlayingCat";
+        this.catHover = "PlayingCat";
       } else if (this.standingCatPattern.test(intersectObject)) {
-        this.catClicked = "StandingCat";
+        this.catHover = "StandingCat";
       } else if (this.lyingCatPattern.test(intersectObject)) {
-        this.catClicked = "LyingCat";
+        this.catHover = "LyingCat";
       } else if (this.sideLyingCatPattern.test(intersectObject)) {
-        this.catClicked = "SideLyingCat";
+        this.catHover = "SideLyingCat";
       }
     }
   }
@@ -156,16 +130,6 @@ export default class Controls extends EventEmitter {
         this.catClicked = "SideLyingCat";
         window.location.href = assets[5].urlPathname;
       }
-    }
-  }
-  // this.setCameraToTarget();
-
-  setCameraToTarget() {
-    if (this.catClicked === "EatingCat") {
-      // console.log(" CAT CLICKEE", this.catClicked);
-      // console.log("SETCAMERA TO MOVE");
-      this.movedToTarget.target[1] = 3;
-    } else if (this.catClicked === "") {
     }
   }
 
@@ -263,13 +227,13 @@ export default class Controls extends EventEmitter {
   update() {
     if (this.cat) {
       if (this.catHover == "EatingCat" || this.catHover == "LyingCat" || this.catHover == "PlayingCat" || this.catHover == "SideLyingCat" || this.catHover == "StandingCat") {
-        this.cat.scale.set(0.5, 0.5, 0.5);
+        this.cat.scale.set(1.5, 1.5, 1.5);
         if (this.intersects.length === 0) {
           this.catHover = "";
         }
       }
       if (this.catHover == "") {
-        this.cat.scale.set(0.3, 0.3, 0.3);
+        this.cat.scale.set(1.3, 1.3, 1.3);
       }
     }
 

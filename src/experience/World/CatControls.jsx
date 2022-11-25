@@ -48,7 +48,7 @@ export default class CatControls extends EventEmitter {
         tween.start();
       } else if (window.matchMedia("(max-width: 760px)").matches) {
         const tween = new TWEEN.Tween(this.cat.position)
-          .to({ x: -1.1, z: 0 }, 2000)
+          .to({ x: 1.1, z: 0 }, 2000)
           .delay(500)
           .easing(TWEEN.Easing.Cubic.InOut)
           .onStart(() => {
@@ -60,7 +60,7 @@ export default class CatControls extends EventEmitter {
         tween.start();
       } else if (window.matchMedia("(max-width: 970px)").matches) {
         const tween = new TWEEN.Tween(this.cat.position)
-          .to({ x: -1.4, z: 0 }, 2000)
+          .to({ x: 1.4, z: 0 }, 2000)
           .delay(500)
           .easing(TWEEN.Easing.Cubic.InOut)
           .onStart(() => {
@@ -72,7 +72,7 @@ export default class CatControls extends EventEmitter {
         tween.start();
       } else if (window.matchMedia("(max-width: 1100px)").matches) {
         const tween = new TWEEN.Tween(this.cat.position)
-          .to({ x: -1.8, z: 0 }, 2000)
+          .to({ x: 1.8, z: 0 }, 2000)
           .delay(500)
           .easing(TWEEN.Easing.Cubic.InOut)
           .onStart(() => {
@@ -84,7 +84,7 @@ export default class CatControls extends EventEmitter {
         tween.start();
       } else {
         const tween = new TWEEN.Tween(this.cat.position)
-          .to({ x: -2.4, z: 0 }, 2000)
+          .to({ x: 2.4, z: 0 }, 2000)
           .delay(500)
           .easing(TWEEN.Easing.Cubic.InOut)
           .onStart(() => {

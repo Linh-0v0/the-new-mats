@@ -27,6 +27,12 @@ export default class EatingCat extends EventEmitter {
       ease: 0.1,
     };
 
+    this.scaleLerp = {
+      current: 0,
+      target: 0,
+      ease: 0.1,
+    };
+
     this.setModel();
     this.setAnimation();
     this.onMouseMove();
@@ -47,14 +53,14 @@ export default class EatingCat extends EventEmitter {
       });
 
       this.scene.add(this.actualCat);
-      this.actualCat.scale.set(0.3, 0.3, 0.3);
+      this.actualCat.scale.set(1.3, 1.3, 1.3);
     }
   }
 
   setAnimation() {
     if (this.cat) {
       this.mixer = new THREE.AnimationMixer(this.actualCat);
-      this.head = this.mixer.clipAction(this.cat.animations[4]);
+      this.head = this.mixer.clipAction(this.cat.animations[3]);
       this.head.play();
     }
   }

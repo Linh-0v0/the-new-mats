@@ -17,7 +17,7 @@ export default class EatingCat {
     }
 
     // lerping function / linear interpolation
-    // for the smoothness of moving camera when scrolling
+    // for the smoothness of swinging the cat
     this.lerp = {
       current: 0,
       target: 0,

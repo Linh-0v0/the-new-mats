@@ -2,12 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import Transitions from "../components/Transitions";
 import GoBackArrow from "../components/GoBackArrow";
+import IndividualInfo from "../sections/IndividualInfo";
 
 const Container = styled.div`
-  position: relative;
-  h1 {
-    font-size: 3rem;
-    z-index: 10;
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+
+  .individual-info-container {
+    width: 50%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 4rem 0;
   }
 `;
 
@@ -18,10 +26,10 @@ const CatEating = () => {
         <canvas className="experience-canvas"></canvas>
       </div>
 
+      <GoBackArrow />
       <Container>
-        <div className="cat-section">
-          <GoBackArrow />
-          <h1>Eating Cat</h1>
+        <div className="individual-info-container">
+          <IndividualInfo />
         </div>
       </Container>
     </Transitions>

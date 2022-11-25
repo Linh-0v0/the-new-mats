@@ -2,7 +2,7 @@ export default [
   {
     name: "catPlayground",
     type: "glbModel",
-    path: "/models/catalltextures.glb",
+    path: "/models/eatingCat.glb",
     urlPathname: "/",
   },
   {
@@ -23,21 +23,21 @@ export default [
     no: 3,
     name: "standingCat",
     type: "glbModel",
-    path: "/models/playingCat.glb",
+    path: "/models/standingCat.glb",
     urlPathname: "/scene/cat-standing",
   },
   {
     no: 4,
     name: "lyingCat",
     type: "glbModel",
-    path: "/models/playingCat.glb",
+    path: "/models/lyingCat.glb",
     urlPathname: "/scene/cat-lying",
   },
   {
     no: 5,
     name: "sideLyingCat",
     type: "glbModel",
-    path: "/models/playingCat.glb",
+    path: "/models/sideLyingCat.glb",
     urlPathname: "/scene/cat-side-lying",
   },
 ];
