@@ -4,7 +4,7 @@ const animationConfiguration = {
   animate: {
     opacity: 1,
     transition: {
-      duration: 2,
+      duration: 1,
     },
   },
   exit: { opacity: 0 },
