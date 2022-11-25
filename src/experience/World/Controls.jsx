@@ -1,9 +1,10 @@
 import * as THREE from "three";
 import Experience from "../Experience";
 import GSAP from "gsap";
+import { motion } from "framer-motion";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import EventEmitter from "events";
-import assets from "../Utils/assets"
+import assets from "../Utils/assets";
 
 export default class Controls extends EventEmitter {
   constructor() {
@@ -25,6 +26,12 @@ export default class Controls extends EventEmitter {
     this.intersects = [];
     this.catClicked = "";
     this.catHover = "";
+
+    this.eatingCatPattern = /\w*_eatingCat/;
+    this.lyingCatPattern = /\w*_lyingCat/;
+    this.standingCatPattern = /\w*_standingCat/;
+    this.sideLyingCatPattern = /\w*_sideLyingCat/;
+    this.playingCatPattern = /\w*_playingCat/;
 
     // this.originalCameraPosition = {
     //   current: [
@@ -58,6 +65,7 @@ export default class Controls extends EventEmitter {
     this.checkHoveredCat();
     this.checkClickedCat();
     this.setCameraToTarget();
+    this.setAppearAnimation();
 
     this.goToLanding.on("goToLanding", (goBackMsg) => {
       this.goBackToLanding(goBackMsg);
@@ -71,21 +79,21 @@ export default class Controls extends EventEmitter {
   onHover() {
     if (this.cat) {
       console.log("ON enter", this.cat);
-      window.addEventListener("mousemove", (e) => {
-        this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-        this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-        this.raycaster.setFromCamera(
-          this.pointer,
-          this.experience.camera.orthographicCamera
-        );
-        this.intersects = this.raycaster.intersectObjects(
-          this.cat.children,
-          true
-        );
+      // window.addEventListener("mousemove", (e) => {
+      //   this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+      //   this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      //   this.raycaster.setFromCamera(
+      //     this.pointer,
+      //     this.experience.camera.orthographicCamera
+      //   );
+      //   this.intersects = this.raycaster.intersectObjects(
+      //     this.cat.children,
+      //     true
+      //   );
 
-        console.log("INTERSECT", this.intersects);
-        this.checkHoveredCat();
-      });
+      //   console.log("INTERSECT", this.intersects);
+      //   this.checkHoveredCat();
+      // });
     }
   }
 
@@ -112,29 +120,41 @@ export default class Controls extends EventEmitter {
 
   checkHoveredCat() {
     if (this.intersects.length > 0) {
-      if (this.intersects[0].object.parent.name === "Body003") {
-        this.catHover = "EatingCat";
-      }
-      //   this.catClicked = "EatingCat";
-      else if (this.intersects[0].object.parent.parent.name === "Body003") {
-        this.catHover = "EatingCat";
-        //     this.catClicked = "EatingCat";
+      let intersectObject = this.intersects[0].object.parent.name;
+
+      if (this.eatingCatPattern.test(intersectObject)) {
+        this.catClicked = "EatingCat";
+      } else if (this.playingCatPattern.test(intersectObject)) {
+        this.catClicked = "PlayingCat";
+      } else if (this.standingCatPattern.test(intersectObject)) {
+        this.catClicked = "StandingCat";
+      } else if (this.lyingCatPattern.test(intersectObject)) {
+        this.catClicked = "LyingCat";
+      } else if (this.sideLyingCatPattern.test(intersectObject)) {
+        this.catClicked = "SideLyingCat";
       }
     }
   }
 
   checkClickedCat() {
     if (this.intersects.length > 0) {
-      if (this.intersects[0].object.parent.name === "Body003") {
+      let intersectObject = this.intersects[0].object.parent.name;
+
+      if (this.eatingCatPattern.test(intersectObject)) {
         this.catClicked = "EatingCat";
-        this.emit("eatingCat");
         window.location.href = assets[1].urlPathname;
-      } else {
-        if (this.intersects[0].object.parent.parent.name === "Body003") {
-          this.catClicked = "EatingCat";
-          this.emit("eatingCat");
-          window.location.href = assets[1].urlPathname;
-        }
+      } else if (this.playingCatPattern.test(intersectObject)) {
+        this.catClicked = "PlayingCat";
+        window.location.href = assets[2].urlPathname;
+      } else if (this.standingCatPattern.test(intersectObject)) {
+        this.catClicked = "StandingCat";
+        window.location.href = assets[3].urlPathname;
+      } else if (this.lyingCatPattern.test(intersectObject)) {
+        this.catClicked = "LyingCat";
+        window.location.href = assets[4].urlPathname;
+      } else if (this.sideLyingCatPattern.test(intersectObject)) {
+        this.catClicked = "SideLyingCat";
+        window.location.href = assets[5].urlPathname;
       }
     }
   }
@@ -148,6 +168,8 @@ export default class Controls extends EventEmitter {
     } else if (this.catClicked === "") {
     }
   }
+
+  setAppearAnimation() {}
 
   goBackToLanding(goBackMsg) {
     console.log(goBackMsg);
@@ -240,16 +262,14 @@ export default class Controls extends EventEmitter {
 
   update() {
     if (this.cat) {
-      if (this.catHover == "EatingCat") {
+      if (this.catHover == "EatingCat" || this.catHover == "LyingCat" || this.catHover == "PlayingCat" || this.catHover == "SideLyingCat" || this.catHover == "StandingCat") {
         this.cat.scale.set(0.5, 0.5, 0.5);
         if (this.intersects.length === 0) {
           this.catHover = "";
         }
       }
       if (this.catHover == "") {
-        this.cat.scale.set(
-          0.3, 0.3, 0.3
-        );
+        this.cat.scale.set(0.3, 0.3, 0.3);
       }
     }
 

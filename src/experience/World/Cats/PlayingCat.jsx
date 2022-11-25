@@ -1,20 +1,18 @@
 import * as THREE from "three";
 import GSAP from "gsap";
-import { EventEmitter } from "events";
+import Experience from "../../Experience";
 
-import Experience from "../Experience";
-
-export default class EatingCat extends EventEmitter {
+export default class PlayingCat {
   constructor() {
-    super();
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
-    this.cat = this.resources.items.eatingCat;
+    this.cat = this.resources.items.playingCat;
     this.camera = this.experience.camera;
-    // console.log(this.cat);
 
+    // console.log(this.cat);
+    
     if (this.cat) {
       this.actualCat = this.cat.scene;
     }
@@ -54,7 +52,7 @@ export default class EatingCat extends EventEmitter {
   setAnimation() {
     if (this.cat) {
       this.mixer = new THREE.AnimationMixer(this.actualCat);
-      this.head = this.mixer.clipAction(this.cat.animations[4]);
+      this.head = this.mixer.clipAction(this.cat.animations[0]);
       this.head.play();
     }
   }
@@ -65,7 +63,7 @@ export default class EatingCat extends EventEmitter {
       // value [-1,1] -> the model moves a little left-right
       this.rotation =
         ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-      this.lerp.target = this.rotation * 0.2;
+      this.lerp.target = this.rotation * 0.6;
     });
   }
 
@@ -79,7 +77,6 @@ export default class EatingCat extends EventEmitter {
       this.lerp.ease
     );
     this.actualCat.rotation.y = this.lerp.current;
-
     this.mixer.update(this.time.delta * 0.0008);
   }
 }

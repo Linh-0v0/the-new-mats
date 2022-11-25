@@ -3,9 +3,14 @@ import Experience from "../Experience";
 import Environment from "./Environment";
 
 import CatPlayground from "./CatPlayground";
-import PlayingCat from "./PlayingCat";
-import EatingCat from "./EatingCat";
+import EatingCat from "./Cats/EatingCat";
+import PlayingCat from "./Cats/PlayingCat";
+import LyingCat from "./Cats/LyingCat";
+import SideLyingCat from "./Cats/SideLyingCat";
+import StandingCat from "./Cats/StandingCat";
+
 import Floor from "./Floor";
+import CatControls from "./CatControls";
 import Controls from "./Controls";
 
 
@@ -33,12 +38,27 @@ export default class World {
       else if (this.currentPath == asset[1].urlPathname) {
         console.log("eating CATTTT");
         this.cat = new EatingCat();
-        this.controls = new Controls();
+        this.controls = new CatControls();
       }
       else if (this.currentPath == asset[2].urlPathname) {
-        console.log("Playing CATTTT");
+        console.log("playing CATTTT");
         this.cat = new PlayingCat();
-        this.controls = new Controls();
+        this.controls = new CatControls();
+      }
+      else if (this.currentPath == asset[3].urlPathname) {
+        console.log("standing CATTTT");
+        this.cat = new StandingCat();
+        this.controls = new CatControls();
+      }
+      else if (this.currentPath == asset[4].urlPathname) {
+        console.log("lying CATTTT");
+        this.cat = new LyingCat();
+        this.controls = new CatControls();
+      }
+      else if (this.currentPath == asset[5].urlPathname) {
+        console.log("side CATTTT");
+        this.cat = new SideLyingCat();
+        this.controls = new CatControls();
       }
 
       // this.controls = new Controls();

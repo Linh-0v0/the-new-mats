@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body {
-    max-width: 1200px;
+    max-width: 1280px;
     font-family: 'Josefin Sans';
     overflow: hidden;
 }

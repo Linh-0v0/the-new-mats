@@ -1,12 +1,9 @@
 import * as THREE from "three";
 import GSAP from "gsap";
-import { EventEmitter } from "events";
+import Experience from "../../Experience";
 
-import Experience from "../Experience";
-
-export default class PlayingCat extends EventEmitter {
+export default class SidePlayingCat {
   constructor() {
-    super();
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
@@ -66,7 +63,7 @@ export default class PlayingCat extends EventEmitter {
       // value [-1,1] -> the model moves a little left-right
       this.rotation =
         ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-      this.lerp.target = this.rotation * 0.2;
+      this.lerp.target = this.rotation * 0.6;
     });
   }
 
