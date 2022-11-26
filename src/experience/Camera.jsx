@@ -40,9 +40,10 @@ export default class Camera {
       50
     );
 
-    this.orthographicCamera.position.y = 3;
-    this.orthographicCamera.position.z = 5;
-    this.orthographicCamera.rotation.x = -Math.PI / 8;
+    this.orthographicCamera.position.y = 2.3;
+    this.orthographicCamera.position.z = 6;
+    // this.orthographicCamera.rotation.x = -Math.PI / 8;
+    this.orthographicCamera.rotation.x = 0;
 
     // this.orthographicCamera = new THREE.PerspectiveCamera(
     //   75,

@@ -13,6 +13,7 @@ export default class EatingCat extends EventEmitter {
     this.time = this.experience.time;
     this.cat = this.resources.items.catPlayground;
     this.camera = this.experience.camera;
+    this.catRoomChildren = {};
     // console.log(this.cat);
 
     if (this.cat) {
@@ -50,10 +51,47 @@ export default class EatingCat extends EventEmitter {
             grandChild.receiveShadow = false;
           });
         }
+
+        // child.scale.set(0,0,0);
+        // if (this.child.name === "Door") {
+
+        // }
+        // add child to the catRoom Array
+        this.catRoomChildren[child.name] = child;
       });
 
       this.scene.add(this.actualCat);
-      this.actualCat.scale.set(1.3, 1.3, 1.3);
+      this.actualCat.scale.set(0.8, 0.8, 0.8);
+
+      // Set Door
+      this.geometry = new THREE.PlaneGeometry(3, 3);
+      this.material = new THREE.MeshStandardMaterial({
+        color: 0x9a1ee6,
+        side: THREE.DoubleSide,
+      });
+      this.plane = new THREE.Mesh(this.geometry, this.material);
+      this.scene.add(this.plane);
+      this.plane.rotation.x = 0;
+      this.plane.position.y = 1;
+      this.plane.position.z = 4;
+      this.plane.scale.set(0, 0, 0);
+      this.plane.name = "door";
+      this.catRoomChildren[this.plane.name] = this.plane;
+
+      // Set background before Door appears
+      this.geometry2 = new THREE.PlaneGeometry(100, 100);
+      this.materialBg = new THREE.MeshStandardMaterial({
+        color: 0xfff6b1,
+        side: THREE.DoubleSide,
+      });
+      this.planeBg = new THREE.Mesh(this.geometry2, this.materialBg);
+      this.planeBg.name = "planeBg";
+      this.scene.add(this.planeBg);
+      // this.plane.rotation.x = Math.PI / 2;
+      // this.plane.position.y = -0.3;
+      this.planeBg.position.z = 2;
+      // this.plane.receiveShadow = false;
+      this.catRoomChildren[this.planeBg.name] = this.planeBg;
     }
   }
 

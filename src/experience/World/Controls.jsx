@@ -52,43 +52,43 @@ export default class Controls extends EventEmitter {
 
   onHover() {
     if (this.cat) {
-      console.log("ON enter", this.cat);
-      window.addEventListener("mousemove", (e) => {
-        this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-        this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-        this.raycaster.setFromCamera(
-          this.pointer,
-          this.experience.camera.orthographicCamera
-        );
-        this.intersects = this.raycaster.intersectObjects(
-          this.cat.children,
-          true
-        );
+      // console.log("ON enter", this.cat);
+      // window.addEventListener("mousemove", (e) => {
+      //   this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+      //   this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      //   this.raycaster.setFromCamera(
+      //     this.pointer,
+      //     this.experience.camera.orthographicCamera
+      //   );
+      //   this.intersects = this.raycaster.intersectObjects(
+      //     this.cat.children,
+      //     true
+      //   );
 
-        console.log("INTERSECT", this.intersects);
-        this.checkHoveredCat();
-      });
+      //   console.log("INTERSECT", this.intersects);
+      //   this.checkHoveredCat();
+      // });
     }
   }
 
   onClick() {
     if (this.cat) {
-      console.log("ON CLICK", this.cat);
-      window.addEventListener("click", (e) => {
-        this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-        this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-        this.raycaster.setFromCamera(
-          this.pointer,
-          this.experience.camera.orthographicCamera
-        );
-        this.intersects = this.raycaster.intersectObjects(
-          this.cat.children,
-          true
-        );
+      // console.log("ON CLICK", this.cat);
+      // window.addEventListener("click", (e) => {
+      //   this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+      //   this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+      //   this.raycaster.setFromCamera(
+      //     this.pointer,
+      //     this.experience.camera.orthographicCamera
+      //   );
+      //   this.intersects = this.raycaster.intersectObjects(
+      //     this.cat.children,
+      //     true
+      //   );
 
-        console.log("INTERSECT", this.intersects);
-        this.checkClickedCat();
-      });
+      //   console.log("INTERSECT", this.intersects);
+      //   this.checkClickedCat();
+      // });
     }
   }
 
@@ -115,7 +115,7 @@ export default class Controls extends EventEmitter {
       let intersectObject = this.intersects[0].object.parent.name;
 
       if (this.eatingCatPattern.test(intersectObject)) {
-        this.catClicked = "EatingCat";
+        // this.catClicked = "EatingCat";
         window.location.href = assets[1].urlPathname;
       } else if (this.playingCatPattern.test(intersectObject)) {
         this.catClicked = "PlayingCat";
@@ -233,7 +233,7 @@ export default class Controls extends EventEmitter {
         }
       }
       if (this.catHover == "") {
-        this.cat.scale.set(1.3, 1.3, 1.3);
+        // this.cat.scale.set(1, 1, 1);
       }
     }
 

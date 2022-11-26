@@ -10,6 +10,7 @@ import Renderer from "./Renderer";
 import World from "./World/World";
 import GoToLanding from "./GoToLanding";
 import Controls from "../experience/World/Controls";
+import Preloader from "./Preloader";
 
 // MANAGES Camera, Scene,
 export default class Experience {
@@ -46,8 +47,13 @@ export default class Experience {
     this.renderer = new Renderer();
 
     this.world = new World();
+    this.preloader = new Preloader();
     this.goToLanding = new GoToLanding();
     // this.controls = new Controls();
+
+    this.preloader.on("enablecontrols", () => {
+      this.controls = new Controls();
+    })
 
     // listen to emitted event
     this.time.on("update", () => {

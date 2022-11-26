@@ -4,6 +4,7 @@ export const lightTheme = {
     tablet: '768px',
     laptop: '1024px',
     desktop: '1440px',
+    //570px
 
     body: '#FFFFFF',
     text: '#000000',

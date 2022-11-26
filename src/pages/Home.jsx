@@ -9,20 +9,23 @@ const Home = () => {
   const containerRef = useRef(null);
 
   return (
-    <LocoScroll refName={containerRef}>
-      <main className="App" data-scroll-container ref={containerRef}>
-        <div className="experience">
-          <canvas className="experience-canvas"></canvas>
-        </div>
-        <LandingMain />
+    <div className="experience">
+    <canvas className="experience-canvas"></canvas>
+  </div>
+    // <LocoScroll refName={containerRef}>
+    //   <main className="App" data-scroll-container ref={containerRef}>
+    //     <div className="experience">
+    //       <canvas className="experience-canvas"></canvas>
+    //     </div>
+    //     <LandingMain />
 
-        <div className="first-move"></div>
-        <Landing />
+    //     <div className="first-move"></div>
+    //     <Landing />
 
-        <Service />
-        {/* Put Sections Here ! */}
-      </main>
-    </LocoScroll>
+    //     <Service />
+    //     {/* Put Sections Here ! */}
+    //   </main>
+    // </LocoScroll>
   );
 };
 

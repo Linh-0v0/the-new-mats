@@ -57,7 +57,7 @@ const DarkOverlay = styled.div`
 
   @media (max-width: 570px) {
     display: block;
-    background: ${props => `rgba(${props.theme.white}, 0.6)`};
+    background: ${props => `rgba(${props.theme.white}, 0.7)`};
   }
 `;
 

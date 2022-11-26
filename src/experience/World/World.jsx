@@ -16,9 +16,12 @@ import Controls from "./Controls";
 
 
 import asset from "../Utils/assets";
+import EventEmitter from "events";
 
-export default class World {
+export default class World extends EventEmitter
+{
   constructor() {
+    super();
     this.experience = new Experience();
     this.eatingCatScene = this.experience.eatingCatScene;
     this.playingCatScene = this.experience.playingCatScene;
@@ -66,6 +69,7 @@ export default class World {
         this.circle = new Circle();
         this.controls = new CatControls();
       }
+      this.emit("worldready");
 
       // this.controls = new Controls();
     });
