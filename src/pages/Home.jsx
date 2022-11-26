@@ -4,14 +4,18 @@ import Landing from "../sections/Landing";
 import Service from "../sections/Service";
 import LandingMain from "../sections/LandingMain";
 import LocoScroll from "../components/LocoScroll";
+import IntroTextPreloader from "../components/IntroTextPreloader";
 
 const Home = () => {
   const containerRef = useRef(null);
 
   return (
-    <div className="experience">
-    <canvas className="experience-canvas"></canvas>
-  </div>
+    <>
+      <div className="experience">
+        <canvas className="experience-canvas"></canvas>
+      </div>
+      <IntroTextPreloader />
+    </>
     // <LocoScroll refName={containerRef}>
     //   <main className="App" data-scroll-container ref={containerRef}>
     //     <div className="experience">

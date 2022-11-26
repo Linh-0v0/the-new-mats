@@ -40,3 +40,22 @@
     left: auto;
   }
 }
+
+/* Preloader stuff */
+.animateThis {
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.intro-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  font-weight: 500;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
