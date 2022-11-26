@@ -38,7 +38,7 @@ export default class LyingCat {
 
         if (child instanceof THREE.Group) {
           child.children.forEach((grandChild) => {
-            grandChild.castShadow = false;
+            grandChild.castShadow = true;
             grandChild.receiveShadow = false;
           });
         }

@@ -8,11 +8,6 @@ export default class Environment {
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
-    
-    // this.gui = new GUI();
-    this.obj = {
-      
-    }
 
     this.setSunlight();
   }
@@ -27,7 +22,7 @@ export default class Environment {
     // const helper = new THREE.CameraHelper( this.sunLight.shadow.camera );
     // this.scene.add(helper);
 
-    this.sunLight.position.set(1.5, 7, 3);
+    this.sunLight.position.set(1, 7, 7);
     this.scene.add(this.sunLight);
 
     const ambientLight = new THREE.AmbientLight("#ffffff", 1);

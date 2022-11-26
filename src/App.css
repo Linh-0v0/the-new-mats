@@ -1,8 +1,8 @@
 .experience {
   position: fixed;
   max-width: 1920px;
-  width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .experience-canvas {
@@ -31,7 +31,7 @@
   width: 100%;
   background-color: rgba(255, 111, 96, 0.8);
   transform-origin: top center;
-  transform: scaleY(1);
+  transform: scaleY(0);
 }
 
 @media (max-width: 768px) {

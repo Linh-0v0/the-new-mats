@@ -10,6 +10,7 @@ import SideLyingCat from "./Cats/SideLyingCat";
 import StandingCat from "./Cats/StandingCat";
 
 import Floor from "./Floor";
+import Circle from "./Circle";
 import CatControls from "./CatControls";
 import Controls from "./Controls";
 
@@ -38,26 +39,31 @@ export default class World {
       else if (this.currentPath == asset[1].urlPathname) {
         console.log("eating CATTTT");
         this.cat = new EatingCat();
+        this.circle = new Circle();
         this.controls = new CatControls();
       }
       else if (this.currentPath == asset[2].urlPathname) {
         console.log("playing CATTTT");
         this.cat = new PlayingCat();
+        this.circle = new Circle();
         this.controls = new CatControls();
       }
       else if (this.currentPath == asset[3].urlPathname) {
         console.log("standing CATTTT");
         this.cat = new StandingCat();
+        this.circle = new Circle();
         this.controls = new CatControls();
       }
       else if (this.currentPath == asset[4].urlPathname) {
         console.log("lying CATTTT");
         this.cat = new LyingCat();
+        this.circle = new Circle();
         this.controls = new CatControls();
       }
       else if (this.currentPath == asset[5].urlPathname) {
         console.log("side CATTTT");
         this.cat = new SideLyingCat();
+        this.circle = new Circle();
         this.controls = new CatControls();
       }
 
