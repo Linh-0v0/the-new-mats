@@ -3,7 +3,6 @@ import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import ScrollerTriggerProxy from "../components/ScrollerTriggerProxy";
 
 const LocoScroll = ({ children, refName }) => {
-
   return (
     <LocomotiveScrollProvider
       options={{
@@ -29,7 +28,7 @@ const LocoScroll = ({ children, refName }) => {
       containerRef={refName}
     >
       <ScrollerTriggerProxy />
-      {children}
+     {children}
     </LocomotiveScrollProvider>
   );
 };

@@ -8,7 +8,7 @@ export default class StandingCat {
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
-    this.cat = this.resources.items.eatingCat;
+    this.cat = this.resources.items.standingCat;
     this.camera = this.experience.camera;
     // console.log(this.cat);
 
@@ -38,7 +38,7 @@ export default class StandingCat {
   setModel() {
     if (this.cat) {
       this.actualCat.children.forEach((child) => {
-        child.castShadow = false;
+        child.castShadow = true;
         child.receiveShadow = false;
 
         if (child instanceof THREE.Group) {

@@ -2,9 +2,11 @@ import React from "react";
 import styled from "styled-components";
 
 const Section = styled.section`
-  position: relative;
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
+  height: 100vh;
   overflow: hidden;
   z-index: 99999;
 `;
@@ -58,13 +60,13 @@ const LandingMain = () => {
   return (
     <Section className="landing-main-section" data-scroll-section>
       <Container>
-        <h1>The New Mats</h1>
-        <div className="paragContainer">
+        {/* <h1>The New Mats</h1> */}
+        {/* <div className="paragContainer">
           <p>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam,
             animi! Esse accusantium quidem natus?
           </p>
-        </div>
+        </div> */}
         <div className="petButton">
           <img src="./icons/paw-edit.png" alt="paw" width="50px" />
           <p>Pet one</p>

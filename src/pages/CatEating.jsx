@@ -4,6 +4,7 @@ import Transitions from "../components/Transitions";
 import GoBackArrow from "../components/GoBackArrow";
 import { motion } from "framer-motion";
 import LocoScroll from "../components/LocoScroll";
+import IndividualInfo from "../sections/IndividualInfo";
 
 const Container = styled(motion.div)`
   width: 50%;
@@ -11,7 +12,6 @@ const Container = styled(motion.div)`
   @media (max-width: 570px) {
     width: 100%;
   }
-
 `;
 
 const InfoContainer = styled.div`
@@ -29,13 +29,13 @@ const InfoContainer = styled.div`
   h1 {
     font-size: 3rem;
     padding-bottom: 2rem;
-    color: ${props => `rgba(${props.theme.orange}, 1)`};
+    color: ${(props) => `rgba(${props.theme.orange}, 1)`};
   }
 
   h2 {
     font-size: 2rem;
     padding-bottom: 1rem;
-    color: ${props => `rgba(${props.theme.orange}, 1)`};
+    color: ${(props) => `rgba(${props.theme.orange}, 1)`};
   }
 
   @media (max-width: 570px) {
@@ -43,7 +43,7 @@ const InfoContainer = styled.div`
 
     p {
       font-weight: 400;
-      color: ${props => `rgba(${props.theme.orange}, 1)`};
+      color: ${(props) => `rgba(${props.theme.orange}, 1)`};
     }
   }
 `;
@@ -57,7 +57,7 @@ const DarkOverlay = styled.div`
 
   @media (max-width: 570px) {
     display: block;
-    background: ${props => `rgba(${props.theme.white}, 0.7)`};
+    background: ${(props) => `rgba(${props.theme.white}, 0.7)`};
   }
 `;
 
@@ -71,6 +71,9 @@ const ContainerAnimation = {
       duration: 1,
       delay: 0.5,
       ease: "easeInOut",
+      onanimationstart: () => {
+        console.log("framer motion started")
+      }
     },
   },
 };
@@ -97,10 +100,28 @@ const CatEating = () => {
             variants={ContainerAnimation}
             initial="hidden"
             animate="show"
-            data-scroll-section
+            // data-scroll-section
           >
             <GoBackArrow />
-            <InfoContainer>
+            <IndividualInfo
+              profileImageSrc=""
+              aboutTitle="About"
+              aboutParag=" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
+  error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
+  itaque quia voluptatibus impedit maxime dolore, nostrum ratione
+  culpa enim?"
+              strengthTitle="About"
+              strengthParag=" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
+  error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
+  itaque quia voluptatibus impedit maxime dolore, nostrum ratione
+  culpa enim?"
+              sthTitle="About"
+              sthParag=" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
+  error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
+  itaque quia voluptatibus impedit maxime dolore, nostrum ratione
+  culpa enim?"
+            />
+            {/* <InfoContainer>
               <h1>Individual Info</h1>
               <h2>Strength</h2>
               <p>
@@ -144,7 +165,7 @@ const CatEating = () => {
                 itaque quia voluptatibus impedit maxime dolore, nostrum ratione
                 culpa enim?
               </p>
-            </InfoContainer>
+            </InfoContainer> */}
           </Container>
         </section>
       </LocoScroll>

@@ -8,7 +8,7 @@ export default class SidePlayingCat {
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
-    this.cat = this.resources.items.playingCat;
+    this.cat = this.resources.items.sidePlayingCat;
     this.camera = this.experience.camera;
 
     // console.log(this.cat);
@@ -39,7 +39,7 @@ export default class SidePlayingCat {
   setModel() {
     if (this.cat) {
       this.actualCat.children.forEach((child) => {
-        child.castShadow = false;
+        child.castShadow = true;
         child.receiveShadow = false;
 
         if (child instanceof THREE.Group) {

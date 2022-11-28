@@ -246,6 +246,7 @@ export default class EatingCat extends EventEmitter {
     this.actualCat.rotation.x = this.lerpY.current;
 
     this.eatingCatMixer.update(this.time.delta * 0.001);
+    //not play
     this.lyingCatMixer.update(this.time.delta * 0.001);
     this.playingCatMixer.update(this.time.delta * 0.0015);
     this.sideLyingCatMixer.update(this.time.delta * 0.0008);

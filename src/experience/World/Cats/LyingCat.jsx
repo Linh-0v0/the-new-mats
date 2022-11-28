@@ -8,7 +8,7 @@ export default class LyingCat {
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
     this.time = this.experience.time;
-    this.cat = this.resources.items.playingCat;
+    this.cat = this.resources.items.lyingCat;
     this.camera = this.experience.camera;
 
     // console.log(this.cat);
@@ -39,7 +39,7 @@ export default class LyingCat {
   setModel() {
     if (this.cat) {
       this.actualCat.children.forEach((child) => {
-        child.castShadow = false;
+        child.castShadow = true;
         child.receiveShadow = false;
 
         if (child instanceof THREE.Group) {

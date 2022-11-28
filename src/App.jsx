@@ -5,12 +5,6 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./styles/Themes";
 
 import { AnimatePresence } from "framer-motion";
-import { useRef, useLayoutEffect } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
-import Landing from "./sections/Landing";
-import Service from "./sections/Service";
-import LandingMain from "./sections/LandingMain";
 import CatEating from "./pages/CatEating";
 import CatPlaying from "./pages/CatPlaying";
 import CatStanding from "./pages/CatStanding";

@@ -38,13 +38,13 @@ export default class EatingCat {
   setModel() {
     if (this.cat) {
       this.actualCat.children.forEach((child) => {
-        child.castShadow = false;
-        child.receiveShadow = true;
+        child.castShadow = true;
+        child.receiveShadow = false;
 
         if (child instanceof THREE.Group) {
           child.children.forEach((grandChild) => {
             grandChild.castShadow = true;
-            grandChild.receiveShadow = true;
+            grandChild.receiveShadow = false;
           });
         }
       });

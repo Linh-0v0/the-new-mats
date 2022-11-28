@@ -27,17 +27,27 @@ export default class Experience {
     this.scene = new THREE.Scene();
     this.eatingCatScene = new THREE.Scene();
     this.playingCatScene = new THREE.Scene();
+    this.standingCatScene = new THREE.Scene();
+    this.sideLyingCatScene = new THREE.Scene();
+    this.lyingCatScene = new THREE.Scene();
 
     console.log("EXPERIENCE", this.currentPath);
     if (this.currentPath == "/") {
       this.scene = this.scene;
     } else if (this.currentPath == assets[1].urlPathname) {
-      console.log("EATING CATTTT");
       this.scene = this.eatingCatScene;
     } 
     else if (this.currentPath == assets[2].urlPathname) {
-      console.log("PLAYING CATTTT");
       this.scene = this.playingCatScene;
+    }
+    else if (this.currentPath == assets[3].urlPathname) {
+      this.scene = this.standingCatScene;
+    }
+    else if (this.currentPath == assets[4].urlPathname) {
+      this.scene = this.lyingCatScene;
+    }
+    else if (this.currentPath == assets[5].urlPathname) {
+      this.scene = this.sideLyingCatScene;
     }
 
     this.time = new Time();

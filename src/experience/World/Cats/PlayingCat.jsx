@@ -39,7 +39,7 @@ export default class PlayingCat {
   setModel() {
     if (this.cat) {
       this.actualCat.children.forEach((child) => {
-        child.castShadow = false;
+        child.castShadow = true;
         child.receiveShadow = false;
 
         if (child instanceof THREE.Group) {

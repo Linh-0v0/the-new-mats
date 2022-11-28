@@ -234,16 +234,16 @@ export default class Controls extends EventEmitter {
   update() {
     if (this.cat) {
       if (this.catHover.object != null) {
-        if (
-          !this.eatingCatPattern.test(this.catHover.object.parent.name) &&
-          !this.playingCatPattern.test(this.catHover.object.parent.name) &&
-          !this.standingCatPattern.test(this.catHover.object.parent.name) &&
-          !this.lyingCatPattern.test(this.catHover.object.parent.name) &&
-          !this.sideLyingCatPattern.test(this.catHover.object.parent.name)
-        ) {
-          console.log("SET TO ORIGIN SIZE")
-          this.catHover.object.scale.set(this.catOriginalSize.x, this.catOriginalSize.y, this.catOriginalSize.z)
-        } 
+        // if (
+        //   !this.eatingCatPattern.test(this.catHover.object.parent.name) &&
+        //   !this.playingCatPattern.test(this.catHover.object.parent.name) &&
+        //   !this.standingCatPattern.test(this.catHover.object.parent.name) &&
+        //   !this.lyingCatPattern.test(this.catHover.object.parent.name) &&
+        //   !this.sideLyingCatPattern.test(this.catHover.object.parent.name)
+        // ) {
+        //   console.log("SET TO ORIGIN SIZE")
+        //   this.catHover.object.scale.set(this.catOriginalSize.x, this.catOriginalSize.y, this.catOriginalSize.z)
+        // } 
         // if (this.eatingCatPattern.test(this.catHover.object.parent.name)) {
         //   console.log("SET TO EATING SIZE")
         //   this.catHover.object.scale.set(this.catOriginalSize.x+0.3, this.catOriginalSize.y+0.3, this.catOriginalSize.z+0.3)

@@ -32,16 +32,17 @@ export default class Camera {
   createOrthographicCamera() {
     if (this.scene) {
     this.orthographicCamera = new THREE.OrthographicCamera(
-      (-this.sizes.aspect * this.sizes.frustrum) / 2,
-      (this.sizes.aspect * this.sizes.frustrum) / 2,
-      this.sizes.frustrum / 2,
-      -this.sizes.frustrum / 2,
+      (-this.sizes.aspect * this.sizes.frustrum) / 1.8,
+      (this.sizes.aspect * this.sizes.frustrum) / 1.8,
+      this.sizes.frustrum / 1.8,
+      -this.sizes.frustrum / 1.8,
       -80,
       80
     );
 
     this.orthographicCamera.position.x = -0.25;
-    this.orthographicCamera.position.y = 2.5;
+    this.orthographicCamera.position.y = 2.8;
+    // this.orthographicCamera.position.z = 50;
     this.orthographicCamera.rotation.x = -Math.PI / 24;
 
     // this.orthographicCamera = new THREE.PerspectiveCamera(
@@ -85,8 +86,8 @@ export default class Camera {
       (-this.sizes.aspect * this.sizes.frustrum) / 2;
     this.orthographicCamera.right =
       (this.sizes.aspect * this.sizes.frustrum) / 2;
-    this.orthographicCamera.top = this.sizes.frustrum / 2;
-    this.orthographicCamera.bottom = -this.sizes.frustrum / 2;
+    this.orthographicCamera.top = this.sizes.frustrum / 1.5;
+    this.orthographicCamera.bottom = -this.sizes.frustrum / 1.5;
     this.orthographicCamera.updateProjectionMatrix();
   }
 

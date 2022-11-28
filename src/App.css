@@ -1,8 +1,13 @@
+.relative-pos {
+  position: relative !important;
+}
+
 .experience {
   position: fixed;
   max-width: 1920px;
   height: 100vh;
   overflow: hidden;
+  z-index: -100;
 }
 
 .experience-canvas {
