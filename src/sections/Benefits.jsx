@@ -14,18 +14,32 @@ const Container = styled.div`
     margin: 0 auto;
     display: grid; 
     grid-template-columns: auto auto auto auto;
-    grid-template-rows: 50vh 50vh;
+    grid-template-rows: auto auto auto auto auto;
     column-gap: 2rem;
 
-    h1 {
-        width: 80%;
-        font-family: "Josefin Sans"
-        font-size: ${(props) => props.theme.font6xl};
-        font-weight: 800;
-        color: ${(props) => `rgba(${props.theme.black}, 1)`};
-        grid-column: 1/3;
-        grid-row: 1/3;
-    }    
+    h1 {                                              //phone
+      padding-top: 5rem;
+      font-size: ${(props) => props.theme.font5xl};
+      font-weight: 800;
+      color: ${(props) => `rgba(${props.theme.black}, 0.8)`};
+      
+      width: 100%;
+      margin-bottom: 3rem;
+      grid-column: 1/5;
+      grid-row:1/3
+    }
+    @media only screen and (min-width: 768px){       //Tablet
+      h1{
+          grid-column: 1/5;
+          grid-row: 1/3;
+      }  
+    }
+    @media only screen and (min-width: 1080px){       //desktop
+      h1{
+          grid-column: 1/3;
+          grid-row: 1/3;
+      }  
+    }
 `;
 
 const Benefits = () => {
