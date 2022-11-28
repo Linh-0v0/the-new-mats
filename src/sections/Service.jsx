@@ -38,7 +38,7 @@ const ServiceContainer = styled.div`
     margin: 3%;
     padding: 20px;
     font-size: 25px;
-    background-color: lightblue;
+
   }
 
   @media (max-width: ${(props) => props.theme.tablet}) {
