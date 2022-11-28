@@ -7,52 +7,42 @@ import LocoScroll from "../components/LocoScroll";
 import IntroTextPreloader from "../components/IntroTextPreloader";
 import Benefits from "../sections/Benefits";
 
-const Container = styled.div`
-  .benefit-container {
-    padding-bottom: 4rem;
-  }
-`
+const Space = styled.div`
+  position: relative;
+  height: 4rem;
+  width: 100vw;
+  background-color: transparent;
+`;
 
 const Home = () => {
   const containerRef = useRef(null);
 
   return (
-    <Container>
-       <div
-            className="experience relative-pos"
-            data-scroll
-            data-scroll-section
-            data-scroll-sticky
-          >
-            <canvas className="experience-canvas"></canvas>
-          </div>
-      {/* <LocoScroll refName={containerRef}>
-        <main className="App" data-scroll-container ref={containerRef}>
-          <div
-            className="experience relative-pos"
-            data-scroll
-            data-scroll-section
-            data-scroll-sticky
-          >
-            <canvas className="experience-canvas"></canvas>
-          </div> */}
+    <LocoScroll refName={containerRef}>
+      <main className="App" data-scroll-container ref={containerRef}>
+        <div
+          className="experience relative-pos"
+          data-scroll
+          data-scroll-section
+          data-scroll-sticky
+        >
+          <canvas className="experience-canvas"></canvas>
+        </div>
 
-          {/* <IntroTextPreloader /> */}
-          {/* <div className="lading-main-container">
-            <LandingMain />
-          </div>
+        {/* <IntroTextPreloader /> */}
 
-          <div className="first-move"></div>
-          <div className="benefit-container">
-            <Benefits />
-          </div>
+        {/* <Overlay> */}
+        <LandingMain />
 
-          <div className="service-container">
-            <Service />
-          </div>
-        </main> */}
-      {/* </LocoScroll> */}
-    </Container>
+        <div className="first-move"></div>
+
+        <Benefits />
+
+        <Space data-scroll-section></Space>
+        <Service />
+        {/* </Overlay> */}
+      </main>
+    </LocoScroll>
   );
 };
 

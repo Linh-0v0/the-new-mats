@@ -54,16 +54,16 @@ export default class Camera {
     this.scene.add(this.orthographicCamera);    
     
     this.helper = new THREE.CameraHelper( this.orthographicCamera );
-    this.scene.add(this.helper);
+    // this.scene.add(this.helper);
 
     const size = 10;
     const divisions = 10;
 
     const gridHelper = new THREE.GridHelper(size, divisions);
-    this.scene.add(gridHelper);
+    // this.scene.add(gridHelper);
 
     const axesHelper = new THREE.AxesHelper(5);
-    this.scene.add(axesHelper);
+    // this.scene.add(axesHelper);
     }
   }
 
@@ -71,8 +71,10 @@ export default class Camera {
   setOrbitControls() {
     if (this.canvas) {
     this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);
-    this.controls.enableDamping = true;
-    this.controls.enableZoom = true;
+    // this.controls.enableDamping = true;
+    // this.controls.enableZoom = true;
+    this.controls.enableDamping = false;
+    this.controls.enableZoom = false;
     }
   }
 
@@ -83,11 +85,11 @@ export default class Camera {
 
     // Update Orthographic Camera on Resize
     this.orthographicCamera.left =
-      (-this.sizes.aspect * this.sizes.frustrum) / 2;
+      (-this.sizes.aspect * this.sizes.frustrum) / 1.8;
     this.orthographicCamera.right =
-      (this.sizes.aspect * this.sizes.frustrum) / 2;
-    this.orthographicCamera.top = this.sizes.frustrum / 1.5;
-    this.orthographicCamera.bottom = -this.sizes.frustrum / 1.5;
+      (this.sizes.aspect * this.sizes.frustrum) / 1.8;
+    this.orthographicCamera.top = this.sizes.frustrum / 1.8;
+    this.orthographicCamera.bottom = -this.sizes.frustrum / 1.8;
     this.orthographicCamera.updateProjectionMatrix();
   }
 
