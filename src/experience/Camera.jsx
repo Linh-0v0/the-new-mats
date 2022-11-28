@@ -36,14 +36,13 @@ export default class Camera {
       (this.sizes.aspect * this.sizes.frustrum) / 2,
       this.sizes.frustrum / 2,
       -this.sizes.frustrum / 2,
-      -50,
-      50
+      -80,
+      80
     );
 
-    this.orthographicCamera.position.y = 2.3;
-    this.orthographicCamera.position.z = 6;
-    // this.orthographicCamera.rotation.x = -Math.PI / 8;
-    this.orthographicCamera.rotation.x = 0;
+    this.orthographicCamera.position.x = -0.25;
+    this.orthographicCamera.position.y = 2.5;
+    this.orthographicCamera.rotation.x = -Math.PI / 24;
 
     // this.orthographicCamera = new THREE.PerspectiveCamera(
     //   75,

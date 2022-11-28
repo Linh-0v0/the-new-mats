@@ -29,12 +29,14 @@ export default class Preloader extends EventEmitter {
 
     this.world.on("worldready", () => {
       this.setAssets();
-      this.playIntro();
+      // this.playIntro();
     });
   }
 
   setAssets() {
+    if (window.location.href == "/") {
     convert(document.querySelector(".intro-text"));
+    }
     this.cat = this.experience.world.cat.actualCat;
     this.catRoomChildren = this.experience.world.cat.catRoomChildren;
     console.log("THE CAT PLAYFROUNd", this.cat);
@@ -83,13 +85,13 @@ export default class Preloader extends EventEmitter {
 
         // })
       }
-      this.timeline.to(".intro-text .animateThis", {
-        yPercent: -100,
-        stagger: 0.07,
-        duration: 0.2,
-        ease: "back.in(1.2)",
-        onComplete: resolve
-      });
+      // this.timeline.to(".intro-text .animateThis", {
+      //   yPercent: -100,
+      //   stagger: 0.07,
+      //   duration: 0.2,
+      //   ease: "back.in(1.2)",
+      //   onComplete: resolve
+      // });
     });
   }
 
@@ -165,11 +167,11 @@ export default class Preloader extends EventEmitter {
             y: 2,
           });
       }
-      this.timeline.to(".intro-text .animateThis", {
-        yPercent: 0,
-        duration: 0,
-        onComplete: resolve
-      });
+      // this.timeline.to(".intro-text .animateThis", {
+      //   yPercent: 0,
+      //   duration: 0,
+      //   onComplete: resolve
+      // });
     });
   }
 

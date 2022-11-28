@@ -2,7 +2,7 @@ export default [
   {
     name: "catPlayground",
     type: "glbModel",
-    path: "/models/eatingCat.glb",
+    path: "/models/cat-house-2.glb",
     urlPathname: "/",
   },
   {

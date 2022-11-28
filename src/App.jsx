@@ -13,6 +13,11 @@ import Service from "./sections/Service";
 import LandingMain from "./sections/LandingMain";
 import CatEating from "./pages/CatEating";
 import CatPlaying from "./pages/CatPlaying";
+import CatStanding from "./pages/CatStanding";
+import CatLying from "./pages/CatLying";
+import CatSideLying from "./pages/CatSideLying";
+
+
 
 import Home from "./pages/Home";
 
@@ -26,6 +31,9 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/scene/cat-eating" element={<CatEating />} />
             <Route path="/scene/cat-playing" element={<CatPlaying />} />
+            <Route path="/scene/cat-standing" element={<CatStanding />} />
+            <Route path="/scene/cat-lying" element={<CatLying />} />
+            <Route path="/scene/cat-side-lying" element={<CatSideLying />} />
           </Routes>
         </AnimatePresence>
       </ThemeProvider>

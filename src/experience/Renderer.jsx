@@ -2,12 +2,11 @@ import * as THREE from "three";
 import Experience from "./Experience";
 import asset from "./Utils/assets";
 
-
 export default class Renderer {
   constructor() {
     this.experience = new Experience();
-    this.sizes = this.experience.sizes; 
-       
+    this.sizes = this.experience.sizes;
+
     this.scene = this.experience.scene;
     this.eatingCatScene = this.experience.eatingCatScene;
     this.playingCatScene = this.experience.playingScene;
@@ -17,7 +16,7 @@ export default class Renderer {
     this.currentPath = window.location.pathname;
 
     // this.goBackMsg = this.experience.controls.goBackMsg;
- 
+
     // if (this.currentPath == asset[1].urlPathname) {
     //   this.scene = this.playingCatScene;
     // }
@@ -55,11 +54,10 @@ export default class Renderer {
       // this.renderer.render(this.scene, this.camera.perspectiveCamera);
 
       //First screen
-      // this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
+      this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
 
       this.renderer.render(this.scene, this.camera.orthographicCamera);
       // this.renderer.render(this.scene, this.camera.perspectiveCamera);
-
 
       //Second screen
       // this.renderer.setScissorTest(true);

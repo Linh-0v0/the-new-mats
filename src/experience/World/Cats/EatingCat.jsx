@@ -24,6 +24,12 @@ export default class EatingCat {
       ease: 0.1,
     };
 
+    this.lerpY = {
+      current: 0,
+      target: 0,
+      ease: 0.1,
+    };
+
     this.setModel();
     this.setAnimation();
     this.onMouseMove();
@@ -33,12 +39,12 @@ export default class EatingCat {
     if (this.cat) {
       this.actualCat.children.forEach((child) => {
         child.castShadow = false;
-        child.receiveShadow = false;
+        child.receiveShadow = true;
 
         if (child instanceof THREE.Group) {
           child.children.forEach((grandChild) => {
             grandChild.castShadow = true;
-            grandChild.receiveShadow = false;
+            grandChild.receiveShadow = true;
           });
         }
       });
@@ -50,6 +56,8 @@ export default class EatingCat {
 
   setAnimation() {
     if (this.cat) {
+      console.log(this.cat);
+      console.log("ACTUAL CAT", this.actualCat);
       this.mixer = new THREE.AnimationMixer(this.actualCat);
       this.head = this.mixer.clipAction(this.cat.animations[3]);
       this.head.play();
@@ -63,6 +71,10 @@ export default class EatingCat {
       this.rotation =
         ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
       this.lerp.target = this.rotation * 0.6;
+
+      this.rotationX =
+        ((e.clientY - window.innerHeight / 2) * 2) / window.innerHeight;
+      this.lerpY.target = this.rotationX * 0.1;
     });
   }
 
@@ -77,6 +89,13 @@ export default class EatingCat {
     );
     this.actualCat.rotation.y = this.lerp.current;
 
+    this.lerpY.current = GSAP.utils.interpolate(
+      this.lerpY.current,
+      this.lerpY.target,
+      this.lerpY.ease
+    );
+
+    this.actualCat.rotation.x = this.lerpY.current;
     this.mixer.update(this.time.delta * 0.0008);
   }
 }

@@ -25,7 +25,8 @@ export default class Controls extends EventEmitter {
     this.pointer = new THREE.Vector2();
     this.intersects = [];
     this.catClicked = "";
-    this.catHover = "";
+    this.catHover = {};
+    this.catOriginalSize = {};
 
     this.eatingCatPattern = /.*eatingCat/;
     this.lyingCatPattern = /.*lyingCat/;
@@ -52,43 +53,43 @@ export default class Controls extends EventEmitter {
 
   onHover() {
     if (this.cat) {
-      // console.log("ON enter", this.cat);
-      // window.addEventListener("mousemove", (e) => {
-      //   this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-      //   this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-      //   this.raycaster.setFromCamera(
-      //     this.pointer,
-      //     this.experience.camera.orthographicCamera
-      //   );
-      //   this.intersects = this.raycaster.intersectObjects(
-      //     this.cat.children,
-      //     true
-      //   );
+      console.log("ON enter", this.cat);
+      window.addEventListener("mousemove", (e) => {
+        this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+        this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+        this.raycaster.setFromCamera(
+          this.pointer,
+          this.experience.camera.orthographicCamera
+        );
+        this.intersects = this.raycaster.intersectObjects(
+          this.cat.children,
+          true
+        );
 
-      //   console.log("INTERSECT", this.intersects);
-      //   this.checkHoveredCat();
-      // });
+        console.log("INTERSECT", this.intersects);
+        this.checkHoveredCat();
+      });
     }
   }
 
   onClick() {
     if (this.cat) {
-      // console.log("ON CLICK", this.cat);
-      // window.addEventListener("click", (e) => {
-      //   this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
-      //   this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
-      //   this.raycaster.setFromCamera(
-      //     this.pointer,
-      //     this.experience.camera.orthographicCamera
-      //   );
-      //   this.intersects = this.raycaster.intersectObjects(
-      //     this.cat.children,
-      //     true
-      //   );
+      console.log("ON CLICK", this.cat);
+      window.addEventListener("click", (e) => {
+        this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+        this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
+        this.raycaster.setFromCamera(
+          this.pointer,
+          this.experience.camera.orthographicCamera
+        );
+        this.intersects = this.raycaster.intersectObjects(
+          this.cat.children,
+          true
+        );
 
-      //   console.log("INTERSECT", this.intersects);
-      //   this.checkClickedCat();
-      // });
+        console.log("INTERSECT", this.intersects);
+        this.checkClickedCat();
+      });
     }
   }
 
@@ -97,15 +98,17 @@ export default class Controls extends EventEmitter {
       let intersectObject = this.intersects[0].object.parent.name;
 
       if (this.eatingCatPattern.test(intersectObject)) {
-        this.catHover = "EatingCat";
+        this.catHover = this.intersects[0];
+        this.catOriginalSize = this.catHover.object.scale;
+      
       } else if (this.playingCatPattern.test(intersectObject)) {
-        this.catHover = "PlayingCat";
+        this.catHover = this.intersects[0];
       } else if (this.standingCatPattern.test(intersectObject)) {
-        this.catHover = "StandingCat";
+        this.catHover = this.intersects[0];
       } else if (this.lyingCatPattern.test(intersectObject)) {
-        this.catHover = "LyingCat";
+        this.catHover = this.intersects[0];
       } else if (this.sideLyingCatPattern.test(intersectObject)) {
-        this.catHover = "SideLyingCat";
+        this.catHover = this.intersects[0];
       }
     }
   }
@@ -115,18 +118,22 @@ export default class Controls extends EventEmitter {
       let intersectObject = this.intersects[0].object.parent.name;
 
       if (this.eatingCatPattern.test(intersectObject)) {
-        // this.catClicked = "EatingCat";
+        this.catClicked = "EatingCat";
         window.location.href = assets[1].urlPathname;
-      } else if (this.playingCatPattern.test(intersectObject)) {
+      }
+      if (this.playingCatPattern.test(intersectObject)) {
         this.catClicked = "PlayingCat";
         window.location.href = assets[2].urlPathname;
-      } else if (this.standingCatPattern.test(intersectObject)) {
+      }
+      if (this.standingCatPattern.test(intersectObject)) {
         this.catClicked = "StandingCat";
         window.location.href = assets[3].urlPathname;
-      } else if (this.lyingCatPattern.test(intersectObject)) {
+      }
+      if (this.lyingCatPattern.test(intersectObject)) {
         this.catClicked = "LyingCat";
         window.location.href = assets[4].urlPathname;
-      } else if (this.sideLyingCatPattern.test(intersectObject)) {
+      }
+      if (this.sideLyingCatPattern.test(intersectObject)) {
         this.catClicked = "SideLyingCat";
         window.location.href = assets[5].urlPathname;
       }
@@ -226,15 +233,30 @@ export default class Controls extends EventEmitter {
 
   update() {
     if (this.cat) {
-      if (this.catHover == "EatingCat" || this.catHover == "LyingCat" || this.catHover == "PlayingCat" || this.catHover == "SideLyingCat" || this.catHover == "StandingCat") {
-        this.cat.scale.set(1.5, 1.5, 1.5);
-        if (this.intersects.length === 0) {
-          this.catHover = "";
-        }
+      if (this.catHover.object != null) {
+        if (
+          !this.eatingCatPattern.test(this.catHover.object.parent.name) &&
+          !this.playingCatPattern.test(this.catHover.object.parent.name) &&
+          !this.standingCatPattern.test(this.catHover.object.parent.name) &&
+          !this.lyingCatPattern.test(this.catHover.object.parent.name) &&
+          !this.sideLyingCatPattern.test(this.catHover.object.parent.name)
+        ) {
+          console.log("SET TO ORIGIN SIZE")
+          this.catHover.object.scale.set(this.catOriginalSize.x, this.catOriginalSize.y, this.catOriginalSize.z)
+        } 
+        // if (this.eatingCatPattern.test(this.catHover.object.parent.name)) {
+        //   console.log("SET TO EATING SIZE")
+        //   this.catHover.object.scale.set(this.catOriginalSize.x+0.3, this.catOriginalSize.y+0.3, this.catOriginalSize.z+0.3)
+        // }
+      
+         
       }
-      if (this.catHover == "") {
-        // this.cat.scale.set(1, 1, 1);
-      }
+      // if (this.intersects.length === 0) {
+      //   if (this.catHover == "") {
+      //     // original size in CatPlayground
+      //     this.cat.scale.set(0.8, 0.8, 0.8);
+      //   }
+      // }
     }
 
     // if (this.goBackMsgReceived === "goback") {
