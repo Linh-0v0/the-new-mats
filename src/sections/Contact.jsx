@@ -18,6 +18,12 @@ img{
     width: 50px;
 }
 
+@media (max-width: ${(props) => props.theme.tablet}) {
+  h1 {
+    font-size: 25px;
+  }
+
+}
 `;
 const BigContainer = styled.div`
   width: 90%;
