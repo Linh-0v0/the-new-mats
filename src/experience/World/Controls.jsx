@@ -36,10 +36,10 @@ export default class Controls extends EventEmitter {
 
     GSAP.registerPlugin(ScrollTrigger);
 
-    this.onClick();
-    this.onHover();
-    this.checkHoveredCat();
-    this.checkClickedCat();
+    // this.onClick();
+    // this.onHover();
+    // this.checkHoveredCat();
+    // this.checkClickedCat();
     this.setAppearAnimation();
 
     this.goToLanding.on("goToLanding", (goBackMsg) => {

@@ -32,21 +32,21 @@ export default class Experience {
     this.lyingCatScene = new THREE.Scene();
 
     console.log("EXPERIENCE", this.currentPath);
-    if (this.currentPath == "/") {
+
+    if (
+      this.currentPath == assets[0].urlPathname ||
+      this.currentPath == assets[1].urlPathname
+    ) {
       this.scene = this.scene;
-    } else if (this.currentPath == assets[1].urlPathname) {
+    } else if (this.currentPath == assets[2].urlPathname) {
       this.scene = this.eatingCatScene;
-    } 
-    else if (this.currentPath == assets[2].urlPathname) {
+    } else if (this.currentPath == assets[3].urlPathname) {
       this.scene = this.playingCatScene;
-    }
-    else if (this.currentPath == assets[3].urlPathname) {
+    } else if (this.currentPath == assets[4].urlPathname) {
       this.scene = this.standingCatScene;
-    }
-    else if (this.currentPath == assets[4].urlPathname) {
+    } else if (this.currentPath == assets[5].urlPathname) {
       this.scene = this.lyingCatScene;
-    }
-    else if (this.currentPath == assets[5].urlPathname) {
+    } else if (this.currentPath == assets[6].urlPathname) {
       this.scene = this.sideLyingCatScene;
     }
 
@@ -63,7 +63,7 @@ export default class Experience {
 
     this.preloader.on("enablecontrols", () => {
       this.controls = new Controls();
-    })
+    });
 
     // listen to emitted event
     this.time.on("update", () => {
@@ -85,6 +85,7 @@ export default class Experience {
     this.camera.update();
     this.world.update();
     this.renderer.update();
+    // this.preloader.update();
     // if (this.controls) {
     //   this.controls.update();
     // }

@@ -4,8 +4,6 @@ import convert from "../experience/Utils/convertToSpans"
 
 const IntroTextPreloader = () => {
   return (
-   
-   
     <div className="intro-text">
         Welcome to The New Mats!
     </div> 

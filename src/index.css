@@ -1,3 +1,7 @@
+.relative-pos {
+  position: relative !important;
+}
+
 .go-back-arrow svg {
   position: absolute;
   left: 50px;

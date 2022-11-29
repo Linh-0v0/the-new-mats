@@ -114,22 +114,13 @@ export default class CatControls extends EventEmitter {
   }
 
   setScrollTrigger() {
-    if (this.currentPath == "/") {
-    }
-    else if (this.currentPath == asset[1].urlPathname) {
-      this.checkCatForColorCircle(this.circleFirst)
-    }
-    else if (this.currentPath == asset[2].urlPathname) {
-      
-    }
-    else if (this.currentPath == asset[3].urlPathname) {
-    
-    }
-    else if (this.currentPath == asset[4].urlPathname) {
-    
-    }
-    else if (this.currentPath == asset[5].urlPathname) {
-      
+    if (this.currentPath == "/home") {
+    } else if (this.currentPath == asset[1].urlPathname) {
+      this.checkCatForColorCircle(this.circleFirst);
+    } else if (this.currentPath == asset[2].urlPathname) {
+    } else if (this.currentPath == asset[3].urlPathname) {
+    } else if (this.currentPath == asset[4].urlPathname) {
+    } else if (this.currentPath == asset[5].urlPathname) {
     }
   }
 

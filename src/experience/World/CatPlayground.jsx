@@ -12,6 +12,7 @@ export default class EatingCat extends EventEmitter {
     this.resources = this.experience.resources;
     this.time = this.experience.time;
     this.cat = this.resources.items.catPlayground;
+    this.loadingdoor = this.resources.items.door;
     this.camera = this.experience.camera;
     this.catRoomChildren = {};
     this.wallPattern = /.*_wall/;
@@ -21,7 +22,11 @@ export default class EatingCat extends EventEmitter {
     this.sideLyingCatPattern = /.*sideLyingCat/;
     this.playingCatPattern = /.*playingCat/;
     this.amateurPattern = /.*Armature.*/;
-    // console.log(this.cat);
+    console.log(this.door);
+
+    if (this.loadingdoor) {
+      this.door = this.loadingdoor.scene;
+    }
 
     if (this.cat) {
       this.actualCat = this.cat.scene;
@@ -53,6 +58,33 @@ export default class EatingCat extends EventEmitter {
   }
 
   setModel() {
+    if (this.loadingdoor) {
+      // Set Door
+      this.door.rotation.y = Math.PI / 1.95;
+      this.door.position.x = -0.8;
+      this.door.position.y = 1.7;
+      this.door.position.z = 7;
+      this.door.scale.set(0.25, 0, 0.25);
+      this.door.name = "door";
+      this.catRoomChildren[this.door.name] = this.door;
+      this.scene.add(this.door);
+
+      // Set background behide the Door before Door appears
+      this.geometry2 = new THREE.PlaneGeometry(100, 100);
+      this.materialBg = new THREE.MeshStandardMaterial({
+        color: 0xfff6b1,
+        side: THREE.DoubleSide,
+      });
+      this.planeBg = new THREE.Mesh(this.geometry2, this.materialBg);
+      this.planeBg.name = "planeBg";
+      this.scene.add(this.planeBg);
+      // this.plane.rotation.x = Math.PI / 2;
+      // this.plane.position.y = -0.3;
+      this.planeBg.position.z = 4;
+      // this.plane.receiveShadow = false;
+      this.catRoomChildren[this.planeBg.name] = this.planeBg;
+    }
+
     if (this.cat) {
       this.actualCat.children.forEach((child) => {
         child.castShadow = false;
@@ -74,66 +106,24 @@ export default class EatingCat extends EventEmitter {
       });
 
       this.scene.add(this.actualCat);
-      this.actualCat.scale.set(0.8, 0.8, 0.8);
-
-      // Set Door
-      this.geometry = new THREE.PlaneGeometry(3, 3);
-      this.material = new THREE.MeshStandardMaterial({
-        color: 0x9a1ee6,
-        side: THREE.DoubleSide,
-      });
-      this.plane = new THREE.Mesh(this.geometry, this.material);
-      this.scene.add(this.plane);
-      this.plane.rotation.x = 0;
-      this.plane.position.y = 1;
-      this.plane.position.z = 4;
-      this.plane.scale.set(0, 0, 0);
-      this.plane.name = "door";
-      this.catRoomChildren[this.plane.name] = this.plane;
-
-      // Set background behide the Door before Door appears
-      //   this.geometry2 = new THREE.PlaneGeometry(100, 100);
-      //   this.materialBg = new THREE.MeshStandardMaterial({
-      //     color: 0xfff6b1,
-      //     side: THREE.DoubleSide,
-      //   });
-      //   this.planeBg = new THREE.Mesh(this.geometry2, this.materialBg);
-      //   this.planeBg.name = "planeBg";
-      //   this.scene.add(this.planeBg);
-      //   // this.plane.rotation.x = Math.PI / 2;
-      //   // this.plane.position.y = -0.3;
-      //   this.planeBg.position.z = 2;
-      //   // this.plane.receiveShadow = false;
-      //   this.catRoomChildren[this.planeBg.name] = this.planeBg;
+      this.actualCat.scale.set(0.7, 0.7, 0.7);
     }
   }
 
   setAnimation() {
     if (this.cat) {
       console.log("THIS CAT", this.cat);
-      // var i = 0;
-      // this.cat.animations.forEach((child) => {
-      //   if (this.amateurPattern.test(child.name)) {
-      //     const newMixerStr = new String(`Mixer${i}`);
-      //     i = i + 1;
-      //     // let `{newMixerStr}` = 0;
-      //     // console.log(Mixer1)
-      //   }
-      // });
-      // // this.cat.forEach((child) => {
-      // //   if (this.playingCatPattern.test(child.name)) {
-      // //     console.log(child);
-      // //   }
-      // // });
 
       // //eatingcat
       this.eatingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.eatingCatPlayHead = this.eatingCatMixer.clipAction(
-        this.cat.animations[49]
+        this.cat.animations[43]
       );
       this.eatingCatPlayTail = this.eatingCatMixer.clipAction(
-        this.cat.animations[29]
+        this.cat.animations[44]
       );
+      this.eatingCatPlayHead.play();
+      this.eatingCatPlayTail.play();
       // this.eatingCatPlay = this.eatingCatMixer.clipAction(
       //   this.cat.animations[43]
       // );
@@ -145,15 +135,13 @@ export default class EatingCat extends EventEmitter {
       // // this.eatingCatPlay = this.eatingCatMixer.clipAction(
       // //   this.cat.animations[50]
       // // );
-      // WHERE'S THE TAIL ?
-      this.eatingCatPlayHead.play();
-      this.eatingCatPlayTail.play();
 
-      // this.standingCatMixer = new THREE.AnimationMixer(this.actualCat);
+      this.standingCatMixer = new THREE.AnimationMixer(this.actualCat);
       // //standing cat
-      // this.standingCatPlay = this.standingCatMixer.clipAction(
-      //   this.cat.animations[18]
-      // );
+      this.standingCatPlay = this.standingCatMixer.clipAction(
+        this.cat.animations[14]
+      );
+      this.standingCatPlay.play();
       // //leg
       // // this.standingCatPlay = this.standingCatMixer.clipAction(this.cat.animations[20]);
       // //ear
@@ -163,7 +151,7 @@ export default class EatingCat extends EventEmitter {
 
       this.lyingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.lyingCatPlay = this.lyingCatMixer.clipAction(
-        this.cat.animations[28]
+        this.cat.animations[22]
       );
       this.lyingCatPlay.play();
       // // leg
@@ -180,14 +168,14 @@ export default class EatingCat extends EventEmitter {
       //playingCat
       this.playingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.playingCatPlay = this.playingCatMixer.clipAction(
-        this.cat.animations[29]
+        this.cat.animations[23]
       );
       this.playingCatPlay.play();
 
       // //sidelyingcat / housecat
       this.sideLyingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(
-        this.cat.animations[43]
+        this.cat.animations[37]
       );
       this.sideLyingCatPlay.play();
       // //arm
@@ -206,10 +194,71 @@ export default class EatingCat extends EventEmitter {
       // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[44]);
 
       //rightTree
-      // this.rightTreeMixer = new THREE.AnimationMixer(this.actualCat);
-      // this.rightTreePlay = this.rightTreeMixer.clipAction(
-      //   this.cat.animations[86]
-      // );
+      this.rightTreeMixer = new THREE.AnimationMixer(this.actualCat);
+      this.rightTreePlay1 = this.rightTreeMixer.clipAction(
+        this.cat.animations[82]
+      );
+      this.rightTreePlay2 = this.rightTreeMixer.clipAction(
+        this.cat.animations[83]
+      );
+      this.rightTreePlay3 = this.rightTreeMixer.clipAction(
+        this.cat.animations[87]
+      );
+      this.rightTreePlay4 = this.rightTreeMixer.clipAction(
+        this.cat.animations[88]
+      );
+      this.rightTreePlay5 = this.rightTreeMixer.clipAction(
+        this.cat.animations[89]
+      );
+      this.rightTreePlay1.play();
+      this.rightTreePlay2.play();
+      this.rightTreePlay3.play();
+      this.rightTreePlay4.play();
+      this.rightTreePlay5.play();
+
+      // left tree
+      this.leftTreeMixer = new THREE.AnimationMixer(this.actualCat);
+      this.leftTreePlay1 = this.leftTreeMixer.clipAction(
+        this.cat.animations[102]
+      );
+      this.leftTreePlay1.play();
+
+      // middle tree
+      this.middleTreeMixer = new THREE.AnimationMixer(this.actualCat);
+      this.middleTreePlay = this.middleTreeMixer.clipAction(
+        this.cat.animations[11]
+      );
+      this.middleTreePlay.play();
+
+      // right lamp
+      this.rightLampMixer = new THREE.AnimationMixer(this.actualCat);
+      this.rightLampPlay = this.rightLampMixer.clipAction(
+        this.cat.animations[103]
+      );
+      this.rightLampPlay2 = this.rightLampMixer.clipAction(
+        this.cat.animations[99]
+      );
+      this.rightLampPlay3 = this.rightLampMixer.clipAction(
+        this.cat.animations[100]
+      );
+      this.rightLampPlay.play();
+      this.rightLampPlay2.play();
+      this.rightLampPlay3.play();
+
+      // left lamp
+      this.leftLampMixer = new THREE.AnimationMixer(this.actualCat);
+      this.leftLampPlay = this.leftLampMixer.clipAction(
+        this.cat.animations[101]
+      );
+      this.leftLampPlay2 = this.leftLampMixer.clipAction(
+        this.cat.animations[97]
+      );
+      this.leftLampPlay3 = this.leftLampMixer.clipAction(
+        this.cat.animations[98]
+      );
+      this.leftLampPlay.play();
+      this.leftLampPlay2.play();
+      this.leftLampPlay3.play();
     }
   }
 
@@ -246,10 +295,16 @@ export default class EatingCat extends EventEmitter {
     this.actualCat.rotation.x = this.lerpY.current;
 
     this.eatingCatMixer.update(this.time.delta * 0.001);
-    //not play
+    this.standingCatMixer.update(this.time.delta * 0.001);
     this.lyingCatMixer.update(this.time.delta * 0.001);
     this.playingCatMixer.update(this.time.delta * 0.0015);
     this.sideLyingCatMixer.update(this.time.delta * 0.0008);
-    // this.rightTreeMixer.update(this.time.delta * 0.0008);
+
+    this.rightTreeMixer.update(this.time.delta * 0.0008);
+    this.leftTreeMixer.update(this.time.delta * 0.001);
+    this.middleTreeMixer.update(this.time.delta * 0.0008);
+
+    this.leftLampMixer.update(this.time.delta * 0.0008);
+    this.rightLampMixer.update(this.time.delta * 0.0008);
   }
 }

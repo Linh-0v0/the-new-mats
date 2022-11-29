@@ -1,8 +1,14 @@
 export default [
   {
+    name: "door",
+    type: "glbModel",
+    path: "/models/door.glb",
+    urlPathname: "/",
+  },
+  {
     name: "catPlayground",
     type: "glbModel",
-    path: "/models/catPlayground.glb",
+    path: "/models/catPlayground-test.glb",
     urlPathname: "/",
   },
   {

@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import GUI from 'lil-gui';
+import GUI from "lil-gui";
 import Experience from "../Experience";
 
 //Deal with environment (lighting)
@@ -13,7 +13,7 @@ export default class Environment {
   }
 
   setSunlight() {
-    this.sunLight = new THREE.DirectionalLight("#ffffff", 2.4);
+    this.sunLight = new THREE.DirectionalLight("#ffffff", 2.6);
     this.sunLight.castShadow = true;
     this.sunLight.shadow.camera.far = 20;
     this.sunLight.shadow.mapSize.set(1024, 1024);
@@ -29,9 +29,7 @@ export default class Environment {
     this.scene.add(ambientLight);
   }
 
-  resize() {
-  }
+  resize() {}
 
-  update() {
-  }
+  update() {}
 }

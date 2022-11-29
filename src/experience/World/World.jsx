@@ -14,12 +14,10 @@ import Circle from "./Circle";
 import CatControls from "./CatControls";
 import Controls from "./Controls";
 
-
 import asset from "../Utils/assets";
 import EventEmitter from "events";
 
-export default class World extends EventEmitter
-{
+export default class World extends EventEmitter {
   constructor() {
     super();
     this.experience = new Experience();
@@ -35,42 +33,31 @@ export default class World extends EventEmitter
       this.floor = new Floor();
 
       if (this.currentPath == "/") {
-        console.log("cat playground");
         this.cat = new CatPlayground();
         this.controls = new Controls();
-      }
-      else if (this.currentPath == asset[1].urlPathname) {
-        console.log("eating CATTTT");
+      } else if (this.currentPath == asset[1].urlPathname) {
         this.cat = new EatingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
-      }
-      else if (this.currentPath == asset[2].urlPathname) {
-        console.log("playing CATTTT");
+      } else if (this.currentPath == asset[2].urlPathname) {
         this.cat = new PlayingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
-      }
-      else if (this.currentPath == asset[3].urlPathname) {
-        console.log("standing CATTTT");
+      } else if (this.currentPath == asset[3].urlPathname) {
         this.cat = new StandingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
-      }
-      else if (this.currentPath == asset[4].urlPathname) {
-        console.log("lying CATTTT");
+      } else if (this.currentPath == asset[4].urlPathname) {
         this.cat = new LyingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
-      }
-      else if (this.currentPath == asset[5].urlPathname) {
-        console.log("side CATTTT");
+      } else if (this.currentPath == asset[5].urlPathname) {
         this.cat = new SideLyingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
       }
-      this.emit("worldready");
-
+        this.emit("worldready");
+      
       // this.controls = new Controls();
     });
   }

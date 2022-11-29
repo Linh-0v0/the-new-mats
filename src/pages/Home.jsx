@@ -18,18 +18,23 @@ const Home = () => {
   const containerRef = useRef(null);
 
   return (
+  //   <div
+  //   className="experience relative-pos"
+  //   data-scroll
+  //   data-scroll-section
+  //   data-scroll-sticky
+  // >
+  //   <canvas className="experience-canvas"></canvas>
+  // </div>
     <LocoScroll refName={containerRef}>
       <main className="App" data-scroll-container ref={containerRef}>
         <div
           className="experience relative-pos"
-          data-scroll
-          data-scroll-section
-          data-scroll-sticky
         >
           <canvas className="experience-canvas"></canvas>
         </div>
 
-        {/* <IntroTextPreloader /> */}
+        <IntroTextPreloader />
 
         {/* <Overlay> */}
         <LandingMain />

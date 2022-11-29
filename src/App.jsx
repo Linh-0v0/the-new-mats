@@ -10,9 +10,6 @@ import CatPlaying from "./pages/CatPlaying";
 import CatStanding from "./pages/CatStanding";
 import CatLying from "./pages/CatLying";
 import CatSideLying from "./pages/CatSideLying";
-
-
-
 import Home from "./pages/Home";
 
 function App() {

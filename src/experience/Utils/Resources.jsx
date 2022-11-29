@@ -56,6 +56,7 @@ export default class Resources extends EventEmitter {
         // check if all the assets has been loaded
         if (this.loaded === this.queue) {
             console.log("ALL ASSETS ARE DONE");
+            console.log(this.items);
             this.emit("ready");
         }
     }

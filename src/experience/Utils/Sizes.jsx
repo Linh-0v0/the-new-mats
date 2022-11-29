@@ -16,8 +16,10 @@ export default class Sizes extends EventEmitter {
     this.pixelRatio = Math.min(window.devicePixelRatio, 2);
     this.frustrum = 5;
 
-    if (this.width < 570) {
+    if (this.width <= 570) {
       this.device = "mobile";
+    } else if (this.width < 1024 && this.width > 570) {
+      this.device = "tablet";
     } else {
       this.device = "desktop";
     }
@@ -31,10 +33,18 @@ export default class Sizes extends EventEmitter {
       // emit event
       this.emit("resize");
 
-      if (this.width < 570 && this.device !== "mobile") {
+      if (this.width <= 570 && this.device !== "mobile") {
         this.device = "mobile";
         this.emit("switchdevice", this.device);
         console.log("mobile");
+      } else if (
+        this.width > 570 &&
+        this.width < 1024 &&
+        this.device !== "tablet"
+      ) {
+        this.device = "tablet";
+        this.emit("switchdevice", this.device);
+        console.log("tablet");
       } else if (this.width >= 570 && this.device !== "desktop") {
         this.device = "desktop";
         this.emit("switchdevice", this.device);
