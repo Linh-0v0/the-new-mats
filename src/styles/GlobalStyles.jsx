@@ -27,11 +27,11 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     font-weight: 300;
+    white-space: pre-wrap;
 }
 
 a {
     color: inherit;
-    text-decoration: none;
 }
 
 

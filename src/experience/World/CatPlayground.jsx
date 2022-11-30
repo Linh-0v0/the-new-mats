@@ -117,10 +117,10 @@ export default class EatingCat extends EventEmitter {
       // //eatingcat
       this.eatingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.eatingCatPlayHead = this.eatingCatMixer.clipAction(
-        this.cat.animations[43]
+        this.cat.animations[44]
       );
       this.eatingCatPlayTail = this.eatingCatMixer.clipAction(
-        this.cat.animations[44]
+        this.cat.animations[45]
       );
       this.eatingCatPlayHead.play();
       this.eatingCatPlayTail.play();
@@ -139,7 +139,7 @@ export default class EatingCat extends EventEmitter {
       this.standingCatMixer = new THREE.AnimationMixer(this.actualCat);
       // //standing cat
       this.standingCatPlay = this.standingCatMixer.clipAction(
-        this.cat.animations[14]
+        this.cat.animations[15]
       );
       this.standingCatPlay.play();
       // //leg
@@ -151,7 +151,7 @@ export default class EatingCat extends EventEmitter {
 
       this.lyingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.lyingCatPlay = this.lyingCatMixer.clipAction(
-        this.cat.animations[22]
+        this.cat.animations[23]
       );
       this.lyingCatPlay.play();
       // // leg
@@ -168,14 +168,14 @@ export default class EatingCat extends EventEmitter {
       //playingCat
       this.playingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.playingCatPlay = this.playingCatMixer.clipAction(
-        this.cat.animations[23]
+        this.cat.animations[24]
       );
       this.playingCatPlay.play();
 
       // //sidelyingcat / housecat
       this.sideLyingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(
-        this.cat.animations[37]
+        this.cat.animations[38]
       );
       this.sideLyingCatPlay.play();
       // //arm
@@ -196,19 +196,19 @@ export default class EatingCat extends EventEmitter {
       //rightTree
       this.rightTreeMixer = new THREE.AnimationMixer(this.actualCat);
       this.rightTreePlay1 = this.rightTreeMixer.clipAction(
-        this.cat.animations[82]
-      );
-      this.rightTreePlay2 = this.rightTreeMixer.clipAction(
         this.cat.animations[83]
       );
-      this.rightTreePlay3 = this.rightTreeMixer.clipAction(
-        this.cat.animations[87]
+      this.rightTreePlay2 = this.rightTreeMixer.clipAction(
+        this.cat.animations[84]
       );
-      this.rightTreePlay4 = this.rightTreeMixer.clipAction(
+      this.rightTreePlay3 = this.rightTreeMixer.clipAction(
         this.cat.animations[88]
       );
-      this.rightTreePlay5 = this.rightTreeMixer.clipAction(
+      this.rightTreePlay4 = this.rightTreeMixer.clipAction(
         this.cat.animations[89]
+      );
+      this.rightTreePlay5 = this.rightTreeMixer.clipAction(
+        this.cat.animations[90]
       );
       this.rightTreePlay1.play();
       this.rightTreePlay2.play();
@@ -226,20 +226,20 @@ export default class EatingCat extends EventEmitter {
       // middle tree
       this.middleTreeMixer = new THREE.AnimationMixer(this.actualCat);
       this.middleTreePlay = this.middleTreeMixer.clipAction(
-        this.cat.animations[11]
+        this.cat.animations[5]
       );
       this.middleTreePlay.play();
 
       // right lamp
       this.rightLampMixer = new THREE.AnimationMixer(this.actualCat);
       this.rightLampPlay = this.rightLampMixer.clipAction(
-        this.cat.animations[103]
+        this.cat.animations[104]
       );
       this.rightLampPlay2 = this.rightLampMixer.clipAction(
-        this.cat.animations[99]
+        this.cat.animations[100]
       );
       this.rightLampPlay3 = this.rightLampMixer.clipAction(
-        this.cat.animations[100]
+        this.cat.animations[101]
       );
       this.rightLampPlay.play();
       this.rightLampPlay2.play();
@@ -248,13 +248,13 @@ export default class EatingCat extends EventEmitter {
       // left lamp
       this.leftLampMixer = new THREE.AnimationMixer(this.actualCat);
       this.leftLampPlay = this.leftLampMixer.clipAction(
-        this.cat.animations[101]
+        this.cat.animations[102]
       );
       this.leftLampPlay2 = this.leftLampMixer.clipAction(
-        this.cat.animations[97]
+        this.cat.animations[98]
       );
       this.leftLampPlay3 = this.leftLampMixer.clipAction(
-        this.cat.animations[98]
+        this.cat.animations[99]
       );
       this.leftLampPlay.play();
       this.leftLampPlay2.play();
@@ -294,7 +294,7 @@ export default class EatingCat extends EventEmitter {
     );
     this.actualCat.rotation.x = this.lerpY.current;
 
-    this.eatingCatMixer.update(this.time.delta * 0.001);
+    this.eatingCatMixer.update(this.time.delta * 0.002);
     this.standingCatMixer.update(this.time.delta * 0.001);
     this.lyingCatMixer.update(this.time.delta * 0.001);
     this.playingCatMixer.update(this.time.delta * 0.0015);
@@ -302,7 +302,7 @@ export default class EatingCat extends EventEmitter {
 
     this.rightTreeMixer.update(this.time.delta * 0.0008);
     this.leftTreeMixer.update(this.time.delta * 0.001);
-    this.middleTreeMixer.update(this.time.delta * 0.0008);
+    this.middleTreeMixer.update(this.time.delta * 0.005);
 
     this.leftLampMixer.update(this.time.delta * 0.0008);
     this.rightLampMixer.update(this.time.delta * 0.0008);

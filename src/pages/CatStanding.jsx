@@ -4,6 +4,7 @@ import Transitions from "../components/Transitions";
 import GoBackArrow from "../components/GoBackArrow";
 import { motion } from "framer-motion";
 import LocoScroll from "../components/LocoScroll";
+import IndividualInfo from "../sections/IndividualInfo"
 
 const Container = styled(motion.div)`
   width: 50%;
@@ -50,14 +51,15 @@ const InfoContainer = styled.div`
 
 const DarkOverlay = styled.div`
   position: absolute;
+  top:0;
   display: none;
   width: 100%;
   height: 100%;
-  z-index: -999;
+  z-index: -1;
+  background-color: ${(props) => `rgba(${props.theme.white}, 0.2)`};
 
   @media (max-width: 570px) {
     display: block;
-    background: ${props => `rgba(${props.theme.white}, 0.7)`};
   }
 `;
 
@@ -90,7 +92,7 @@ const CatStanding = () => {
           ref={catContainerRef}
         >
           <div className="progress-wrapper progress-bar-wrapper-left">
-            <div className="progress-bar orange-background"></div>
+            <div className="progress-bar purple-background"></div>
           </div>
           <DarkOverlay></DarkOverlay>
           <Container
@@ -99,52 +101,16 @@ const CatStanding = () => {
             animate="show"
             data-scroll-section
           >
-            <GoBackArrow />
-            <InfoContainer>
-              <h1>Individual Info</h1>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-            </InfoContainer>
+            <GoBackArrow fillColor="rgb(154, 136, 179)" />
+            <IndividualInfo
+              charColor="rgb(154, 136, 179)"
+              profileImageSrc="/images/"
+              fullName="Nguyen Huu Minh Khang "
+              about="I am born and raised in VietNam. My passion in IT first is to master machine learning and later on developing alogrithms for AI."
+              role="Web programmer, technical writer."
+              specialization="I have experience with low level programming and fidgeting with embeded systems so my strengths is about configurating systems together and debugging."
+              linkTitlesDict={[{title: "For personal email", link: "minhkhang09122003@gmail.com"}]}
+            />
           </Container>
         </section>
       </LocoScroll>

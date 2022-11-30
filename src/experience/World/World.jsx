@@ -35,23 +35,23 @@ export default class World extends EventEmitter {
       if (this.currentPath == "/") {
         this.cat = new CatPlayground();
         this.controls = new Controls();
-      } else if (this.currentPath == asset[1].urlPathname) {
+      } else if (this.currentPath == asset[2].urlPathname) {
         this.cat = new EatingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
-      } else if (this.currentPath == asset[2].urlPathname) {
+      } else if (this.currentPath == asset[3].urlPathname) {
         this.cat = new PlayingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
-      } else if (this.currentPath == asset[3].urlPathname) {
+      } else if (this.currentPath == asset[4].urlPathname) {
         this.cat = new StandingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
-      } else if (this.currentPath == asset[4].urlPathname) {
+      } else if (this.currentPath == asset[5].urlPathname) {
         this.cat = new LyingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
-      } else if (this.currentPath == asset[5].urlPathname) {
+      } else if (this.currentPath == asset[6].urlPathname) {
         this.cat = new SideLyingCat();
         this.circle = new Circle();
         this.controls = new CatControls();

@@ -23,13 +23,15 @@ export default class Preloader extends EventEmitter {
 
     // GSAP.registerPlugin(ScrollTrigger);
 
-    this.sizes.on("switchdevice", (device) => {
-      this.device = device;
-    });
-    this.world.on("worldready", () => {
-      this.setAssets();
-      this.playIntro();
-    });
+    if (window.location.pathname == "/") {
+      this.sizes.on("switchdevice", (device) => {
+        this.device = device;
+      });
+      this.world.on("worldready", () => {
+        this.setAssets();
+        this.playIntro();
+      });
+    }
   }
 
   setAssets() {
@@ -64,8 +66,8 @@ export default class Preloader extends EventEmitter {
           ease: "back.in(1.2)",
           onComplete: resolve,
         });
-      } 
-      if (this.device === "mobile") { 
+      }
+      if (this.device === "mobile") {
         this.timeline.to(this.catRoomChildren.door.scale, {
           x: 0.35,
           y: 0.35,
@@ -97,7 +99,7 @@ export default class Preloader extends EventEmitter {
               y: -11,
               x: -7,
               ease: "Back.easeIn.config(4)",
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -107,7 +109,7 @@ export default class Preloader extends EventEmitter {
               x: 5,
               y: 5,
               z: 5,
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -129,16 +131,16 @@ export default class Preloader extends EventEmitter {
             y: 0.8,
             z: 0.8,
           });
-        } 
-         if (this.device === "tablet") {
-          this.secondTimeline
+      }
+      if (this.device === "tablet") {
+        this.secondTimeline
           .to(
             this.catRoomChildren.door.position,
             {
               y: -11,
               x: -7,
               ease: "Back.easeIn.config(4)",
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -148,7 +150,7 @@ export default class Preloader extends EventEmitter {
               x: 5,
               y: 5,
               z: 5,
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -165,15 +167,19 @@ export default class Preloader extends EventEmitter {
             },
             "doorsame"
           )
-          .to(this.cat.position, {
-            y: 1,
-          }, "doorsame")
+          .to(
+            this.cat.position,
+            {
+              y: 1,
+            },
+            "doorsame"
+          )
           .to(this.cat.scale, {
             x: 0.45,
             y: 0.45,
             z: 0.45,
           });
-      } 
+      }
       if (this.device === "mobile") {
         this.secondTimeline
           .to(
@@ -182,7 +188,7 @@ export default class Preloader extends EventEmitter {
               y: -11,
               x: -7,
               ease: "Back.easeIn.config(4)",
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -192,7 +198,7 @@ export default class Preloader extends EventEmitter {
               x: 5,
               y: 5,
               z: 5,
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -209,9 +215,13 @@ export default class Preloader extends EventEmitter {
             },
             "doorsame"
           )
-          .to(this.cat.position, {
-            y: 1.8,
-          }, "doorsame")
+          .to(
+            this.cat.position,
+            {
+              y: 1.8,
+            },
+            "doorsame"
+          )
           .to(this.cat.scale, {
             x: 0.32,
             y: 0.32,

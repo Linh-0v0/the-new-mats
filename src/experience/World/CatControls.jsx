@@ -4,7 +4,6 @@ import GSAP from "gsap";
 import * as TWEEN from "@tweenjs/tween.js";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import EventEmitter from "events";
-import LocomotiveScroll from "locomotive-scroll";
 import asset from "../Utils/assets";
 
 export default class CatControls extends EventEmitter {
@@ -18,9 +17,12 @@ export default class CatControls extends EventEmitter {
     this.time = this.experience.time;
     this.camera = this.experience.camera;
     this.cat = this.experience.world.cat.actualCat;
+    this.floor = this.experience.world.floor;
     this.circleFirst = this.experience.world.circle.circleFirst;
     this.circleSecond = this.experience.world.circle.circleSecond;
     this.circleThird = this.experience.world.circle.circleThird;
+    this.circleFourth = this.experience.world.circle.circleFourth;
+    this.circleFifth = this.experience.world.circle.circleFifth;
     this.goToLanding = this.experience.goToLanding;
     this.goBackMsgReceived = "";
     this.currentPath = window.location.pathname;
@@ -41,7 +43,7 @@ export default class CatControls extends EventEmitter {
   setAppearAnimation() {
     if (window.matchMedia("(max-width: 570px)").matches) {
       const tween = new TWEEN.Tween(this.cat.position)
-        .to({ x: 0, z: 0 }, 3500)
+        .to({ x: 0, z: 0, y: 1.5 }, 3500)
         .delay(500)
         .easing(TWEEN.Easing.Cubic.InOut)
         .onStart(() => {
@@ -53,7 +55,7 @@ export default class CatControls extends EventEmitter {
       tween.start();
     } else if (window.matchMedia("(max-width: 760px)").matches) {
       const tween = new TWEEN.Tween(this.cat.position)
-        .to({ x: 1.1, z: 0 }, 3500)
+        .to({ x: 1.1, z: 0, y: 1.5 }, 3500)
         .delay(500)
         .easing(TWEEN.Easing.Cubic.InOut)
         .onStart(() => {
@@ -65,7 +67,7 @@ export default class CatControls extends EventEmitter {
       tween.start();
     } else if (window.matchMedia("(max-width: 970px)").matches) {
       const tween = new TWEEN.Tween(this.cat.position)
-        .to({ x: 1.4, z: 0 }, 3500)
+        .to({ x: 1.4, z: 0 , y: 1.5}, 3500)
         .delay(500)
         .easing(TWEEN.Easing.Cubic.InOut)
         .onStart(() => {
@@ -77,7 +79,7 @@ export default class CatControls extends EventEmitter {
       tween.start();
     } else if (window.matchMedia("(max-width: 1100px)").matches) {
       const tween = new TWEEN.Tween(this.cat.position)
-        .to({ x: 1.7, z: 0 }, 3500)
+        .to({ x: 1.7, z: 0, y: 1.5 }, 3500)
         .delay(500)
         .easing(TWEEN.Easing.Cubic.InOut)
         .onStart(() => {
@@ -89,12 +91,12 @@ export default class CatControls extends EventEmitter {
       tween.start();
     } else {
       const tween = new TWEEN.Tween(this.cat.position)
-        .to({ x: 2.2, z: 0 }, 3500)
+        .to({ x: 2.2, z: 2, y: 1.3 }, 3500)
         .delay(500)
         .easing(TWEEN.Easing.Cubic.InOut)
         .onStart(() => {
           new TWEEN.Tween(this.cat.scale)
-            .to({ x: 1.5, y: 1.5, z: 1.5 }, 3500)
+            .to({ x: 1.5, y: 1.5, z: 1.6 }, 3500)
             .easing(TWEEN.Easing.Cubic.InOut)
             .start();
         });
@@ -106,21 +108,21 @@ export default class CatControls extends EventEmitter {
     console.log(goBackMsg);
     if (goBackMsg === "goback") {
       window.location.href = "/";
-      // Original position that sees all parts of the model
-      // this.movedToTarget.target[0] = 3;
-      // this.movedToTarget = this.originalCameraPosition;
-      // console.log("new movedtarget", this.movedToTarget)
     }
   }
 
   setScrollTrigger() {
-    if (this.currentPath == "/home") {
-    } else if (this.currentPath == asset[1].urlPathname) {
-      this.checkCatForColorCircle(this.circleFirst);
+    if (this.currentPath == asset[1].urlPathname) {
     } else if (this.currentPath == asset[2].urlPathname) {
+      this.checkCatForColorCircle(this.circleFirst);
     } else if (this.currentPath == asset[3].urlPathname) {
+      this.checkCatForColorCircle(this.circleFourth);
     } else if (this.currentPath == asset[4].urlPathname) {
+      this.checkCatForColorCircle(this.circleFifth);
     } else if (this.currentPath == asset[5].urlPathname) {
+      this.checkCatForColorCircle(this.circleSecond);
+    } else if (this.currentPath == asset[6].urlPathname) {
+      this.checkCatForColorCircle(this.circleThird);
     }
   }
 
@@ -152,7 +154,7 @@ export default class CatControls extends EventEmitter {
           circle.position,
           {
             x: 2,
-            y: -0.29,
+            y: 1,
             z: -1.3,
           },
           "same"
@@ -193,8 +195,8 @@ export default class CatControls extends EventEmitter {
           circle.position,
           {
             x: 2,
-            y: -0.29,
-            z: -1.3,
+            y: 1,
+            z: -1.2,
           },
           "same"
         )
@@ -219,24 +221,5 @@ export default class CatControls extends EventEmitter {
       // console.log( this.progress)
     });
     TWEEN.update();
-    // if (this.goBackMsgReceived === "goback") {
-    //   this.movedToTarget.target = this.originalCameraPosition.target;
-    // }
-    //   // Move camera to target
-    //   this.movedToTarget.current = GSAP.utils.interpolate(
-    //     this.movedToTarget.current,
-    //     this.movedToTarget.target,
-    //     this.movedToTarget.ease
-    //   );
-    //   this.camera.orthographicCamera.position.y = this.movedToTarget.current[0];
-    //   this.camera.orthographicCamera.position.z = this.movedToTarget.current[1];
-    // console.log("CAMERA Y Z: ", this.camera.orthographicCamera.position)
-    // console.log(
-    //   "this.movedToTargetZZZ",
-    //   this.camera.orthographicCamera.position.y,
-    //   this.camera.orthographicCamera.position.z,
-    //   this.movedToTarget.current[1],
-    //   this.movedToTarget.target[1]
-    // );
   }
 }

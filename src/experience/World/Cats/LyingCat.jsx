@@ -11,7 +11,7 @@ export default class LyingCat {
     this.cat = this.resources.items.lyingCat;
     this.camera = this.experience.camera;
 
-    // console.log(this.cat);
+    console.log(this.cat);
     
     if (this.cat) {
       this.actualCat = this.cat.scene;
@@ -69,11 +69,11 @@ export default class LyingCat {
       // value [-1,1] -> the model moves a little left-right
       this.rotation =
         ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-      this.lerp.target = this.rotation * 0.6;
+      this.lerp.target = this.rotation * 0.9;
 
       this.rotationX =
         ((e.clientY - window.innerHeight / 2) * 2) / window.innerHeight;
-      this.lerpY.target = this.rotationX * 0.1;
+      this.lerpY.target = this.rotationX * 0.5;
     });
   }
 
@@ -95,6 +95,6 @@ export default class LyingCat {
     );
     
     this.actualCat.rotation.x = this.lerpY.current;
-    this.mixer.update(this.time.delta * 0.0008);
+    this.mixer.update(this.time.delta * 0.002);
   }
 }

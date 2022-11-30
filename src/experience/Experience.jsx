@@ -33,10 +33,7 @@ export default class Experience {
 
     console.log("EXPERIENCE", this.currentPath);
 
-    if (
-      this.currentPath == assets[0].urlPathname ||
-      this.currentPath == assets[1].urlPathname
-    ) {
+    if (this.currentPath == assets[1].urlPathname) {
       this.scene = this.scene;
     } else if (this.currentPath == assets[2].urlPathname) {
       this.scene = this.eatingCatScene;
@@ -57,14 +54,14 @@ export default class Experience {
     this.renderer = new Renderer();
 
     this.world = new World();
-    this.preloader = new Preloader();
+
     this.goToLanding = new GoToLanding();
     // this.controls = new Controls();
 
+    this.preloader = new Preloader();
     this.preloader.on("enablecontrols", () => {
       this.controls = new Controls();
     });
-
     // listen to emitted event
     this.time.on("update", () => {
       this.update();

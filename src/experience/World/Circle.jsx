@@ -13,10 +13,10 @@ export default class Circle {
   setCircle() {
     const geometry = new THREE.CircleGeometry(5, 64);
     const material = new THREE.MeshStandardMaterial({ color: 0xffd2d1 });
-    const material2 = new THREE.MeshStandardMaterial({ color: 0xffd2d5 });
-    const material3 = new THREE.MeshStandardMaterial({ color: 0xffd2d9 });
-    const material4 = new THREE.MeshStandardMaterial({ color: 0xffd2d9 });
-    const material5 = new THREE.MeshStandardMaterial({ color: 0xffd2d9 });
+    const material2 = new THREE.MeshStandardMaterial({ color: 0x887259 });
+    const material3 = new THREE.MeshStandardMaterial({ color: 0xDE9D54 });
+    const material4 = new THREE.MeshStandardMaterial({ color: 0xA7C4D5 });
+    const material5 = new THREE.MeshStandardMaterial({ color: 0xD2C4E4 });
 
     this.circleFirst = new THREE.Mesh(geometry, material);
     this.circleSecond = new THREE.Mesh(geometry, material2);
@@ -24,11 +24,11 @@ export default class Circle {
     this.circleFourth = new THREE.Mesh(geometry, material4);
     this.circleFifth = new THREE.Mesh(geometry, material5);
 
-    this.circleFirst.position.set(0, -0.29, 0);
-    this.circleSecond.position.set(0, -0.29, 0);
-    this.circleThird.position.set(0, -0.29, 0);
-    this.circleFourth.position.set(0, -0.29, 0);
-    this.circleFifth.position.set(0, -0.29, 0);
+    this.circleFirst.position.set(0, 1.1, 0);
+    this.circleSecond.position.set(0, 1, 0);
+    this.circleThird.position.set(0, 1, 0);
+    this.circleFourth.position.set(0, 1, 0);
+    this.circleFifth.position.set(0, 1, 0);
 
     this.circleFirst.scale.set(0, 0, 0);
     this.circleSecond.scale.set(0, 0, 0);
@@ -41,7 +41,7 @@ export default class Circle {
       this.circleThird.rotation.x =
       this.circleFourth.rotation.x =
       this.circleFifth.rotation.x =
-        -Math.PI / 2;
+        -Math.PI/3;
 
     this.circleFirst.receiveShadow =
       this.circleSecond.receiveShadow =

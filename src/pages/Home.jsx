@@ -36,7 +36,6 @@ const Home = () => {
 
         <IntroTextPreloader />
 
-        {/* <Overlay> */}
         <LandingMain />
 
         <div className="first-move"></div>

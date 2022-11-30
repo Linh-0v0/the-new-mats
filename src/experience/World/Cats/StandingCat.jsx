@@ -49,15 +49,17 @@ export default class StandingCat {
         }
       });
 
-      this.scene.add(this.actualCat);
       this.actualCat.scale.set(0.3, 0.3, 0.3);
+      this.scene.add(this.actualCat);
+      console.log("CAT", this.cat)
+    
     }
   }
 
   setAnimation() {
     if (this.cat) {
       this.mixer = new THREE.AnimationMixer(this.actualCat);
-      this.head = this.mixer.clipAction(this.cat.animations[0]);
+      this.head = this.mixer.clipAction(this.cat.animations[3]);
       this.head.play();
     }
   }
@@ -68,11 +70,11 @@ export default class StandingCat {
       // value [-1,1] -> the model moves a little left-right
       this.rotation =
         ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-      this.lerp.target = this.rotation * 0.6;
+      this.lerp.target = this.rotation * 0.9;
 
       this.rotationX =
         ((e.clientY - window.innerHeight / 2) * 2) / window.innerHeight;
-      this.lerpY.target = this.rotationX * 0.1;
+      this.lerpY.target = this.rotationX * 0.5;
     });
   }
 
@@ -95,6 +97,6 @@ export default class StandingCat {
     
     this.actualCat.rotation.x = this.lerpY.current;
 
-    this.mixer.update(this.time.delta * 0.0008);
+    this.mixer.update(this.time.delta * 0.001);
   }
 }
