@@ -232,9 +232,9 @@ export default class Preloader extends EventEmitter {
             "doorsame"
           )
           .to(this.cat.scale, {
-            x: 0.32,
-            y: 0.32,
-            z: 0.32,
+            x: 0.26,
+            y: 0.26,
+            z: 0.26,
           });
       }
 
