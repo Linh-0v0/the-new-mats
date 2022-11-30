@@ -28,7 +28,7 @@ const InfoDetail = ({ charColor, title, parag, linkTitlesDict }) => {
         return (
           <p style={{ fontWeight: "400" }} key={key}>
             {titleAndLink.title}:
-            <a style={{ fontWeight: "300" }} href={titleAndLink.link}>
+            <a style={{ fontWeight: "300", textDecoration: "underline" }} href={titleAndLink.link}>
               <span style={{ paddingLeft: "0.5rem" }}>{titleAndLink.link}</span>
             </a>
           </p>

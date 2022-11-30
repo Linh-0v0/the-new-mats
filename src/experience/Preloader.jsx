@@ -35,9 +35,11 @@ export default class Preloader extends EventEmitter {
   }
 
   setAssets() {
-    if (document.querySelector(".intro-text")) {
-      convert(document.querySelector(".intro-text"));
-      console.log(document.querySelector(".intro-text"));
+    if (document.querySelector(".intro-text1")) {
+      convert(document.querySelector(".intro-text1"));
+      convert(document.querySelector(".intro-text2"));
+      console.log(document.querySelector(".intro-text1"));
+      console.log(document.querySelector(".intro-text2"));
     }
 
     this.cat = this.experience.world.cat.actualCat;
@@ -59,13 +61,6 @@ export default class Preloader extends EventEmitter {
           ease: "back.out(2.5)",
           duration: 1,
         });
-        this.timeline.to(".intro-text .animateThis", {
-          yPercent: -100,
-          stagger: 0.05,
-          duration: 0.1,
-          ease: "back.in(1.2)",
-          onComplete: resolve,
-        });
       }
       if (this.device === "mobile") {
         this.timeline.to(this.catRoomChildren.door.scale, {
@@ -75,14 +70,28 @@ export default class Preloader extends EventEmitter {
           ease: "back.out(2.5)",
           duration: 1,
         });
-        this.timeline.to(".intro-text .animateThis", {
+      }
+      this.timeline.to(
+        ".intro-text1 .animateThis",
+        {
+          yPercent: -100,
+          stagger: 0.05,
+          duration: 0.1,
+          ease: "back.in(1.2)",
+        },
+        "introsame"
+      );
+      this.timeline.to(
+        ".intro-text2 .animateThis",
+        {
           yPercent: -100,
           stagger: 0.05,
           duration: 0.1,
           ease: "back.in(1.2)",
           onComplete: resolve,
-        });
-      }
+        },
+        "introsame"
+      );
     });
   }
 
@@ -229,11 +238,31 @@ export default class Preloader extends EventEmitter {
           });
       }
 
-      this.timeline.to(".intro-text .animateThis", {
-        yPercent: 0,
-        duration: 0,
-        onComplete: resolve,
-      });
+      this.timeline.to(
+        ".intro-text1 .animateThis",
+        {
+          yPercent: 100,
+          duration: 0.1,
+          ease: "back.in(1.2)",
+        },
+        "doorsame"
+      );
+      this.timeline.to(
+        ".intro-text2 .animateThis",
+        {
+          yPercent: 100,
+          duration: 0.1,
+          ease: "back.in(1.2)",
+          onComplete: resolve,
+        },
+        "doorsame"
+      );
+      this.timeline.to(".intro-text2 .animateThis", {
+        display: "none"
+      }, "samenone")
+      this.timeline.to(".intro-text3 .animateThis", {
+        display: "none"
+      }, "samenone")
     });
   }
 

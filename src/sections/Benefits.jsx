@@ -44,7 +44,7 @@ const Container = styled.div`
 
 const Benefits = () => {
   return (
-    <Section data-scroll-section>
+    <Section className="benefit-section" data-scroll-section>
       <Container>
         <h1>Benefits of working with us</h1>
         <BenefitCompo

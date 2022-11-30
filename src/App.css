@@ -74,13 +74,26 @@
   transform: translateY(100%);
 }
 
-.intro-text {
+.intro-text1  {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 22%;
-  left: 50%;
+  top: 17%;
+  left: 49%;
+  font-weight: 500;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.intro-text2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 23%;
+  left: 49%;
   font-weight: 500;
   font-size: 2rem;
   transform: translate(-50%, -50%);
@@ -88,9 +101,14 @@
 }
 
 @media (max-width: 570px) {
-  .intro-text {
+  .intro-text1 {
     font-size: 1.8rem;
-    top: 22%;
+    top: 19%;
+  }
+
+  .intro-text2 {
+    font-size: 1.8rem;
+    top: 25%;
   }
 
   .progress-wrapper{

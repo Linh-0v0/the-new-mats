@@ -63,7 +63,7 @@ export default class EatingCat extends EventEmitter {
       this.door.rotation.y = Math.PI / 1.95;
       this.door.position.x = -0.8;
       this.door.position.y = 1.7;
-      this.door.position.z = 7;
+      this.door.position.z = 8;
       this.door.scale.set(0.25, 0, 0.25);
       this.door.name = "door";
       this.catRoomChildren[this.door.name] = this.door;
@@ -80,7 +80,7 @@ export default class EatingCat extends EventEmitter {
       this.scene.add(this.planeBg);
       // this.plane.rotation.x = Math.PI / 2;
       // this.plane.position.y = -0.3;
-      this.planeBg.position.z = 4;
+      this.planeBg.position.z = 5;
       // this.plane.receiveShadow = false;
       this.catRoomChildren[this.planeBg.name] = this.planeBg;
     }
@@ -124,46 +124,20 @@ export default class EatingCat extends EventEmitter {
       );
       this.eatingCatPlayHead.play();
       this.eatingCatPlayTail.play();
-      // this.eatingCatPlay = this.eatingCatMixer.clipAction(
-      //   this.cat.animations[43]
-      // );
-      // //head
-      // this.eatingCatPlay = this.eatingCatMixer.clipAction(
-      //   this.cat.animations[46]
-      // );
-      // // tail
-      // // this.eatingCatPlay = this.eatingCatMixer.clipAction(
-      // //   this.cat.animations[50]
-      // // );
 
+      // standing Cat
       this.standingCatMixer = new THREE.AnimationMixer(this.actualCat);
-      // //standing cat
       this.standingCatPlay = this.standingCatMixer.clipAction(
         this.cat.animations[15]
       );
       this.standingCatPlay.play();
-      // //leg
-      // // this.standingCatPlay = this.standingCatMixer.clipAction(this.cat.animations[20]);
-      // //ear
-      // // this.standingCatPlay = this.standingCatMixer.clipAction(this.cat.animations[21]);
-      // //head
-      // //      this.standingCatPlay = this.standingCatMixer.clipAction(this.cat.animations[22]);
 
+      // lying Cat
       this.lyingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.lyingCatPlay = this.lyingCatMixer.clipAction(
         this.cat.animations[23]
       );
       this.lyingCatPlay.play();
-      // // leg
-      // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[23]);
-      // //arm
-      // // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[24]);
-      // //lyingcataction
-      // // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[25]);
-      // //head
-      // // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[26]);
-      // //ear
-      // // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[27]);
 
       //playingCat
       this.playingCatMixer = new THREE.AnimationMixer(this.actualCat);
@@ -178,20 +152,6 @@ export default class EatingCat extends EventEmitter {
         this.cat.animations[38]
       );
       this.sideLyingCatPlay.play();
-      // //arm
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[37]);
-      // //rightleg
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[38]);
-      // //leftleg
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[39]);
-      // //tail
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[40]);
-      // //ear
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[41]);
-      // //head
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[42]);
-      // //rightear
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[44]);
 
       //rightTree
       this.rightTreeMixer = new THREE.AnimationMixer(this.actualCat);
@@ -268,7 +228,7 @@ export default class EatingCat extends EventEmitter {
       // value [-1,1] -> the model moves a little left-right
       this.rotation =
         ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-      this.lerp.target = this.rotation * 0.1;
+      this.lerp.target = this.rotation * 0.17;
 
       this.rotationX =
         ((e.clientY - window.innerHeight / 2) * 2) / window.innerHeight;
