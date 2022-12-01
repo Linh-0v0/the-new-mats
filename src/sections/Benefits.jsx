@@ -7,19 +7,19 @@ const Section = styled.section`
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+    padding-top: 3rem;
     background-color: ${(props) => `rgba(${props.theme.white}, 1)`};
 `;
 
 const Container = styled.div`
-    width: 80%;
+    width: 80%;                                                                //Phone
     margin: 0 auto;
     display: grid; 
     grid-template-columns: auto auto auto auto;
-    grid-template-rows: auto auto auto auto auto;
     column-gap: 2rem;
-    h1 {                                              //phone
-      padding-top: 5rem;
-      font-size: ${(props) => props.theme.font5xl};
+    padding-top: 2rem;
+    h1 {
+      font-size: ${(props) => props.theme.font3xl};
       font-weight: 800;
       color: ${(props) => `rgba(${props.theme.black}, 0.8)`};
       
@@ -28,16 +28,19 @@ const Container = styled.div`
       grid-column: 1/5;
       grid-row:1/3
     }
-    @media only screen and (min-width: 768px){       //Tablet
+    @media only screen and (min-width: ${(props) => props.theme.tablet}){       //Tablet
       h1{
           grid-column: 1/5;
           grid-row: 1/3;
+          font-size: ${(props) => props.theme.font4xl};
       }  
     }
-    @media only screen and (min-width: 1080px){       //desktop
-      h1{
+    @media only screen and (min-width: ${(props) => props.theme.desktop}){       //desktop
+      h1{   
+          margin-top: 5rem;
           grid-column: 1/3;
           grid-row: 1/3;
+          font-size: ${(props) => props.theme.font5xl};
       }  
     }
 `;

@@ -2,25 +2,23 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
-    grid-row: span 1;                           //Phone
+    grid-row: span 1;                                       //Phone
     grid-column: span 4; 
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
-    
-    img {
-        margin-bottom: 0rem;
-    }
+    font-size: ${(props) => props.theme.fontxxs};
     p {
         font-weight:350;
     }
-    @media only screen and (min-width: 768px){              // Tablet
+    @media only screen and (min-width: ${(props) => props.theme.tablet}){              // Tablet
         grid-column: span 2;
         margin-bottom: 3rem;
     }
-    @media only screen and (min-width:1080px){              // Desktop
+    @media only screen and (min-width: ${(props) => props.theme.desktop}){              // Desktop
         grid-column: span 1;
         margin-bottom: 5rem;
         text-align: left;
+        font-size: ${(props) => props.theme.fontxs};
         img {
             margin-bottom: 1rem;
         }
