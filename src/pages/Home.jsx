@@ -9,6 +9,7 @@ import LocoScroll from "../components/LocoScroll";
 import IntroTextPreloader from "../components/IntroTextPreloader";
 import Benefits from "../sections/Benefits";
 import NavBar from "../components/NavBar";
+import Contact from "../sections/Contact";
 
 const Space = styled.div`
   position: relative;
@@ -75,8 +76,13 @@ const Home = () => {
         <Benefits />
 
         <Space data-scroll-section></Space>
+
         <Service />
-        {/* </Overlay> */}
+
+        <Space data-scroll-section></Space>
+        
+        <Contact />
+
       </main>
     </LocoScroll>
   );

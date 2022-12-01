@@ -6,6 +6,7 @@ const Section = styled.section`
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+  background-color: white;
 `;
 
 
@@ -45,10 +46,10 @@ const Contact = () => {
             <h1>Contact</h1>
             <ContactContainer>
                 
-                <img src="icon/facebook.svg" alt="" />
-                <img src="icon/github.svg" alt="" />
-                <img src="icon/gmail.svg" alt="" />
-                <img src="icon/contact.svg" alt="" />   
+                <img src="icons/facebook.svg" alt="" />
+                <img src="icons/github.svg" alt="" />
+                <img src="icons/gmail.svg" alt="" />
+                <img src="icons/contact.svg" alt="" />   
             </ContactContainer>
             </BigContainer>
 

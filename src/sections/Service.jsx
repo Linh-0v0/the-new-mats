@@ -52,7 +52,7 @@ const Service = () => {
         <Container>
           <ServiceContainer>
             <div className="block-1">
-              <img src="icon/lightbulb.svg" alt="" />
+              <img src="icons/lightbulb.svg" alt="" />
               <h2>Websites and platforms</h2>
               <p>
                 Design and create website along with the customer requests fully
@@ -63,7 +63,7 @@ const Service = () => {
 
           <ServiceContainer>
             <div className="block-2">
-              <img src="icon/lightbulb.svg " alt="" />
+              <img src="icons/lightbulb.svg " alt="" />
               <h2>Mobile application</h2>
               <p>
                 Create fully function application separated from the website and
@@ -74,7 +74,7 @@ const Service = () => {
 
           <ServiceContainer>
             <div className="block-3">
-              <img src="icon/lightbulb.svg" alt="" />
+              <img src="icons/lightbulb.svg" alt="" />
               <h2>UI/UX Design</h2>
               <p>
                 Analyze the need of customer to perform on the designing section
