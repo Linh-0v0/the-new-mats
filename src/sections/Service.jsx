@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import React from "react";
+import { motion } from "framer-motion";
 
 const Section = styled.section`
   position: relative;
@@ -23,7 +24,7 @@ const Container = styled.div`
   column-gap: 3rem;
 `;
 
-const ServiceContainer = styled.div`
+const ServiceContainer = styled(motion.div)`
   h2 {
     padding-top: 20px;
     font-size: 30px;
@@ -44,13 +45,24 @@ const ServiceContainer = styled.div`
   }
 `;
 
+const ServiceContainerAnimation = {
+  hidden: {
+    opacity: 0,
+    x: -100,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+  },
+}
+
 const Service = () => {
   return (
     <Section className="" data-scroll-section>
       <BigContainer>
         <h1>Services</h1>
         <Container>
-          <ServiceContainer>
+          <ServiceContainer variants={ServiceContainerAnimation} initial="hidden" animate="show">
             <div className="block-1">
               <img src="icon/lightbulb.svg" alt="" />
               <h2>Websites and platforms</h2>
