@@ -37,9 +37,9 @@ const Home = () => {
       }, 1500);
     });
     const element = containerRef.current;
-    var tl = new gsap.timeline();
+    // var tl = new gsap.timeline();
     setTimeout(() => {
-      tl.to(element.querySelector(".nav-container"), {
+      gsap.to(element.querySelector(".nav-container"), {
         // backgroundColor: "rgba(0, 0, 0, 0.5)",
         color: "rgba(255, 255, 255, 1)",
         backgroundColor: "rgba(0, 0, 0, 0.5)",
