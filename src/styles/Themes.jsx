@@ -15,10 +15,13 @@ export const lightTheme = {
     black: '0, 0, 0',
     beige: '250, 248, 238',
     orange: '255, 111, 96',
-    mint: '148, 208, 221',
-    pink: '247, 172, 179',
-    purple: '214, 196, 238',
+    mint: '90, 178, 197',
+    pink: '525, 137, 148',
+    purple: '154, 136, 179',
     sky: '152, 217, 255',
+    darkerBeige: '86, 56, 22',
+    darkBrown: '86, 56, 22',
+
 
     fontxxs: '1em', // 1 em = 16px     
     fontxs: '1.25em', 

@@ -1,40 +1,53 @@
 import React from "react";
 import styled from "styled-components";
 import InfoDetail from "../components/InfoDetail";
+
 const Section = styled.section`
   position: relative;
-  height: 100vh;
   width: 100vw;
   overflow: hidden;
 `;
 
 const Container = styled.div`
-  width: 40%;
+  width: 50%;
   // background-color: ${(props) => `rgba(${props.theme.sky}, 1)`};
+
   display: flex;
   flex-direction: column;
-  position: relative;
-  right: -30px;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5rem;
+  padding-left: 4rem;
+
   h1 {
-    font-weight: 200;
-    font-size: ${(props) => props.theme.font3xl};
+    font-weight: 600;
+    font-size: ${(props) => props.theme.fontxl};
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+    text-align: center;
   }
+
   .imgContainer {
-    position: relative;
-    margin: 0;
-    display: flex;
     width: 162px;
     height: 162px;
-    right: -100px;
     border-radius: 50%;
     overflow: hidden;
+    // border: 2px solid ${(props) => `rgba(${props.theme.pink}, 1)`};
+
+    display: flex;
     justify-content: center;
-    align-items: center;
-    background-color: ${(props) => `rgba(${props.theme.sky}, 1)`};
+    align-items: flex-start;
+
+    img {
+      width: 80%;
+      height: 80%:
+    }
   }
-  
-  @media (max-width: ${(props) => props.theme.mobile}) {
-    width: 100vw;
+
+  @media (max-width: 570px) {
+    width: 80%;
+    margin: 0 auto;
+    padding-left: 0;
   }
 `;
 
@@ -43,29 +56,44 @@ const InfoDetailContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   row-gap: 4rem;
+  padding-left: 1rem;
 `;
 
 const IndividualInfo = ({
+  charColor,
   profileImageSrc,
-  aboutTitle,
-  aboutParag,
-  strengthTitle,
-  strengthParag,
-  sthTitle,
-  sthParag,
+  fullName,
+  about,
+  role,
+  specialization,
+  contact,
+  linkTitlesDict,
 }) => {
   return (
     <Section data-scroll-section>
       <Container>
-        <div className="imgContainer">
+        <div
+          className="imgContainer"
+          style={{ border: `2px solid ${charColor}` }}
+        >
           <img src={profileImageSrc} alt="Avatar" />
         </div>
 
-        <h1>InSectionidualInfo</h1>
+        <h1 style={{ color: charColor }}>{fullName ?? ""}</h1>
         <InfoDetailContainer>
-          <InfoDetail title={aboutTitle} parag={aboutParag} />
-          <InfoDetail title={strengthTitle} parag ={strengthParag} />
-          <InfoDetail title={sthTitle} parag={sthParag} />
+          <InfoDetail title="About" parag={about} charColor={charColor} />
+          <InfoDetail title="Role" parag={role} charColor={charColor} />
+          <InfoDetail
+            title="Specialization"
+            parag={specialization}
+            charColor={charColor}
+          />
+          <InfoDetail
+            charColor={charColor}
+            title="Contact"
+            parag={contact ?? ""}
+            linkTitlesDict={linkTitlesDict}
+          />
         </InfoDetailContainer>
       </Container>
     </Section>

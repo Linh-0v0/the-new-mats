@@ -50,14 +50,15 @@ const InfoContainer = styled.div`
 
 const DarkOverlay = styled.div`
   position: absolute;
+  top:0;
   display: none;
   width: 100%;
   height: 100%;
-  z-index: -999;
+  z-index: -1;
+  background-color: ${(props) => `rgba(${props.theme.white}, 0.2)`};
 
   @media (max-width: 570px) {
     display: block;
-    background: ${(props) => `rgba(${props.theme.white}, 0.7)`};
   }
 `;
 
@@ -72,14 +73,15 @@ const ContainerAnimation = {
       delay: 0.5,
       ease: "easeInOut",
       onanimationstart: () => {
-        console.log("framer motion started")
-      }
+        console.log("framer motion started");
+      },
     },
   },
 };
 
 const CatEating = () => {
   const catContainerRef = useRef(null);
+
   return (
     <Transitions>
       <div className="experience">
@@ -89,83 +91,29 @@ const CatEating = () => {
       <LocoScroll refName={catContainerRef}>
         <section
           className="cat-page"
-          data-scroll-container
           ref={catContainerRef}
+          data-scroll-container
         >
           <div className="progress-wrapper progress-bar-wrapper-left">
-            <div className="progress-bar orange-background"></div>
+            <div className="progress-bar pink-background"
+            ></div>
           </div>
           <DarkOverlay></DarkOverlay>
           <Container
             variants={ContainerAnimation}
             initial="hidden"
             animate="show"
-            // data-scroll-section
           >
-            <GoBackArrow />
+            <GoBackArrow fillColor="rgb(525, 137, 148)" />
             <IndividualInfo
-              profileImageSrc=""
-              aboutTitle="About"
-              aboutParag=" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-  error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-  itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-  culpa enim?"
-              strengthTitle="About"
-              strengthParag=" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-  error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-  itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-  culpa enim?"
-              sthTitle="About"
-              sthParag=" Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-  error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-  itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-  culpa enim?"
+              charColor="rgb(525, 137, 148)"
+              profileImageSrc="/images/linh.jpg"
+              fullName="Vu Bui Khanh Linh"
+              about="I was born in 2001. I love 🐈‍⬛🐈 and 🎮. Also, anything asthetically pleasing will easily catch my short-span attention 👀."
+              role="Front-end design and coding : Figma website design, Blender model design/scuplting and ThreeJS coding"
+              specialization="Figma Design, React Framework, Gsap & Framer Motion animation, web 3D model, front-end coding overall."
+              linkTitlesDict={[{title: "Github", link: "https://github.com/Linh-0v0"}, {title: "Gmail", link: "vlinh271001@gmail.com"}]}
             />
-            {/* <InfoContainer>
-              <h1>Individual Info</h1>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-              <h2>Strength</h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum,
-                error nam nobis quos quaerat eaque ea ab incidunt velit ipsum
-                itaque quia voluptatibus impedit maxime dolore, nostrum ratione
-                culpa enim?
-              </p>
-            </InfoContainer> */}
           </Container>
         </section>
       </LocoScroll>

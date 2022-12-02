@@ -26,6 +26,7 @@ const Container = styled.div`
  
 `
 
+
 const BenefitCompo = ({benefit,detail,svgSrc}) => {
     return (
         <Container>

@@ -23,19 +23,23 @@ export default class Preloader extends EventEmitter {
 
     // GSAP.registerPlugin(ScrollTrigger);
 
-    this.sizes.on("switchdevice", (device) => {
-      this.device = device;
-    });
-    this.world.on("worldready", () => {
-      this.setAssets();
-      this.playIntro();
-    });
+    if (window.location.pathname == "/") {
+      this.sizes.on("switchdevice", (device) => {
+        this.device = device;
+      });
+      this.world.on("worldready", () => {
+        this.setAssets();
+        this.playIntro();
+      });
+    }
   }
 
   setAssets() {
-    if (document.querySelector(".intro-text")) {
-      convert(document.querySelector(".intro-text"));
-      console.log(document.querySelector(".intro-text"));
+    if (document.querySelector(".intro-text1")) {
+      convert(document.querySelector(".intro-text1"));
+      convert(document.querySelector(".intro-text2"));
+      console.log(document.querySelector(".intro-text1"));
+      console.log(document.querySelector(".intro-text2"));
     }
 
     this.cat = this.experience.world.cat.actualCat;
@@ -57,15 +61,8 @@ export default class Preloader extends EventEmitter {
           ease: "back.out(2.5)",
           duration: 1,
         });
-        this.timeline.to(".intro-text .animateThis", {
-          yPercent: -100,
-          stagger: 0.05,
-          duration: 0.1,
-          ease: "back.in(1.2)",
-          onComplete: resolve,
-        });
-      } 
-      if (this.device === "mobile") { 
+      }
+      if (this.device === "mobile") {
         this.timeline.to(this.catRoomChildren.door.scale, {
           x: 0.35,
           y: 0.35,
@@ -73,14 +70,28 @@ export default class Preloader extends EventEmitter {
           ease: "back.out(2.5)",
           duration: 1,
         });
-        this.timeline.to(".intro-text .animateThis", {
+      }
+      this.timeline.to(
+        ".intro-text1 .animateThis",
+        {
+          yPercent: -100,
+          stagger: 0.05,
+          duration: 0.1,
+          ease: "back.in(1.2)",
+        },
+        "introsame"
+      );
+      this.timeline.to(
+        ".intro-text2 .animateThis",
+        {
           yPercent: -100,
           stagger: 0.05,
           duration: 0.1,
           ease: "back.in(1.2)",
           onComplete: resolve,
-        });
-      }
+        },
+        "introsame"
+      );
     });
   }
 
@@ -97,7 +108,7 @@ export default class Preloader extends EventEmitter {
               y: -11,
               x: -7,
               ease: "Back.easeIn.config(4)",
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -107,7 +118,7 @@ export default class Preloader extends EventEmitter {
               x: 5,
               y: 5,
               z: 5,
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -129,16 +140,16 @@ export default class Preloader extends EventEmitter {
             y: 0.8,
             z: 0.8,
           });
-        } 
-         if (this.device === "tablet") {
-          this.secondTimeline
+      }
+      if (this.device === "tablet") {
+        this.secondTimeline
           .to(
             this.catRoomChildren.door.position,
             {
               y: -11,
               x: -7,
               ease: "Back.easeIn.config(4)",
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -148,7 +159,7 @@ export default class Preloader extends EventEmitter {
               x: 5,
               y: 5,
               z: 5,
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -165,15 +176,19 @@ export default class Preloader extends EventEmitter {
             },
             "doorsame"
           )
-          .to(this.cat.position, {
-            y: 1,
-          }, "doorsame")
+          .to(
+            this.cat.position,
+            {
+              y: 1,
+            },
+            "doorsame"
+          )
           .to(this.cat.scale, {
             x: 0.45,
             y: 0.45,
             z: 0.45,
           });
-      } 
+      }
       if (this.device === "mobile") {
         this.secondTimeline
           .to(
@@ -182,7 +197,7 @@ export default class Preloader extends EventEmitter {
               y: -11,
               x: -7,
               ease: "Back.easeIn.config(4)",
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -192,7 +207,7 @@ export default class Preloader extends EventEmitter {
               x: 5,
               y: 5,
               z: 5,
-              duration: 2,
+              duration: 1,
             },
             "doorsame"
           )
@@ -209,21 +224,45 @@ export default class Preloader extends EventEmitter {
             },
             "doorsame"
           )
-          .to(this.cat.position, {
-            y: 1.8,
-          }, "doorsame")
+          .to(
+            this.cat.position,
+            {
+              y: 1.8,
+            },
+            "doorsame"
+          )
           .to(this.cat.scale, {
-            x: 0.32,
-            y: 0.32,
-            z: 0.32,
+            x: 0.26,
+            y: 0.26,
+            z: 0.26,
           });
       }
 
-      this.timeline.to(".intro-text .animateThis", {
-        yPercent: 0,
-        duration: 0,
-        onComplete: resolve,
-      });
+      this.timeline.to(
+        ".intro-text1 .animateThis",
+        {
+          yPercent: 100,
+          duration: 0.1,
+          ease: "back.in(1.2)",
+        },
+        "doorsame"
+      );
+      this.timeline.to(
+        ".intro-text2 .animateThis",
+        {
+          yPercent: 100,
+          duration: 0.1,
+          ease: "back.in(1.2)",
+          onComplete: resolve,
+        },
+        "doorsame"
+      );
+      this.timeline.to(".intro-text2 .animateThis", {
+        display: "none"
+      }, "samenone")
+      this.timeline.to(".intro-text3 .animateThis", {
+        display: "none"
+      }, "samenone")
     });
   }
 

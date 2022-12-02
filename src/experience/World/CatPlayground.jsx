@@ -63,7 +63,7 @@ export default class EatingCat extends EventEmitter {
       this.door.rotation.y = Math.PI / 1.95;
       this.door.position.x = -0.8;
       this.door.position.y = 1.7;
-      this.door.position.z = 7;
+      this.door.position.z = 8;
       this.door.scale.set(0.25, 0, 0.25);
       this.door.name = "door";
       this.catRoomChildren[this.door.name] = this.door;
@@ -80,7 +80,7 @@ export default class EatingCat extends EventEmitter {
       this.scene.add(this.planeBg);
       // this.plane.rotation.x = Math.PI / 2;
       // this.plane.position.y = -0.3;
-      this.planeBg.position.z = 4;
+      this.planeBg.position.z = 5;
       // this.plane.receiveShadow = false;
       this.catRoomChildren[this.planeBg.name] = this.planeBg;
     }
@@ -117,98 +117,58 @@ export default class EatingCat extends EventEmitter {
       // //eatingcat
       this.eatingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.eatingCatPlayHead = this.eatingCatMixer.clipAction(
-        this.cat.animations[43]
+        this.cat.animations[44]
       );
       this.eatingCatPlayTail = this.eatingCatMixer.clipAction(
-        this.cat.animations[44]
+        this.cat.animations[45]
       );
       this.eatingCatPlayHead.play();
       this.eatingCatPlayTail.play();
-      // this.eatingCatPlay = this.eatingCatMixer.clipAction(
-      //   this.cat.animations[43]
-      // );
-      // //head
-      // this.eatingCatPlay = this.eatingCatMixer.clipAction(
-      //   this.cat.animations[46]
-      // );
-      // // tail
-      // // this.eatingCatPlay = this.eatingCatMixer.clipAction(
-      // //   this.cat.animations[50]
-      // // );
 
+      // standing Cat
       this.standingCatMixer = new THREE.AnimationMixer(this.actualCat);
-      // //standing cat
       this.standingCatPlay = this.standingCatMixer.clipAction(
-        this.cat.animations[14]
+        this.cat.animations[15]
       );
       this.standingCatPlay.play();
-      // //leg
-      // // this.standingCatPlay = this.standingCatMixer.clipAction(this.cat.animations[20]);
-      // //ear
-      // // this.standingCatPlay = this.standingCatMixer.clipAction(this.cat.animations[21]);
-      // //head
-      // //      this.standingCatPlay = this.standingCatMixer.clipAction(this.cat.animations[22]);
 
+      // lying Cat
       this.lyingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.lyingCatPlay = this.lyingCatMixer.clipAction(
-        this.cat.animations[22]
+        this.cat.animations[23]
       );
       this.lyingCatPlay.play();
-      // // leg
-      // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[23]);
-      // //arm
-      // // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[24]);
-      // //lyingcataction
-      // // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[25]);
-      // //head
-      // // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[26]);
-      // //ear
-      // // this.lyingCatPlay = this.lyingCatMixer.clipAction(this.cat.animations[27]);
 
       //playingCat
       this.playingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.playingCatPlay = this.playingCatMixer.clipAction(
-        this.cat.animations[23]
+        this.cat.animations[24]
       );
       this.playingCatPlay.play();
 
       // //sidelyingcat / housecat
       this.sideLyingCatMixer = new THREE.AnimationMixer(this.actualCat);
       this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(
-        this.cat.animations[37]
+        this.cat.animations[38]
       );
       this.sideLyingCatPlay.play();
-      // //arm
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[37]);
-      // //rightleg
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[38]);
-      // //leftleg
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[39]);
-      // //tail
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[40]);
-      // //ear
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[41]);
-      // //head
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[42]);
-      // //rightear
-      // // this.sideLyingCatPlay = this.sideLyingCatMixer.clipAction(this.cat.animations[44]);
 
       //rightTree
       this.rightTreeMixer = new THREE.AnimationMixer(this.actualCat);
       this.rightTreePlay1 = this.rightTreeMixer.clipAction(
-        this.cat.animations[82]
-      );
-      this.rightTreePlay2 = this.rightTreeMixer.clipAction(
         this.cat.animations[83]
       );
-      this.rightTreePlay3 = this.rightTreeMixer.clipAction(
-        this.cat.animations[87]
+      this.rightTreePlay2 = this.rightTreeMixer.clipAction(
+        this.cat.animations[84]
       );
-      this.rightTreePlay4 = this.rightTreeMixer.clipAction(
+      this.rightTreePlay3 = this.rightTreeMixer.clipAction(
         this.cat.animations[88]
       );
-      this.rightTreePlay5 = this.rightTreeMixer.clipAction(
+      this.rightTreePlay4 = this.rightTreeMixer.clipAction(
         this.cat.animations[89]
+      );
+      this.rightTreePlay5 = this.rightTreeMixer.clipAction(
+        this.cat.animations[90]
       );
       this.rightTreePlay1.play();
       this.rightTreePlay2.play();
@@ -226,20 +186,20 @@ export default class EatingCat extends EventEmitter {
       // middle tree
       this.middleTreeMixer = new THREE.AnimationMixer(this.actualCat);
       this.middleTreePlay = this.middleTreeMixer.clipAction(
-        this.cat.animations[11]
+        this.cat.animations[5]
       );
       this.middleTreePlay.play();
 
       // right lamp
       this.rightLampMixer = new THREE.AnimationMixer(this.actualCat);
       this.rightLampPlay = this.rightLampMixer.clipAction(
-        this.cat.animations[103]
+        this.cat.animations[104]
       );
       this.rightLampPlay2 = this.rightLampMixer.clipAction(
-        this.cat.animations[99]
+        this.cat.animations[100]
       );
       this.rightLampPlay3 = this.rightLampMixer.clipAction(
-        this.cat.animations[100]
+        this.cat.animations[101]
       );
       this.rightLampPlay.play();
       this.rightLampPlay2.play();
@@ -248,13 +208,13 @@ export default class EatingCat extends EventEmitter {
       // left lamp
       this.leftLampMixer = new THREE.AnimationMixer(this.actualCat);
       this.leftLampPlay = this.leftLampMixer.clipAction(
-        this.cat.animations[101]
+        this.cat.animations[102]
       );
       this.leftLampPlay2 = this.leftLampMixer.clipAction(
-        this.cat.animations[97]
+        this.cat.animations[98]
       );
       this.leftLampPlay3 = this.leftLampMixer.clipAction(
-        this.cat.animations[98]
+        this.cat.animations[99]
       );
       this.leftLampPlay.play();
       this.leftLampPlay2.play();
@@ -268,7 +228,7 @@ export default class EatingCat extends EventEmitter {
       // value [-1,1] -> the model moves a little left-right
       this.rotation =
         ((e.clientX - window.innerWidth / 2) * 2) / window.innerWidth;
-      this.lerp.target = this.rotation * 0.1;
+      this.lerp.target = this.rotation * 0.17;
 
       this.rotationX =
         ((e.clientY - window.innerHeight / 2) * 2) / window.innerHeight;
@@ -294,7 +254,7 @@ export default class EatingCat extends EventEmitter {
     );
     this.actualCat.rotation.x = this.lerpY.current;
 
-    this.eatingCatMixer.update(this.time.delta * 0.001);
+    this.eatingCatMixer.update(this.time.delta * 0.002);
     this.standingCatMixer.update(this.time.delta * 0.001);
     this.lyingCatMixer.update(this.time.delta * 0.001);
     this.playingCatMixer.update(this.time.delta * 0.0015);
@@ -302,7 +262,7 @@ export default class EatingCat extends EventEmitter {
 
     this.rightTreeMixer.update(this.time.delta * 0.0008);
     this.leftTreeMixer.update(this.time.delta * 0.001);
-    this.middleTreeMixer.update(this.time.delta * 0.0008);
+    this.middleTreeMixer.update(this.time.delta * 0.005);
 
     this.leftLampMixer.update(this.time.delta * 0.0008);
     this.rightLampMixer.update(this.time.delta * 0.0008);

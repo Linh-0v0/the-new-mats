@@ -11,15 +11,17 @@
   height: 100%;
 }
 
-.progress-wrapper{
-  height: 0;
-  width: 9px;
-  z-index: 999;
-}
-
 .cat-page {
   position: relative;
+  width: 100vw;
   overflow: hidden;
+}
+
+/* For scrollbar color */
+.progress-wrapper{
+  height: 0;
+  width: 12px;
+  z-index: 999;
 }
 
 .progress-bar-wrapper-left {
@@ -30,9 +32,33 @@
 .progress-bar {
   height: 100vh;
   width: 100%;
-  background-color: rgba(255, 111, 96, 0.8);
   transform-origin: top center;
   transform: scaleY(0);
+}
+
+/* linh */
+.pink-background {
+  background-color: rgba(247, 172, 179, 0.9);
+}
+
+/* khang */
+.mint-background {
+  background-color: rgba(148, 208, 221, 0.9);
+}
+
+/* nham */
+.purple-background {
+  background-color: rgba(214, 196, 238, 0.9);
+}
+
+/* anh */
+.darkerBeige-background {
+  background-color: rgba(152, 217, 255, 0.9);
+}
+
+/* thinh */
+.darkBrown-background {
+  background-color: rgba(86, 56, 22, 0.9);
 }
 
 @media (max-width: 768px) {
@@ -48,22 +74,46 @@
   transform: translateY(100%);
 }
 
-.intro-text {
+.intro-text1  {
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 22%;
-  left: 50%;
+  top: 17%;
+  left: 49%;
   font-weight: 500;
   font-size: 2rem;
   transform: translate(-50%, -50%);
   z-index: -1;
 }
 
-@media (max-width: 578px) {
-  .intro-text {
+.intro-text2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 23%;
+  left: 49%;
+  font-weight: 500;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+@media (max-width: 570px) {
+  .intro-text1 {
     font-size: 1.8rem;
-    top: 22%;
+    top: 19%;
+  }
+
+  .intro-text2 {
+    font-size: 1.8rem;
+    top: 25%;
+  }
+
+  .progress-wrapper{
+    height: 0;
+    width: 9px;
+    z-index: 999;
   }
 }
