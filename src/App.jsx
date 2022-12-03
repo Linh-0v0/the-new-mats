@@ -20,6 +20,7 @@ function App() {
         <AnimatePresence>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/scene/cat-eating" element={<CatEating />} />
             <Route path="/scene/cat-playing" element={<CatPlaying />} />
             <Route path="/scene/cat-standing" element={<CatStanding />} />

@@ -105,11 +105,11 @@ const CatStanding = () => {
             <IndividualInfo
               charColor="rgb(154, 136, 179)"
               profileImageSrc="/images/"
-              fullName="Nguyen Huu Minh Khang "
-              about="I am born and raised in VietNam. My passion in IT first is to master machine learning and later on developing alogrithms for AI."
-              role="Web programmer, technical writer."
-              specialization="I have experience with low level programming and fidgeting with embeded systems so my strengths is about configurating systems together and debugging."
-              linkTitlesDict={[{title: "For personal email", link: "minhkhang09122003@gmail.com"}]}
+              fullName="Nguyen Hoang To Nhu "
+              about="A fat cat"
+              role="UX/UI Designer, 3D Designer"
+              specialization="I’m just a fat cat walking by and helping my comrade (Linh) do the project "
+              linkTitlesDict={[{title: "Email", link: "nguyen.hoangtonhu1211@gmail.com"}]}
             />
           </Container>
         </section>

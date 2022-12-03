@@ -105,11 +105,11 @@ const CatLying = () => {
             <IndividualInfo
               charColor="rgb(86, 56, 22)"
               profileImageSrc="/images/"
-              fullName="Nguyen Huu Minh Khang "
-              about="I am born and raised in VietNam. My passion in IT first is to master machine learning and later on developing alogrithms for AI."
+              fullName="Nguyen Duong Truong Thinh"
+              about="I was born in 2002, growing up in Long An and recently living in HCM city. I’m passionate about IT projects,  IoT learning and working with the technologies."
               role="Web programmer, technical writer."
-              specialization="I have experience with low level programming and fidgeting with embeded systems so my strengths is about configurating systems together and debugging."
-              linkTitlesDict={[{title: "For personal email", link: "minhkhang09122003@gmail.com"}]}
+              specialization="I’m concentrated on web programming and front-end. Also for the IoT management systems, I can plan in many kinds of data analytics or application development."
+              linkTitlesDict={[{title: "Email", link: "truongthinh140402@gmail.com"}]}
             />
           </Container>
         </section>

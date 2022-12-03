@@ -82,9 +82,6 @@ const Benefits = () => {
         <Container
           variants={ContainerAnimation}
           animate={controls}
-          onAnimationStart={() => {
-            console.log("framer motion started");
-          }}
         >
           <h1>Benefits of working with us</h1>
           <BenefitCompo

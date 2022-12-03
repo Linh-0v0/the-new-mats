@@ -22,19 +22,26 @@ const TransparentOverlay = styled.section`
   height: 100vh;
   width: 100vw;
   background-color: transparent;
-`
+`;
 
 const Home = () => {
   const containerRef = useRef(null);
   const [isIn, setIsIn] = useState(false);
   gsap.registerPlugin(ScrollTrigger);
 
+  useEffect(() => {
+    if (window.location.pathname == "/") {
+      window.addEventListener("click", () => {
+        setTimeout(() => {
+          setIsIn(true);
+        }, 1500);
+      });
+    } else {
+      setIsIn(true);
+    }
+  }, []);
+
   useLayoutEffect(() => {
-    window.addEventListener("click", () => {
-      setTimeout(() => {
-        setIsIn(true);
-      }, 1500);
-    });
     const element = containerRef.current;
     // var tl = new gsap.timeline();
     setTimeout(() => {
