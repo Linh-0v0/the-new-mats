@@ -9,6 +9,7 @@ import LocoScroll from "../components/LocoScroll";
 import IntroTextPreloader from "../components/IntroTextPreloader";
 import Benefits from "../sections/Benefits";
 import NavBar from "../components/NavBar";
+import Contact from "../sections/Contact";
 
 const Space = styled.div`
   position: relative;
@@ -54,7 +55,8 @@ const Home = () => {
           trigger: element.querySelector(".benefit-section"),
           scroller: ".App",
           scrub: true,
-          start: "-90% top",
+          start: "-15% top",
+          end: "bottom bottom",
           markers: true,
         },
       });
@@ -65,25 +67,25 @@ const Home = () => {
   return (
     <LocoScroll refName={containerRef}>
       <main className="App" data-scroll-container ref={containerRef}>
-        <div className="experience">
+        <div className="experience relative-pos" data-scroll-section>
           <canvas className="experience-canvas"></canvas>
         </div>
-
         <IntroTextPreloader />
 
         <NavBar />
 
-        <TransparentOverlay data-scroll-section></TransparentOverlay>
+        {/* <TransparentOverlay data-scroll-section></TransparentOverlay> */}
 
-        {isIn ? <LandingMain /> : null}
+        {isIn ? <LandingMain data-scroll-section/> : null}
 
         <div className="first-move"></div>
 
         <Benefits />
 
-        <Space data-scroll-section></Space>
+        {/* <Space data-scroll-section></Space> */}
         <Service />
-        {/* </Overlay> */}
+
+        <Contact />
       </main>
     </LocoScroll>
   );

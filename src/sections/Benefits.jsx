@@ -6,7 +6,6 @@ import { useRef, useEffect } from "react";
 
 const Section = styled.section`
   position: relative;
-  margin-top: 3rem;
   height: 100vh;
   width: 100vw;
   overflow: hidden;
