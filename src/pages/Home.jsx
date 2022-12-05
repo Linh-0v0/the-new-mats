@@ -82,7 +82,6 @@ const Home = () => {
 
         <Benefits />
 
-        {/* <Space data-scroll-section></Space> */}
         <Service />
 
         <Contact />
