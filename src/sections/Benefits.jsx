@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import BenefitCompo from "../components/BenefitCompo";
 import { motion, useInView, useAnimationControls } from "framer-motion";
@@ -48,72 +48,29 @@ const Container = styled(motion.div)`
   }
 `;
 
-const ContainerAnimation = {
-  hidden: {
-    opacity: 0,
-    y: -200,
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1,
-      delay: 0.5,
-      ease: "easeOut",
-    },
-  },
-};
+const benefitArticles = [
+  {benefit:"Aesthetical",detail:"What we can bring to our customer possibly the profound and creativity in every products which will fill in the need and requirements of our guests",svgSrc:"/icons/GoodLooking.svg"},
+  {benefit:"Technologies",detail:"All the essentials that we use and implement will be the top notch technologies nowaday to ensure that our and your visitor will experience the best performance in the product",svgSrc:"/icons/Technology.svg"},
+  {benefit:"In time and precise",detail:"We are highly on schedule with everything and without doubt, yours will be as valueable as ours",svgSrc:"/icons/Time.svg"},
+  {benefit:"Professional",detail:"With strict filtering and selection, our team form with skillfully and professinal members who will definitely assure that pleasant of our customer will always be prioritized",svgSrc:"/icons/Teamwork.svg"},
+]
+
 
 const Benefits = () => {
-  const sectionRef = useRef();
-  const isInView = useInView(sectionRef);
-  const controls = useAnimationControls();
 
-  useEffect(() => {
-    if (isInView) {
-      controls.start("show");
-    } else {
-      controls.start("hidden");
-    }
-  }, [isInView])
 
   return (
-    <Section className="benefit-section" data-scroll-section ref={sectionRef}>
-        <Container
-          variants={ContainerAnimation}
-          animate={controls}
-          onAnimationStart={() => {
-            console.log("framer motion started");
-          }}
-        >
+    <Section className="benefit-section" data-scroll-section>
+        <Container>
           <h1>Benefits of working with us</h1>
-          <BenefitCompo
-            benefit="Aesthetical"
-            detail="What we can bring to our customer possibly the profound 
-                    and creativity in every products which will fill in the need and 
-                    requirements of our guests"
-            svgSrc="/icons/GoodLooking.svg"
-          />
-          <BenefitCompo
-            benefit="Technologies"
-            detail="All the essentials that we use and implement will be the 
-                    top notch technologies nowaday to ensure that our and your visitor 
-                    will experience the best performance in the product"
-            svgSrc="/icons/Technology.svg"
-          />
-          <BenefitCompo
-            benefit="In time and precise"
-            detail="We are highly on schedule with everything and without doubt 
-                    your time will be as valueable as ours"
-            svgSrc="/icons/Time.svg"
-          />
-          <BenefitCompo
-            benefit="Well trained team"
-            detail="With strict filtering and selection our team form with skillful 
-                    and professional members who will definitely assure that pleasant of our 
-                    customer will always be prioritized"
-            svgSrc="/icons/Teamwork.svg"
-          />
+          {benefitArticles.map((article,i) => (
+            <BenefitCompo 
+            benefit={article.benefit}
+            detail={article.detail}
+            svgSrc={article.svgSrc}
+            indexOfCompo={i}
+            />
+          ))}
         </Container>
     </Section>
   );
