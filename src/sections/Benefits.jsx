@@ -60,10 +60,8 @@ const Benefits = () => {
 
 
   return (
-    <Section className="benefit-section" data-scroll-section ref={sectionRef}>
+    <Section className="benefit-section" data-scroll-section >
         <Container
-          variants={ContainerAnimation}
-          animate={controls}
           onAnimationStart={() => {
             console.log("framer motion started");
           }}

@@ -31,7 +31,7 @@ const Container = styled(motion.div)`
 
 const BenefitCompo = ({benefit,detail,svgSrc,indexOfCompo}) => {
     const compoRef = useRef(null);         
-    const isInView = useInView(compoRef,{once:true});           // Only animate once when user first enter the website
+    const isInView = useInView(compoRef);           // Only animate once when user first enter the website
     const controls = useAnimationControls();
     useEffect(() => {
         if (isInView) {                                         // Base website: What will the user see 
