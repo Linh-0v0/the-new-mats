@@ -107,7 +107,7 @@ export default class CatControls extends EventEmitter {
   goBackToLanding(goBackMsg) {
     console.log(goBackMsg);
     if (goBackMsg === "goback") {
-      window.location.href = "/";
+      window.location.href = "/home";
     }
   }
 

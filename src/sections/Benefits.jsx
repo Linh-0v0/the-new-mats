@@ -60,8 +60,14 @@ const Benefits = () => {
 
 
   return (
-    <Section className="benefit-section" data-scroll-section>
-        <Container>
+    <Section className="benefit-section" data-scroll-section ref={sectionRef}>
+        <Container
+          variants={ContainerAnimation}
+          animate={controls}
+          onAnimationStart={() => {
+            console.log("framer motion started");
+          }}
+        >
           <h1>Benefits of working with us</h1>
           {benefitArticles.map((article,i) => (
             <BenefitCompo 

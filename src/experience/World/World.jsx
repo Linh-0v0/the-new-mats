@@ -32,7 +32,7 @@ export default class World extends EventEmitter {
       this.environment = new Environment();
       this.floor = new Floor();
 
-      if (this.currentPath == "/") {
+      if (this.currentPath == "/" || this.currentPath == "/home") {
         this.cat = new CatPlayground();
         this.controls = new Controls();
       } else if (this.currentPath == asset[2].urlPathname) {

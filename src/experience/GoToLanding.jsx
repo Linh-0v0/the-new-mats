@@ -12,7 +12,7 @@ export default class GoToLanding extends EventEmitter {
   setArrowEventListener() {
     if (this.goBackArrow) {
       this.goBackArrow.addEventListener("click", () => {
-        this.goBackArrow.classList.add("blue-change");
+        this.goBackArrow.classList.add("color-change");
         this.goBackMsg = this.goBackMsg === "" ? "goback" : "";
         document.body.classList.toggle("original-change");
         this.emit("goToLanding", this.goBackMsg);

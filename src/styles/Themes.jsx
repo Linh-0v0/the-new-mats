@@ -13,6 +13,7 @@ export const lightTheme = {
 
     white: '255, 255, 255',
     black: '0, 0, 0',
+    gray:'208, 208, 208',
     beige: '250, 248, 238',
     orange: '255, 111, 96',
     mint: '90, 178, 197',

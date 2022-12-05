@@ -64,7 +64,7 @@ export default class EatingCat extends EventEmitter {
       this.door.position.x = -0.8;
       this.door.position.y = 1.7;
       this.door.position.z = 8;
-      this.door.scale.set(0.25, 0, 0.25);
+      this.door.scale.set(0, 0, 0);
       this.door.name = "door";
       this.catRoomChildren[this.door.name] = this.door;
       this.scene.add(this.door);

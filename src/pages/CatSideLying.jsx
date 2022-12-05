@@ -105,13 +105,12 @@ const CatSideLying = () => {
             <IndividualInfo
               charColor="rgb(525, 137, 148)"
               profileImageSrc="/images/"
-              fullName="Nguyen Huu Minh Khang "
-              about="I am born and raised in VietNam. My passion in IT first is to master machine learning and later on developing alogrithms for AI."
-              role="Web programmer, technical writer."
-              specialization="I have experience with low level programming and fidgeting with embeded systems so my strengths is about configurating systems together and debugging."
-              linkTitlesDict={[{title: "For personal email", link: "minhkhang09122003@gmail.com"}]}
+              fullName="Huynh Phan Anh"
+              about="I'm a Vietnamese person, and I always passionate about learning about AI and eventually creating my own AI assistant."
+              role="Web Progammer front-end mainly."
+              specialization="I have certain experiences about building websites and I can also work with IoT product if needed so basically I strong with design and structurize web and object."
+              linkTitlesDict={[{title: "Email", link: "huynhphana@gmail.com"}, {title: "Phone", link: "0907879669"}]}
             />
-            
           </Container>
         </section>
       </LocoScroll>
