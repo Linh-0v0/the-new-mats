@@ -2,99 +2,99 @@ import styled from "styled-components";
 import React from "react";
 import { motion } from "framer-motion";
 
+
 const Section = styled.section`
   position: relative;
-  height: 100vh;
+  height: auto;
   width: 100vw;
   overflow: hidden;
   background-color: ${(props) => `rgba(${props.theme.white}, 1)`};
-`;
+  `;
 
-const BigContainer = styled.div`
-  width: 90%;
-  margin: 0 auto;
-  h1 {
-    font-size: 50px;
-  }
-`;
 
 const Container = styled.div`
+  width: 80%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  column-gap: 3rem;
-`;
+  column-gap: 5vw;
+  h1 {
+    font-size: ${(props) => props.theme.font4xl};
+    color: ${(props) => `rgba(${props.theme.black}, 0.8)`};
+    font-weight: 800;
+    grid-column: span 3;  
+    margin-bottom: 2rem;
+
+  }
+  @media only screen and (min-width: ${(props) => props.theme.desktop}){       //desktop
+    h1{
+      font-size: ${(props) => props.theme.font5xl};
+    }
+  }
+  `;
 
 const ServiceContainer = styled(motion.div)`
-  h2 {
-    padding-top: 20px;
-    font-size: 30px;
-    height: 5rem;
+  justify-content: center;
+  text-align: center;
+  h3 {
+    font-size: ${(props) => props.theme.fontmd};
+    font-weight: 550;
   }
   p {
-    margin: 3%;
-    padding: 20px;
-    font-size: 25px;
+    font-size: ${(props) => props.theme.fontssm};
+    font-weight:350;
   }
-  @media (max-width: ${(props) => props.theme.tablet}) {
-    h2 {
-      font-size: 25px;
+  @media (min-width: ${(props) => props.theme.tablet}) {      //Tablet
+    h3 {
+    font-size: ${(props) => props.theme.fontlg};
     }
+  @media (min-width: ${(props) => props.theme.desktop}) {      //Desktop
     p {
-      font-size: 20px;
+    font-size: ${(props) => props.theme.fontsm};
     }
   }
 `;
 
-const ServiceContainerAnimation = {
-  hidden: {
-    opacity: 0,
-    x: -100,
-  },
-  show: {
-    opacity: 1,
-    x: 0,
-  },
-}
+
+
+const serviceInfos = [
+  {src:"icons/lightbulb.svg",header:"Websites and platforms",detail:"Design and create website along with the customer requests fully interactive with mostly every devices"},
+  {src:"icons/lightbulb.svg",header:"Mobile applications",detail:"Create fully function application separated from the website and more addons features"},
+  {src:"icons/lightbulb.svg",header:"UI/UX design",detail:"Analyze the need of customer to perform on the designing section"}
+]
+
+
 
 const Service = () => {
+
+
+
   return (
-    <Section className="" data-scroll-section>
-      <BigContainer>
+    <Section data-scroll-section>
+      <Container>
         <h1>Services</h1>
-        <Container>
-          <ServiceContainer variants={ServiceContainerAnimation} initial="hidden" animate="show">
-            <div className="block-1">
-              <img src="icons/lightbulb.svg" alt="" />
-              <h2>Websites and platforms</h2>
-              <p>
-                Design and create website along with the customer requests fully
-                interactive with mostly every devices
-              </p>
-            </div>
-          </ServiceContainer>
-
-          <ServiceContainer>
-            <div className="block-2">
-              <img src="icons/lightbulb.svg " alt="" />
-              <h2>Mobile application</h2>
-              <p>
-                Create fully function application separated from the website and
-                more addons features
-              </p>
-            </div>
-          </ServiceContainer>
-
-          <ServiceContainer>
-            <div className="block-3">
-              <img src="icons/lightbulb.svg" alt="" />
-              <h2>UI/UX Design</h2>
-              <p>
-                Analyze the need of customer to perform on the designing section
-              </p>
-            </div>
-          </ServiceContainer>
-        </Container>
-      </BigContainer>
+        {serviceInfos.map((article,i) => (
+            <ServiceContainer
+            initial={{
+              opacity: 0,
+              y: 10,
+            }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 1,
+                delay: i*0.25
+              }
+            }}
+            whileHover={{scale:0.9}}
+            >
+              <h3>{article.header}</h3>
+              <img src={article.src}></img>
+              <p>{article.detail}</p>
+            </ServiceContainer>
+        ))}
+      </Container>
     </Section>
   );
 };

@@ -7,7 +7,7 @@ import { useRef, useEffect } from "react";
 const Section = styled.section`
     position: relative;
     width: 100vw;
-    margin-top: 3rem;
+    height: auto;
     overflow: hidden;
     background-color: ${(props) => `rgba(${props.theme.white}, 1)`};
 `;
@@ -21,12 +21,12 @@ const Container = styled(motion.div)`
     padding-top: 2rem;
     h1 {                                              //phone
       padding-top: 5rem;
-      font-size: ${(props) => props.theme.font5xl};
+      font-size: ${(props) => props.theme.font4xl};
       font-weight: 800;
       color: ${(props) => `rgba(${props.theme.black}, 0.8)`};
       
       width: 100%;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       grid-column: 1/5;
       grid-row: 1/3;
     }

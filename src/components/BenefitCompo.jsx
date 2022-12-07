@@ -15,14 +15,18 @@ const Container = styled(motion.div)`
     @media only screen and (min-width: ${(props) => props.theme.tablet}){              // Tablet
         grid-column: span 2;
         margin-bottom: 3rem;
+        font-size: ${(props) => props.theme.fontxs};
+
     }
     @media only screen and (min-width: ${(props) => props.theme.desktop}){              // Desktop
         grid-column: span 1;
         margin-bottom: 5rem;
         text-align: left;
-        font-size: ${(props) => props.theme.fontxs};
         img {
             margin-bottom: 1rem;
+        }
+        h3 {
+            margin-bottom:0.5rem;
         }
     }
  
@@ -40,8 +44,8 @@ const BenefitCompo = ({benefit,detail,svgSrc,indexOfCompo}) => {
                 x:0, y:0,
                 opacity: 1,     
                 transition: {
-                duration: 2,
-                delay: 0.5,
+                duration: 1.5,
+                delay: 0.25,
                 ease: "easeOut",
                 },
             },);
@@ -54,7 +58,7 @@ const BenefitCompo = ({benefit,detail,svgSrc,indexOfCompo}) => {
     }, [isInView])
     return (
         <Container ref={compoRef}
-        whileHover={{scale:1.1}}
+        whileHover={{scale:0.9}}
         animate={controls}
         >
             <img src={svgSrc} width="50rem" height="50rem" alt="Icon image" />
