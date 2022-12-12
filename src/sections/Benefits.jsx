@@ -20,7 +20,7 @@ const Container = styled(motion.div)`
     column-gap: 2rem;
     padding-top: 2rem;
     h1 {                                              //phone
-      padding-top: 5rem;
+      padding-top: 3rem;
       font-size: ${(props) => props.theme.font4xl};
       font-weight: 800;
       color: ${(props) => `rgba(${props.theme.black}, 0.8)`};
