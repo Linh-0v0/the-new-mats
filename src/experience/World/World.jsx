@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { Octree } from "three/examples/jsm/math/Octree";
 import Experience from "../Experience";
 import Environment from "./Environment";
 
@@ -16,6 +17,9 @@ import Controls from "./Controls";
 
 import asset from "../Utils/assets";
 import EventEmitter from "events";
+import FirstIsland from "./Island/Island";
+import Island from "./Island/Island";
+import Player from "./Player/Player";
 
 export default class World extends EventEmitter {
   constructor() {
@@ -24,6 +28,8 @@ export default class World extends EventEmitter {
     this.eatingCatScene = this.experience.eatingCatScene;
     this.playingCatScene = this.experience.playingCatScene;
     this.resources = this.experience.resources;
+    this.player = null;
+
     this.currentPath = window.location.pathname;
 
     // listen to emitted event
@@ -34,7 +40,7 @@ export default class World extends EventEmitter {
 
       if (this.currentPath == "/" || this.currentPath == "/home") {
         this.cat = new CatPlayground();
-        this.controls = new Controls();
+        // this.controls = new Controls();
       } else if (this.currentPath == asset[2].urlPathname) {
         this.cat = new EatingCat();
         this.circle = new Circle();
@@ -55,9 +61,18 @@ export default class World extends EventEmitter {
         this.cat = new SideLyingCat();
         this.circle = new Circle();
         this.controls = new CatControls();
+      } else if (this.currentPath == asset[7].urlPathname) {
+        this.floor.removeFloor();
+        this.octree = new Octree();
+        this.cat = new Island();
+
+        if (this.player === null) {
+          this.player = new Player();
+        }
+        // this.controls = new CatControls();
       }
-        this.emit("worldready");
-      
+      this.emit("worldready");
+
       // this.controls = new Controls();
     });
   }
@@ -67,6 +82,10 @@ export default class World extends EventEmitter {
   update() {
     if (this.cat) {
       this.cat.update();
+    }
+
+    if (this.player) {
+      this.player.update();
     }
 
     if (this.controls) {

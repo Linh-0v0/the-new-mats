@@ -11,21 +11,25 @@ export default class Camera {
 
     this.createPerspectiveCamera();
     this.createOrthographicCamera();
-    this.setOrbitControls();
+    // this.setOrbitControls();
   }
 
   createPerspectiveCamera() {
     if (this.scene) {
       this.perspectiveCamera = new THREE.PerspectiveCamera(
-        75,
+        50,
         this.sizes.aspect,
-        0.1,
+        0.01,
         1000
       );
+
+      // this.perspectiveCamera.position.x = 10;
+      // this.perspectiveCamera.position.y = 5;
+      // this.perspectiveCamera.position.z = 5;
+      // this.perspectiveCamera.position.set(94.5, 1.7, 3.37)
+      this.perspectiveCamera.position.set(98.9, 1.7, 3);
+      this.perspectiveCamera.rotation.y = Math.PI / 1.9;
       this.scene.add(this.perspectiveCamera);
-      this.perspectiveCamera.position.x = 10;
-      this.perspectiveCamera.position.y = 5;
-      this.perspectiveCamera.position.z = 5;
     }
   }
 
@@ -71,10 +75,10 @@ export default class Camera {
   setOrbitControls() {
     if (this.canvas) {
       this.controls = new OrbitControls(this.perspectiveCamera, this.canvas);
-      // this.controls.enableDamping = true;
-      // this.controls.enableZoom = true;
-      this.controls.enableDamping = false;
-      this.controls.enableZoom = false;
+      this.controls.enableDamping = true;
+      this.controls.enableZoom = true;
+      // this.controls.enableDamping = false;
+      // this.controls.enableZoom = false;
     }
   }
 
@@ -95,9 +99,9 @@ export default class Camera {
 
   update() {
     if (this.canvas) {
-      this.controls.update();
+      // controls: Orbit Controls
+      // this.controls.update();
       // console.log(this.perspectiveCamera.position);
-
       this.helper.matrixWorldNeedsUpdate = true;
       this.helper.update();
       this.helper.position.copy(this.orthographicCamera.position);

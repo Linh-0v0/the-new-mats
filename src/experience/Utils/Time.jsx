@@ -3,9 +3,9 @@ import {EventEmitter} from 'events';
 // EventEmitter: emits event that can be listened to and acted on
 // cuz I need other classes to update 
 // whenever requestAnimationFrame is called
-export default class Time extends EventEmitter {
+export default class Time {
     constructor() {
-        super();
+        // super();
         this.start = Date.now();
         this.current = this.start;
         // time has been passing since Experience run
@@ -13,18 +13,17 @@ export default class Time extends EventEmitter {
         // time bwn frames in milliseconds
         this.delta = 16;
 
-        this.update()
+        // this.update()
     }
 
     update() {
         const currentTime = Date.now();
-        this.delta = currentTime - this.current;
+        this.delta = (currentTime - this.current) / 1000;
         this.current = currentTime;
         // animation plays after the elapsed time since 3js scene started
         this.elapsed = this.current - this.start;
 
         // emit event
-        this.emit("update");
-        window.requestAnimationFrame(() => this.update());
+        // this.emit("update");
     }
 }

@@ -24,6 +24,10 @@ export default class Floor {
     // this.plane.receiveShadow = false;
   }
 
+  removeFloor() {
+    this.scene.remove(this.plane);
+  }
+
   resize() {}
 
   update() {}

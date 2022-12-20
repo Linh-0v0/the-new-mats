@@ -10,6 +10,7 @@ import IntroTextPreloader from "../components/IntroTextPreloader";
 import Benefits from "../sections/Benefits";
 import NavBar from "../components/NavBar";
 import Contact from "../sections/Contact";
+import GameMapSection from "../sections/GameMapSection";
 
 const Space = styled.div`
   position: relative;
@@ -57,7 +58,6 @@ const Home = () => {
           scrub: true,
           start: "-15% top",
           end: "bottom bottom",
-          markers: true,
         },
       });
       ScrollTrigger.refresh();
@@ -76,14 +76,14 @@ const Home = () => {
 
         {/* <TransparentOverlay data-scroll-section></TransparentOverlay> */}
 
-        {isIn ? <LandingMain data-scroll-section/> : null}
+        {isIn ? <LandingMain data-scroll-section /> : null}
 
         <div className="first-move"></div>
 
         <Benefits />
 
         <Service />
-
+        <GameMapSection />
         <Contact />
       </main>
     </LocoScroll>

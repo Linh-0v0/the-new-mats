@@ -3,6 +3,7 @@ import Experience from "../Experience";
 import EventEmitter from "events";
 import assets from "../Utils/assets";
 
+// CONTROL IN LANDING PAGE
 export default class Controls extends EventEmitter {
   constructor() {
     super();

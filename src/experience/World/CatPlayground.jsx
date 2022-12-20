@@ -22,10 +22,11 @@ export default class EatingCat extends EventEmitter {
     this.sideLyingCatPattern = /.*sideLyingCat/;
     this.playingCatPattern = /.*playingCat/;
     this.amateurPattern = /.*Armature.*/;
-    console.log(this.door);
+    
 
     if (this.loadingdoor) {
       this.door = this.loadingdoor.scene;
+      console.log(this.door);
     }
 
     if (this.cat) {

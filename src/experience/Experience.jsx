@@ -10,6 +10,7 @@ import Renderer from "./Renderer";
 import World from "./World/World";
 import GoToLanding from "./GoToLanding";
 import Controls from "../experience/World/Controls";
+// import LocalStorage from "./LocalStorage"
 import Preloader from "./Preloader";
 
 // MANAGES Camera, Scene,
@@ -30,10 +31,12 @@ export default class Experience {
     this.standingCatScene = new THREE.Scene();
     this.sideLyingCatScene = new THREE.Scene();
     this.lyingCatScene = new THREE.Scene();
+    this.gameMap = new THREE.Scene();
 
     console.log("EXPERIENCE", this.currentPath);
 
     if (this.currentPath == assets[1].urlPathname) {
+
       this.scene = this.scene;
     } else if (this.currentPath == assets[2].urlPathname) {
       this.scene = this.eatingCatScene;
@@ -45,43 +48,51 @@ export default class Experience {
       this.scene = this.lyingCatScene;
     } else if (this.currentPath == assets[6].urlPathname) {
       this.scene = this.sideLyingCatScene;
+    } else if (this.currentPath == assets[7].urlPathname) {
+      this.scene = this.gameMap;
     }
 
     this.time = new Time();
     this.sizes = new Sizes();
-    this.camera = new Camera();
+    this.camera = new Camera(); 
     this.resources = new Resources(assets);
     this.renderer = new Renderer();
-
     this.world = new World();
-
     this.goToLanding = new GoToLanding();
     // this.controls = new Controls();
-
-    this.preloader = new Preloader();
-    this.preloader.on("enablecontrols", () => {
-      this.controls = new Controls();
-    });
-    // listen to emitted event
-    this.time.on("update", () => {
-      this.update();
-    });
+    
+      this.preloader = new Preloader();
+      this.preloader.on("enablecontrols", () => {
+        this.controls = new Controls();
+      });
+    // // listen to emitted event
+    // this.time.on("update", () => {
+    //   this.update();
+    // });
 
     this.sizes.on("resize", () => {
       this.resize();
     });
+
+    this.update();
   }
 
   resize() {
     this.camera.resize();
-    this.world.update();
+    // this.world.update();
     this.renderer.resize();
   }
 
   update() {
-    this.camera.update();
-    this.world.update();
-    this.renderer.update();
+    if (this.camera) this.camera.update();
+    if (this.world) this.world.update();
+    if (this.renderer) this.renderer.update();
+    if (this.time) this.time.update();
+
+    window.requestAnimationFrame(() => {
+      this.update();
+    });
+
     // this.preloader.update();
     // if (this.controls) {
     //   this.controls.update();

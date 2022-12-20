@@ -47,4 +47,17 @@ export default [
     path: "/models/sideLyingCat.glb",
     urlPathname: "/scene/cat-side-lying",
   },
+  {
+    no: 7,
+    name: "island",
+    type: "glbModel",
+    path: "/models/island.glb",
+    urlPathname: "/scene/town",
+  },
+  {
+    no: 8,
+    name: "islandCollider",
+    type: "glbModel",
+    path: "/models/island-collider.glb",
+  }
 ];

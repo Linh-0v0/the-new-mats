@@ -54,29 +54,16 @@ export default class Renderer {
       // this.renderer.render(this.scene, this.camera.perspectiveCamera);
 
       //First screen
-      this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
+      // this.renderer.setViewport(0, 0, this.sizes.width, this.sizes.height);
 
-      this.renderer.render(this.scene, this.camera.orthographicCamera);
+      // this.renderer.render(this.scene, this.camera.orthographicCamera);
       // this.renderer.render(this.scene, this.camera.perspectiveCamera);
 
-      //Second screen
-      // this.renderer.setScissorTest(true);
-      // this.renderer.setViewport(
-      //   this.sizes.width - this.sizes.width / 3,
-      //   this.sizes.height - this.sizes.height / 3,
-      //   this.sizes.width / 3,
-      //   this.sizes.height / 3
-      // );
-
-      // this.renderer.setScissor(
-      //   this.sizes.width - this.sizes.width / 3,
-      //   this.sizes.height - this.sizes.height / 3,
-      //   this.sizes.width / 3,
-      //   this.sizes.height / 3
-      // );
-
-      // this.renderer.render(this.scene, this.camera.perspectiveCamera);
-      // this.renderer.setScissorTest(false);
+      if (window.location.pathname == asset[7].urlPathname) {
+        this.renderer.render(this.scene, this.camera.perspectiveCamera);
+      } else {
+        this.renderer.render(this.scene, this.camera.orthographicCamera);
+      }
     }
   }
 }

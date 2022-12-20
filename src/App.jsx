@@ -10,6 +10,7 @@ import CatPlaying from "./pages/CatPlaying";
 import CatStanding from "./pages/CatStanding";
 import CatLying from "./pages/CatLying";
 import CatSideLying from "./pages/CatSideLying";
+import GameMap from "./pages/GameMap";
 import Home from "./pages/Home";
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/scene/cat-standing" element={<CatStanding />} />
             <Route path="/scene/cat-lying" element={<CatLying />} />
             <Route path="/scene/cat-side-lying" element={<CatSideLying />} />
+            <Route path="/scene/town" element={<GameMap />} />
           </Routes>
         </AnimatePresence>
       </ThemeProvider>
