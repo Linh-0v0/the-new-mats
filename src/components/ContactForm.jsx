@@ -11,7 +11,7 @@ const ContactFormContainer = styled.div`
   .form__group {
     position: relative;
     padding: 15px 0 0;
-    margin-top: 10px;
+    padding-top: 10px;
     width: 70%;
   }
 
@@ -134,7 +134,7 @@ const ContactFormContainer = styled.div`
     }
 
     .form__group {
-      margin-top: 0px;
+      padding-top: 0px;
       width: 80%;
       padding-right: 1rem;
     }

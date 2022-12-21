@@ -16,7 +16,7 @@ const Space = styled.div`
   position: relative;
   height: 4rem;
   width: 100vw;
-  background-color: transparent;
+  background-color: white;
 `;
 
 const TransparentOverlay = styled.section`
@@ -80,13 +80,15 @@ const Home = () => {
 
         <div className="first-move"></div>
 
+        <Space data-scroll-section></Space>
         <Benefits />
 
-
+        <Space data-scroll-section></Space>
         <Service />
+
+        <Space data-scroll-section></Space>
         <GameMapSection />
         <Contact />
-
       </main>
     </LocoScroll>
   );

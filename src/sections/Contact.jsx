@@ -133,7 +133,7 @@ const DesignBy = styled.div`
 
 const Contact = () => {
   return (
-    <Section className="" data-scroll-section>
+    <Section className="" data-scroll-section id="contact">
       <BigContactContainer>
         <ContainerInfo id="#section1">
           <div className="contact-info-container">

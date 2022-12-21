@@ -59,18 +59,6 @@ const SectionsName = styled.div`
   align-items: center;
   column-gap: 2.5rem;
 
-  a {
-    font-size: 1.1rem;
-    font-weight: 300;
-  }
-
-  a:hover {
-    font-size: 1.4rem;
-    transition: font-size 0.8s;
-    //     text-decoration: underline;
-    // transition: text-decoration 0.8s;
-  }
-
   @media (max-width: 570px) {
     display: none;
   }
@@ -84,14 +72,7 @@ const NavBar = () => {
         <h1>THE NEW MATS</h1>
       </LogoBrand>
       <MiddleDiv></MiddleDiv>
-      <SectionsName>
-        <div>
-          <a href="/#service">Service</a>
-        </div>
-        <div>
-          <a href="/#contact">Contact</a>
-        </div>
-      </SectionsName>
+      <MiddleDiv></MiddleDiv>
     </NavContainer>
   );
 };

@@ -30,10 +30,10 @@ export const lightTheme = {
     fontmd: '1.75em',
     fontlg: '2em', // 32px
     // Title
-    fontxl: '2.5em', // 40px
+    fontxl: '2.3em', // 40px
     font2xl: '2.75em', 
     font3xl: '3em', // 48px
-    font4xl: '4.25em', // 70px
+    font4xl: '4.2em', // 70px
     font5xl: '4.75em',
     font6xl: '5.25em',
 

@@ -10,7 +10,7 @@ const Section = styled.section`
   background-color: ${(props) => `rgba(${props.theme.white}, 1)`};
 `;
 
-const BigContainer = styled.div`
+const BigContainer = styled(motion.div)`
   width: 90%;
   margin: 0 auto;
   padding-top: 3rem;
@@ -78,6 +78,11 @@ const Instruction = styled.div`
     background-color: ${(props) => `rgba(${props.theme.sky}, 0.5)`};
     border-radius: 25%;
     font-size: ${(props) => props.theme.fontmd};
+    transition: padding 0.3s;
+  }
+
+  .go-btn:hover {
+    padding: 15px 25px;
   }
 
   .detail {
@@ -147,11 +152,26 @@ const Instruction = styled.div`
 const GameMapSection = () => {
   return (
     <Section data-scroll-section>
-      <BigContainer>
+      <BigContainer
+        initial={{
+          opacity: 0,
+          y: 10,
+        }}
+        whileInView={{
+          opacity: 1,
+          y: 0,
+          transition: {
+            duration: 1,
+            delay: 0.2,
+          },
+        }}
+      >
         <Instruction>
           <h1>Want to visit a town ?</h1>
           <a href="/scene/town">
-            <span className="go-btn">Go</span>
+            <span className="go-btn">
+              Go
+            </span>
           </a>
           <div className="detail">
             <div>
