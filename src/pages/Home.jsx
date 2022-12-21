@@ -82,9 +82,11 @@ const Home = () => {
 
         <Benefits />
 
+
         <Service />
         <GameMapSection />
         <Contact />
+
       </main>
     </LocoScroll>
   );

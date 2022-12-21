@@ -1,37 +1,66 @@
 import React from "react";
 import styled from "styled-components";
+import { motion, useInView, useAnimationControls } from "framer-motion";
+import { useRef, useEffect } from "react";
 
-const Container = styled.div`
-    grid-row: span 1;                           //Phone
+const Container = styled(motion.div)`
+    grid-row: span 1;                                       //Phone
     grid-column: span 4; 
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
-    
-    img {
-        margin-bottom: 0rem;
-    }
+    font-size: ${(props) => props.theme.fontxxs};
     p {
         font-weight:350;
     }
-    @media only screen and (min-width: 768px){              // Tablet
+    @media only screen and (min-width: ${(props) => props.theme.tablet}){              // Tablet
         grid-column: span 2;
         margin-bottom: 3rem;
+        font-size: ${(props) => props.theme.fontxs};
+
     }
-    @media only screen and (min-width:1080px){              // Desktop
+    @media only screen and (min-width: ${(props) => props.theme.desktop}){              // Desktop
         grid-column: span 1;
         margin-bottom: 5rem;
         text-align: left;
         img {
             margin-bottom: 1rem;
         }
+        h3 {
+            margin-bottom:0.5rem;
+        }
     }
  
 `
 
 
-const BenefitCompo = ({benefit,detail,svgSrc}) => {
+const BenefitCompo = ({benefit,detail,svgSrc,indexOfCompo}) => {
+    const compoRef = useRef(null);         
+    const isInView = useInView(compoRef);           // Only animate once when user first enter the website
+    const controls = useAnimationControls();
+    useEffect(() => {
+        if (isInView) {                                         // Base website: What will the user see 
+            controls.start({
+               
+                x:0, y:0,
+                opacity: 1,     
+                transition: {
+                duration: 1.5,
+                delay: 0.25,
+                ease: "easeOut",
+                },
+            },);
+        } else {
+            controls.start({                                    // Set up for before animation
+                x: indexOfCompo% 2== 0 ? -40 : 40,
+                opacity: 0,
+            });
+        }
+    }, [isInView])
     return (
-        <Container>
+        <Container ref={compoRef}
+        whileHover={{scale:0.9}}
+        animate={controls}
+        >
             <img src={svgSrc} width="50rem" height="50rem" alt="Icon image" />
             <h3>{benefit}</h3>
             <p>{detail}</p>
