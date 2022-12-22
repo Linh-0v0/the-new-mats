@@ -5,13 +5,22 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme } from "./styles/Themes";
 
 import { AnimatePresence } from "framer-motion";
-import CatEating from "./pages/CatEating";
-import CatPlaying from "./pages/CatPlaying";
-import CatStanding from "./pages/CatStanding";
-import CatLying from "./pages/CatLying";
-import CatSideLying from "./pages/CatSideLying";
-import GameMap from "./pages/GameMap";
-import Home from "./pages/Home";
+import { lazy } from "react";
+// import CatEating from "./pages/CatEating";
+// import CatPlaying from "./pages/CatPlaying";
+// import CatStanding from "./pages/CatStanding";
+// import CatLying from "./pages/CatLying";
+// import CatSideLying from "./pages/CatSideLying";
+// import GameMap from "./pages/GameMap";
+// import Home from "./pages/Home";
+
+const Home = lazy(() => import("./pages/Home"))
+const CatEating = lazy(() => import("./pages/CatEating"))
+const CatPlaying = lazy(() => import("./pages/CatPlaying"))
+const CatStanding = lazy(() => import("./pages/CatStanding"))
+const CatLying = lazy(() => import("./pages/CatLying"))
+const CatSideLying = lazy(() => import("./pages/CatSideLying"))
+const GameMap = lazy(() => import("./pages/GameMap"))
 
 function App() {
   return (

@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect, useLayoutEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styled from "styled-components";
-import Landing from "../sections/Landing";
 import Service from "../sections/Service";
 import LandingMain from "../sections/LandingMain";
 import LocoScroll from "../components/LocoScroll";
