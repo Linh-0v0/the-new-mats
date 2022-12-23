@@ -37,6 +37,10 @@ const LogoBrand = styled.div`
     letter-spacing: 5px;
   }
 
+  :hover {
+    cursor: pointer;
+  }
+
   @media (max-width: 570px) {
     h1 {
       font-size: 1rem;
@@ -68,8 +72,12 @@ const NavBar = () => {
   return (
     <NavContainer className="nav-container">
       <LogoBrand>
-        <img src="/icons/logo.svg" alt="logo" />
-        <h1>THE NEW MATS</h1>
+        <a href="/">
+          <img src="/icons/logo.svg" alt="logo" />
+        </a>
+        <h1>
+          <a href="/">THE NEW MATS</a>
+        </h1>
       </LogoBrand>
       <MiddleDiv></MiddleDiv>
       <MiddleDiv></MiddleDiv>

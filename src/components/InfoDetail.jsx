@@ -16,7 +16,6 @@ const Container = styled.div`
 
 const InfoDetail = ({ charColor, title, parag, linkTitlesDict }) => {
   const getLinkTitlesDict = linkTitlesDict;
-  console.log(charColor)
   return (
     <Container>
       <h3 style={{color: charColor ?? "#000" }}>{title}</h3>
