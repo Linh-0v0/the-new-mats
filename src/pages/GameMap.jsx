@@ -6,7 +6,7 @@ const GameMap = () => {
     <Transitions>
       <div className="experience">
         <canvas className="experience-canvas"></canvas>
-      </div>     
+      </div>
     </Transitions>
   )
 }

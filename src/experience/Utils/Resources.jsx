@@ -1,8 +1,11 @@
+import * as THREE from "three";
 import { EventEmitter } from "events";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
 import Experience from "../Experience";
+import { LoadingManager } from "three";
+import LoadingScreen from "../../components/LoadingScreen";
 
 // Load all resources
 // EventEmitter: emits event that can be listened to and acted on
@@ -27,8 +30,20 @@ export default class Resources extends EventEmitter {
   }
 
   setLoaders() {
+    const manager = new THREE.LoadingManager();
+    manager.onStart = () => {
+      <LoadingScreen />
+      console.log(
+        "MANAGER LOADING"
+      );
+    };
+
+    manager.onLoad = () => {
+      console.log("Loading complete!");
+    };
+
     this.loaders = {};
-    this.loaders.gltfLoader = new GLTFLoader();
+    this.loaders.gltfLoader = new GLTFLoader(manager);
     //need DRACOLoader cuz the model is compressed when exported in Blender
     this.loaders.dracoLoader = new DRACOLoader();
     this.loaders.dracoLoader.setDecoderPath("/draco/");

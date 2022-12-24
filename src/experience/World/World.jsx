@@ -17,7 +17,6 @@ import Controls from "./Controls";
 
 import asset from "../Utils/assets";
 import EventEmitter from "events";
-import FirstIsland from "./Island/Island";
 import Island from "./Island/Island";
 import Player from "./Player/Player";
 
