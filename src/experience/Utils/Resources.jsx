@@ -1,11 +1,9 @@
-import * as THREE from "three";
 import { EventEmitter } from "events";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
 import Experience from "../Experience";
 import { LoadingManager } from "three";
-import LoadingScreen from "../../components/LoadingScreen";
 
 // Load all resources
 // EventEmitter: emits event that can be listened to and acted on
@@ -30,15 +28,16 @@ export default class Resources extends EventEmitter {
   }
 
   setLoaders() {
-    const manager = new THREE.LoadingManager();
+    const manager = new LoadingManager;
     manager.onStart = () => {
-      <LoadingScreen />
+      sessionStorage.setItem("loadingState", true)
       console.log(
-        "MANAGER LOADING"
+        "MANAGER LOADING", sessionStorage.getItem("loadingState")
       );
     };
 
     manager.onLoad = () => {
+      sessionStorage.setItem("loadingState", false)
       console.log("Loading complete!");
     };
 
