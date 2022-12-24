@@ -5,7 +5,7 @@ import Transitions from "../components/Transitions";
 const GameMap = () => {
   useEffect(() => {
     if (sessionStorage.getItem("loadingState") == "true") {
-      alert("Please wait a little bit for model to load 😘");
+      alert("Please wait a bit for model to load 😘");
     }
   }, []);
   return (
