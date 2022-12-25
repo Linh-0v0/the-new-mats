@@ -1,6 +1,7 @@
 import * as THREE from "three";
 import Experience from "../../Experience";
 
+/* SKY */
 export default class Skybox {
   constructor() {
     this.experience = new Experience();

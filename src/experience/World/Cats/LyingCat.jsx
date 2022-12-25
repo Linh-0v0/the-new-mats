@@ -95,6 +95,6 @@ export default class LyingCat {
     );
     
     this.actualCat.rotation.x = this.lerpY.current;
-    this.mixer.update(this.time.delta * 0.002);
+    this.mixer.update(this.time.delta);
   }
 }

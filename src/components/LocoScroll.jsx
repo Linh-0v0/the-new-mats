@@ -1,3 +1,10 @@
+/*************************************************************** 
+*Title: none
+*Author: React Locomotive Scroll
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/toinelin/react-locomotive-scroll (Nov 2022) 
+****************************************************************/ 
 import React from "react";
 import { LocomotiveScrollProvider } from "react-locomotive-scroll";
 import ScrollerTriggerProxy from "../components/ScrollerTriggerProxy";

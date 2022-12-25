@@ -2,6 +2,7 @@ import * as THREE from "three";
 import GSAP from "gsap";
 import Experience from "../Experience";
 
+/* CIRCLE THAT APPEAR BELOW CAT IN MEMBER INFO PAGE */
 export default class Circle {
   constructor() {
     this.experience = new Experience();

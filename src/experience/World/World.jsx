@@ -1,3 +1,10 @@
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
+****************************************************************/ 
 import * as THREE from "three";
 import { Octree } from "three/examples/jsm/math/Octree";
 import Experience from "../Experience";
@@ -31,9 +38,9 @@ export default class World extends EventEmitter {
 
     this.currentPath = window.location.pathname;
 
-    // listen to emitted event
+    // listen to emitted event (after resources has been loaded)
     this.resources.on("ready", () => {
-      console.log("ALL CAT IN RESOURCE");
+      // console.log("ALL CAT IN RESOURCE");
       this.environment = new Environment();
       this.floor = new Floor();
 

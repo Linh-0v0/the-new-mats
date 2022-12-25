@@ -1,3 +1,10 @@
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Dec 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/immersive-world/tree/master/app/Experience/World/Player (Dec 2022) 
+****************************************************************/ 
 import * as THREE from "three";
 import Experience from "../../Experience";
 import { Capsule } from "three/examples/jsm/math/Capsule";

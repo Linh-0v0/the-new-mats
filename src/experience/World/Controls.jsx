@@ -1,9 +1,16 @@
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
+****************************************************************/ 
 import * as THREE from "three";
 import Experience from "../Experience";
 import EventEmitter from "events";
 import assets from "../Utils/assets";
 
-// CONTROL IN LANDING PAGE
+// CONTROL FOR CATPLAYGROUND IN LANDING PAGE
 export default class Controls extends EventEmitter {
   constructor() {
     super();
@@ -44,7 +51,7 @@ export default class Controls extends EventEmitter {
 
   onClick() {
     if (this.cat) {
-      console.log("ON CLICK", this.cat);
+      // console.log("ON CLICK", this.cat);
       window.addEventListener("click", (e) => {
         this.pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
         this.pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;

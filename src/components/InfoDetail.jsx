@@ -14,6 +14,7 @@ const Container = styled.div`
   }
 `;
 
+/* MEMBER INFO DETAIL */
 const InfoDetail = ({ charColor, title, parag, linkTitlesDict }) => {
   const getLinkTitlesDict = linkTitlesDict;
   return (

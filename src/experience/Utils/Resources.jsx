@@ -1,4 +1,10 @@
-import { EventEmitter } from "events";
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
+****************************************************************/ import { EventEmitter } from "events";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
@@ -31,14 +37,14 @@ export default class Resources extends EventEmitter {
     const manager = new LoadingManager;
     manager.onStart = () => {
       sessionStorage.setItem("loadingState", true)
-      console.log(
-        "MANAGER LOADING", sessionStorage.getItem("loadingState")
-      );
+      // console.log(
+      //   "MANAGER LOADING", sessionStorage.getItem("loadingState")
+      // );
     };
 
     manager.onLoad = () => {
       sessionStorage.setItem("loadingState", false)
-      console.log("Loading complete!");
+      // console.log("Loading complete!");
     };
 
     this.loaders = {};
