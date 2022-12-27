@@ -24,7 +24,7 @@ export default class Player {
   initPlayer() {
     this.player = {};
     this.player.body = this.camera.perspectiveCamera;
-    console.log(this.player.body);
+    // console.log(this.player.body);
 
     this.player.onFloor = false;
     this.player.gravity = 60;
@@ -142,13 +142,13 @@ export default class Player {
       Math.PI / 2
     );
 
-    console.log(
-      e.movementX,
-      e.movementY,
-      this.player.body.rotation.x,
-      this.player.body.rotation.y
-    );
-    console.log("this.player", this.player);
+    // console.log(
+    //   e.movementX,
+    //   e.movementY,
+    //   this.player.body.rotation.x,
+    //   this.player.body.rotation.y
+    // );
+    // console.log("this.player", this.player);
   };
 
   getForwardVector() {
