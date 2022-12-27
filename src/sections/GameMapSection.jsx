@@ -99,6 +99,10 @@ const Instruction = styled.div`
     align-items: center;
     column-gap: 2rem;
 
+    .click-svg {
+      width: 5rem;
+    }
+
     img {
       width: 8rem;
     }
@@ -137,6 +141,10 @@ const Instruction = styled.div`
     .detail > div {
       column-gap: 1.5rem;
 
+      .click-svg {
+        width: 3rem;
+      }
+
       img {
         width: 6rem;
       }
@@ -174,6 +182,10 @@ const GameMapSection = () => {
             </span>
           </a>
           <div className="detail">
+          <div>
+              <img src="/icons/click.svg" className="click-svg" alt="click" />
+              <span>Click to start</span>
+            </div>
             <div>
               <img src="/icons/arrow-move.svg" alt="up" />
               <span>Move</span>
