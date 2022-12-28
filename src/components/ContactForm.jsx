@@ -119,6 +119,19 @@ const ContactFormContainer = styled.div`
     row-gap: 0.6rem;
     padding-top: 2rem;
 
+    .form__field {
+      font-family: inherit;
+      width: 100%;
+      border: 0;
+      border-bottom: 2px solid ${(props) => `rgba(${props.theme.black}, 0.5)`};
+      outline: 0;
+      font-size: ${(props) => props.theme.fontxs};
+      color: ${(props) => `rgba(${props.theme.black}, 1)`};
+      padding: 16px 0;
+      background: transparent;
+      transition: border-color 0.2s;
+    }
+
     .buttonContainer {
       padding-top: 1rem;
       // padding-right: 1rem;

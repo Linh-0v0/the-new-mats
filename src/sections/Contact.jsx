@@ -4,7 +4,7 @@ import ContactForm from "../components/ContactForm";
 
 const Section = styled.section`
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
   overflow: hidden;
   background-color: #f4f4f4;
@@ -156,7 +156,7 @@ const Contact = () => {
             <h1>OUR PROJECT</h1>
             <ContactContainer>
               <img src="icons/github.svg" alt="" />
-              <p>Github</p>
+              <p><a href="https://github.com/Linh-0v0" target="_blank">Github</a></p>
             </ContactContainer>
           </div>
         </ContainerInfo>

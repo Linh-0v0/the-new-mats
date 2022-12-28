@@ -18,6 +18,10 @@ const Container = styled(motion.div)`
     padding: 1rem 0;
   }
 
+  @media (min-width: ${(props) => props.theme.xsmobile}) {
+    padding-bottom: 2rem;
+  }
+
   @media (min-width: ${(props) => props.theme.tablet}) {
     grid-column: span 2;
     padding-bottom: 3rem;
