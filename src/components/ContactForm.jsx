@@ -162,6 +162,7 @@ const ContactForm = () => {
   return (
     <ContactFormContainer id="#section2">
       <h1>Or Contact Us Directly Here 😌</h1>
+      <form action="https://getform.io/f/d1270ca2-a9ca-400b-9ca8-6ae061da59b9" method="POST">
       <div className="form__group field">
         <input
           type="input"
@@ -215,13 +216,14 @@ const ContactForm = () => {
         </label>
       </div>
       <div className="buttonContainer">
-        <button>
+        <button type="submit">
           Send
           <span>
             <img src="/icons/Send.svg" alt="send" />
           </span>
         </button>
       </div>
+      </form>
     </ContactFormContainer>
   );
 };
