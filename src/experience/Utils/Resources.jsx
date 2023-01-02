@@ -43,7 +43,7 @@ export default class Resources extends EventEmitter {
     };
 
     manager.onLoad = () => {
-      sessionStorage.setItem("loadingState", false)
+      // sessionStorage.setItem("loadingState", false)
       // console.log("Loading complete!");
     };
 

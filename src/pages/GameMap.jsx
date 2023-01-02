@@ -6,6 +6,7 @@ const GameMap = () => {
   useEffect(() => {
     if (sessionStorage.getItem("loadingState") == "true") {
       alert("Please wait a bit for model to load 😘. Also, pleaze click 'OK' to start running the model now.");
+      sessionStorage.setItem("loadingState", "false");
     }
   }, []);
   return (
