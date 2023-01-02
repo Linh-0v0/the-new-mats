@@ -104,7 +104,7 @@ const CatStanding = () => {
             <GoBackArrow fillColor="rgb(154, 136, 179)" />
             <IndividualInfo
               charColor="rgb(154, 136, 179)"
-              profileImageSrc="/images/"
+              profileImageSrc="/images/nham.jpg"
               fullName="Nguyen Hoang To Nhu "
               about="A fat cat"
               role="UX/UI Designer, 3D Designer"

@@ -104,7 +104,7 @@ const CatPlaying = () => {
             <GoBackArrow fillColor="rgb(90, 178, 197)" />
             <IndividualInfo
               charColor="rgb(90, 178, 197)"
-              profileImageSrc="/images/"
+              profileImageSrc="/images/khang.jpeg"
               fullName="Nguyen Huu Minh Khang "
               about="I am born and raised in VietNam. My passion in IT first is to master machine learning and later on developing alogrithms for AI."
               role="Web programmer, technical writer."
