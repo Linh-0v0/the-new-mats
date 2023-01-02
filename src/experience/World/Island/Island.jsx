@@ -6,7 +6,9 @@ export default class Island {
   constructor() {
     this.islandCollider = new IslandCollider();
     this.skyBox = new Skybox();
-    this.islandMap = new IslandMap();
+    if (this.islandCollider) {
+          this.islandMap = new IslandMap();
+    }
   }
 
   resize() {}

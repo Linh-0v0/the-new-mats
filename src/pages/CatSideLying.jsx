@@ -104,7 +104,7 @@ const CatSideLying = () => {
             <GoBackArrow fillColor="rgb(525, 137, 148)" />
             <IndividualInfo
               charColor="rgb(525, 137, 148)"
-              profileImageSrc="/images/"
+              profileImageSrc="/images/panh.jpeg"
               fullName="Huynh Phan Anh"
               about="I'm a Vietnamese person, and I always passionate about learning about AI and eventually creating my own AI assistant."
               role="Web Progammer front-end mainly."

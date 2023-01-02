@@ -1,5 +1,6 @@
 import React from "react";
 
+/* GO BACK ARROW IN MEMBER INFO PAGE */
 const GoBackArrow = ({fillColor}) => {
   return (
     <div className="go-back-arrow">

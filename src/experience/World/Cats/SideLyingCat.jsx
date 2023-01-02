@@ -96,6 +96,6 @@ export default class SidePlayingCat {
     );
     
     this.actualCat.rotation.x = this.lerpY.current;
-    this.mixer.update(this.time.delta * 0.001);
+    this.mixer.update(this.time.delta);
   }
 }

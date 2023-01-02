@@ -119,6 +119,19 @@ const ContactFormContainer = styled.div`
     row-gap: 0.6rem;
     padding-top: 2rem;
 
+    .form__field {
+      font-family: inherit;
+      width: 100%;
+      border: 0;
+      border-bottom: 2px solid ${(props) => `rgba(${props.theme.black}, 0.5)`};
+      outline: 0;
+      font-size: ${(props) => props.theme.fontxs};
+      color: ${(props) => `rgba(${props.theme.black}, 1)`};
+      padding: 16px 0;
+      background: transparent;
+      transition: border-color 0.2s;
+    }
+
     .buttonContainer {
       padding-top: 1rem;
       // padding-right: 1rem;
@@ -149,6 +162,7 @@ const ContactForm = () => {
   return (
     <ContactFormContainer id="#section2">
       <h1>Or Contact Us Directly Here 😌</h1>
+      <form action="https://getform.io/f/d1270ca2-a9ca-400b-9ca8-6ae061da59b9" method="POST">
       <div className="form__group field">
         <input
           type="input"
@@ -202,13 +216,14 @@ const ContactForm = () => {
         </label>
       </div>
       <div className="buttonContainer">
-        <button>
+        <button type="submit">
           Send
           <span>
             <img src="/icons/Send.svg" alt="send" />
           </span>
         </button>
       </div>
+      </form>
     </ContactFormContainer>
   );
 };

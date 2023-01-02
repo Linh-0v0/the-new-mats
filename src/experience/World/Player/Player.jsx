@@ -1,3 +1,10 @@
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Dec 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/immersive-world/tree/master/app/Experience/World/Player (Dec 2022) 
+****************************************************************/ 
 import * as THREE from "three";
 import Experience from "../../Experience";
 import { Capsule } from "three/examples/jsm/math/Capsule";
@@ -17,7 +24,7 @@ export default class Player {
   initPlayer() {
     this.player = {};
     this.player.body = this.camera.perspectiveCamera;
-    console.log(this.player.body);
+    // console.log(this.player.body);
 
     this.player.onFloor = false;
     this.player.gravity = 60;
@@ -135,13 +142,13 @@ export default class Player {
       Math.PI / 2
     );
 
-    console.log(
-      e.movementX,
-      e.movementY,
-      this.player.body.rotation.x,
-      this.player.body.rotation.y
-    );
-    console.log("this.player", this.player);
+    // console.log(
+    //   e.movementX,
+    //   e.movementY,
+    //   this.player.body.rotation.x,
+    //   this.player.body.rotation.y
+    // );
+    // console.log("this.player", this.player);
   };
 
   getForwardVector() {

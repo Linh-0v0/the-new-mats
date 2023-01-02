@@ -1,3 +1,10 @@
+/*************************************************************** 
+*Title: none
+*Author: Gsap Library
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://greensock.com/docs/v3/Plugins/ScrollTrigger/static.scrollerProxy() (Nov 2022) 
+****************************************************************/ 
 import { useEffect } from "react";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLocomotiveScroll } from "react-locomotive-scroll/module/useLocomotiveScroll.hook";

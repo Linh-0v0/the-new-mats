@@ -97,6 +97,6 @@ export default class StandingCat {
     
     this.actualCat.rotation.x = this.lerpY.current;
 
-    this.mixer.update(this.time.delta * 0.001);
+    this.mixer.update(this.time.delta);
   }
 }

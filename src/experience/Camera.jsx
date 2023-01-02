@@ -1,7 +1,15 @@
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
+****************************************************************/ 
 import * as THREE from "three";
 import Experience from "./Experience";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
+/* SET UP CAMERA FOR SCENE */
 export default class Camera {
   constructor() {
     this.experience = new Experience();
@@ -40,8 +48,8 @@ export default class Camera {
         (this.sizes.aspect * this.sizes.frustrum) / 1.9,
         this.sizes.frustrum / 1.9,
         -this.sizes.frustrum / 1.9,
-        -80,
-        80
+        -1000,
+        1000
       );
 
       this.orthographicCamera.position.x = -0.25;

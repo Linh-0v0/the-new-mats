@@ -1,7 +1,15 @@
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
+****************************************************************/ 
 import * as THREE from "three";
 import Experience from "./Experience";
 import asset from "./Utils/assets";
 
+/* RENDER CAMERA AND SCENE*/
 export default class Renderer {
   constructor() {
     this.experience = new Experience();

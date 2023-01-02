@@ -104,7 +104,7 @@ const CatLying = () => {
             <GoBackArrow fillColor="rgb(86, 56, 22)" />
             <IndividualInfo
               charColor="rgb(86, 56, 22)"
-              profileImageSrc="/images/"
+              profileImageSrc="/images/thinh.png"
               fullName="Nguyen Duong Truong Thinh"
               about="I was born in 2002, growing up in Long An and recently living in HCM city. I’m passionate about IT projects,  IoT learning and working with the technologies."
               role="Web programmer, technical writer."

@@ -1,12 +1,10 @@
 import * as THREE from "three";
 import GSAP from "gsap";
-import { EventEmitter } from "events";
 
 import Experience from "../Experience";
 
-export default class EatingCat extends EventEmitter {
+export default class CatPlayground {
   constructor() {
-    super();
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
@@ -255,17 +253,17 @@ export default class EatingCat extends EventEmitter {
     );
     this.actualCat.rotation.x = this.lerpY.current;
 
-    this.eatingCatMixer.update(this.time.delta * 0.002);
-    this.standingCatMixer.update(this.time.delta * 0.001);
-    this.lyingCatMixer.update(this.time.delta * 0.001);
-    this.playingCatMixer.update(this.time.delta * 0.0015);
-    this.sideLyingCatMixer.update(this.time.delta * 0.0008);
+    this.eatingCatMixer.update(this.time.delta*1.2);
+    this.standingCatMixer.update(this.time.delta);
+    this.lyingCatMixer.update(this.time.delta);
+    this.playingCatMixer.update(this.time.delta*1.3);
+    this.sideLyingCatMixer.update(this.time.delta);
 
-    this.rightTreeMixer.update(this.time.delta * 0.0008);
-    this.leftTreeMixer.update(this.time.delta * 0.001);
-    this.middleTreeMixer.update(this.time.delta * 0.005);
+    this.rightTreeMixer.update(this.time.delta * 0.3);
+    this.leftTreeMixer.update(this.time.delta * 0.1);
+    this.middleTreeMixer.update(this.time.delta * 0.5);
 
-    this.leftLampMixer.update(this.time.delta * 0.0008);
-    this.rightLampMixer.update(this.time.delta * 0.0008);
+    this.leftLampMixer.update(this.time.delta * 0.6);
+    this.rightLampMixer.update(this.time.delta * 0.6);
   }
 }

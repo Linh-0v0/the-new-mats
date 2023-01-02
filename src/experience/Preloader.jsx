@@ -1,13 +1,16 @@
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
+****************************************************************/ 
 import { EventEmitter } from "events";
 import Experience from "./Experience";
 import GSAP from "gsap";
 import convert from "./Utils/convertToSpans";
 
-//Sizes class: detect window size
-
-// EventEmitter: emits event that can be listened to and acted on
-// cuz I need other classes to update
-// whenever resize is called
+/* THE OPENDING (THE DOOR) WHEN ARRIVES AT THE LANDING PAGE*/
 export default class Preloader extends EventEmitter {
   constructor() {
     super();
@@ -280,7 +283,7 @@ export default class Preloader extends EventEmitter {
       await this.firstIntro();
 
       window.addEventListener("click", () => {
-        console.log("CLICK");
+        // console.log("CLICK");
         this.playSecondIntro();
       });
     } else if (window.location.pathname == "/home") {
@@ -290,7 +293,7 @@ export default class Preloader extends EventEmitter {
 
   async playSecondIntro() {
     await this.secondIntro();
-    console.log("SECOND INTRO");
+    // console.log("SECOND INTRO");
     this.emit("enablecontrols");
   }
 }

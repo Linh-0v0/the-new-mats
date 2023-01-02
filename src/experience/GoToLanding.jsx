@@ -1,5 +1,6 @@
 import { EventEmitter } from "events";
 
+/* GOBACKARROW IN MEMBER INFO PAGE */
 export default class GoToLanding extends EventEmitter {
   constructor() {
     super();

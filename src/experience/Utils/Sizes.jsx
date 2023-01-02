@@ -1,4 +1,10 @@
-import { EventEmitter } from "events";
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
+****************************************************************/ import { EventEmitter } from "events";
 //Sizes class: detect window size
 
 // EventEmitter: emits event that can be listened to and acted on
@@ -36,7 +42,7 @@ export default class Sizes extends EventEmitter {
       if (this.width <= 500 && this.device !== "mobile") {
         this.device = "mobile";
         this.emit("switchdevice", this.device);
-        console.log("mobile");
+        // console.log("mobile");
       } else if (
         this.width > 500 &&
         this.width < 1024 &&
@@ -44,11 +50,11 @@ export default class Sizes extends EventEmitter {
       ) {
         this.device = "tablet";
         this.emit("switchdevice", this.device);
-        console.log("tablet");
+        // console.log("tablet");
       } else if (this.width >= 1024 && this.device !== "desktop") {
         this.device = "desktop";
         this.emit("switchdevice", this.device);
-        console.log("desktop");
+        // console.log("desktop");
       }
     });
   }

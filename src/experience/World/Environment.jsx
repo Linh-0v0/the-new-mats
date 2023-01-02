@@ -1,3 +1,10 @@
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
+****************************************************************/ 
 import * as THREE from "three";
 import GUI from "lil-gui";
 import Experience from "../Experience";

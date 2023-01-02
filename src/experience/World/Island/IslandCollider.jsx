@@ -3,6 +3,7 @@ import Experience from "../../Experience";
 
 import { OctreeHelper } from "three/examples/jsm/helpers/OctreeHelper";
 
+/* SO THAT U WON'T GO THRU OBJECT */
 export default class IslandCollider {
   constructor() {
     this.experience = new Experience();

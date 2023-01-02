@@ -96,6 +96,6 @@ export default class EatingCat {
     );
 
     this.actualCat.rotation.x = this.lerpY.current;
-    this.mixer.update(this.time.delta * 0.0015);
+    this.mixer.update(this.time.delta);
   }
 }

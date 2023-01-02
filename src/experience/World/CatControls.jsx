@@ -6,6 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import EventEmitter from "events";
 import asset from "../Utils/assets";
 
+/* CONTROLS FOR CAT IN MEMBER INFO PAGE */
 export default class CatControls extends EventEmitter {
   constructor() {
     super();

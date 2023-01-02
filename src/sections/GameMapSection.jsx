@@ -4,10 +4,11 @@ import { motion } from "framer-motion";
 
 const Section = styled.section`
   position: relative;
-  height: 100vh;
+  height: auto;
   width: 100vw;
   overflow: hidden;
   background-color: ${(props) => `rgba(${props.theme.white}, 1)`};
+  padding-bottom: 6rem;
 `;
 
 const BigContainer = styled(motion.div)`
@@ -67,6 +68,13 @@ const Instruction = styled.div`
   flex-direction: column;
   row-gap: 1.2rem;
 
+  .note {
+    font-size: ${(props) => props.theme.fontxs};
+    text-decoration: underline;
+    text-align: center;
+    padding-right: 3rem;
+  }
+
   a {
     padding-top: 1rem;
     padding-right: 45px;
@@ -99,6 +107,10 @@ const Instruction = styled.div`
     align-items: center;
     column-gap: 2rem;
 
+    .click-svg {
+      width: 5rem;
+    }
+
     img {
       width: 8rem;
     }
@@ -112,6 +124,11 @@ const Instruction = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     align-items: center;
+
+    .note {
+      text-align: center;
+      padding-right: 0;
+    }
 
     .go-btn {
       padding: 10px 20px;
@@ -136,6 +153,10 @@ const Instruction = styled.div`
 
     .detail > div {
       column-gap: 1.5rem;
+
+      .click-svg {
+        width: 3rem;
+      }
 
       img {
         width: 6rem;
@@ -169,11 +190,17 @@ const GameMapSection = () => {
         <Instruction>
           <h1>Want to visit a town ?</h1>
           <a href="/scene/town">
-            <span className="go-btn">
-              Go
-            </span>
+            <span className="go-btn">Go</span>
           </a>
+          <p className="note">
+           For PC only !!!
+          </p>
+
           <div className="detail">
+            <div>
+              <img src="/icons/click.svg" className="click-svg" alt="click" />
+              <span>Click to start</span>
+            </div>
             <div>
               <img src="/icons/arrow-move.svg" alt="up" />
               <span>Move</span>

@@ -9,6 +9,8 @@ const animationConfiguration = {
   },
   exit: { opacity: 0 },
 };
+
+/* TRANSITION BTW PAGES */
 const Transitions = ({ children }) => {
   return (
     <motion.div

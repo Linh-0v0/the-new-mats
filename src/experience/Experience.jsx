@@ -1,3 +1,10 @@
+/*************************************************************** 
+*Title: none
+*Author: Andrewwoan
+*Date: Nov 2022 
+* Code version: none 
+*Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
+****************************************************************/ 
 import * as THREE from "three";
 import Sizes from "./Utils/Sizes";
 import Time from "./Utils/Time";
@@ -10,10 +17,9 @@ import Renderer from "./Renderer";
 import World from "./World/World";
 import GoToLanding from "./GoToLanding";
 import Controls from "../experience/World/Controls";
-// import LocalStorage from "./LocalStorage"
 import Preloader from "./Preloader";
 
-// MANAGES Camera, Scene,
+// Class that MANAGES Camera, Environment, Scene ...
 export default class Experience {
   static instance;
   constructor(canvas) {
@@ -32,8 +38,6 @@ export default class Experience {
     this.sideLyingCatScene = new THREE.Scene();
     this.lyingCatScene = new THREE.Scene();
     this.gameMap = new THREE.Scene();
-
-    console.log("EXPERIENCE", this.currentPath);
 
     if (this.currentPath == assets[1].urlPathname) {
 
@@ -65,21 +69,21 @@ export default class Experience {
       this.preloader.on("enablecontrols", () => {
         this.controls = new Controls();
       });
-    // // listen to emitted event
-    // this.time.on("update", () => {
-    //   this.update();
-    // });
+    // listen to emitted event
+    this.time.on("update", () => {
+      this.update();
+    });
 
     this.sizes.on("resize", () => {
       this.resize();
     });
 
-    this.update();
+    // this.update();
   }
 
   resize() {
     this.camera.resize();
-    // this.world.update();
+    this.world.resize();
     this.renderer.resize();
   }
 
@@ -87,11 +91,11 @@ export default class Experience {
     if (this.camera) this.camera.update();
     if (this.world) this.world.update();
     if (this.renderer) this.renderer.update();
-    if (this.time) this.time.update();
+    // if (this.time) this.time.update();
 
-    window.requestAnimationFrame(() => {
-      this.update();
-    });
+    // window.requestAnimationFrame(() => {
+    //   this.update();
+    // });
 
     // this.preloader.update();
     // if (this.controls) {
