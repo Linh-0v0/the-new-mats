@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const ContactFormContainer = styled.div`
@@ -8,11 +8,15 @@ const ContactFormContainer = styled.div`
   row-gap: 1.5rem;
   padding-top: 3rem;
 
+  form {
+    width: 70%;
+  }
+
   .form__group {
     position: relative;
-    padding: 15px 0 0;
-    padding-top: 10px;
-    width: 70%;
+    padding: 15px 0 0 0;
+    margin-top: 10px;
+    width: 100%;
   }
 
   .form__field {
@@ -78,9 +82,9 @@ const ContactFormContainer = styled.div`
 
   .buttonContainer {
     width: 70%;
+    margin: 2rem auto;
     display: flex;
     justify-content: center;
-    padding-top: 3rem;
   }
 
   button {
@@ -89,6 +93,7 @@ const ContactFormContainer = styled.div`
     border: 1px solid ${(props) => `rgba(${props.theme.black}, 1)`};
     border-radius: 50px;
     padding: 10px 0;
+    margin-right: 1rem;
 
     display: flex;
     justify-content: center;
@@ -127,14 +132,9 @@ const ContactFormContainer = styled.div`
       outline: 0;
       font-size: ${(props) => props.theme.fontxs};
       color: ${(props) => `rgba(${props.theme.black}, 1)`};
-      padding: 16px 0;
+      padding: 8px 0;
       background: transparent;
       transition: border-color 0.2s;
-    }
-
-    .buttonContainer {
-      padding-top: 1rem;
-      // padding-right: 1rem;
     }
 
     button {
@@ -146,83 +146,139 @@ const ContactFormContainer = styled.div`
       }
     }
 
-    .form__group {
-      padding-top: 0px;
+    form {
       width: 80%;
-      padding-right: 1rem;
     }
 
-    .form__field {
-      font-size: ${(props) => props.theme.fontxxs};
+    .form__group {
+      margin-top: 0.2rem;
+      margin-bottom: 1rem;
+      padding: 10px 0 0 0;
+      width: 100%;
+      padding-right: 1rem;
     }
+    
+    &:placeholder-shown ~ .form__label {
+      font-size: ${(props) => props.theme.fontxs};
+      cursor: text;
+      top: 0px;
+    }
+
   }
 `;
 
 const ContactForm = () => {
+  const [state, setState] = useState({ name: "", email: "", project: "", budget: "" });
+
+  const handleUserName = (e) => {
+    setState({name: e.target.value});
+  }
+
+  const handleEmail = (e) => {
+    setState({email: e.target.value});
+  }
+
+  const handleProject = (e) => {
+    setState({project: e.target.value});
+  }
+
+  const handleBudget = (e) => {
+    setState({budget: e.target.value});
+  }
+
+  const handleUpdate = (key, value) => {
+    setState((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  };
+
   return (
     <ContactFormContainer id="#section2">
       <h1>Or Contact Us Directly Here 😌</h1>
-      <form action="https://getform.io/f/d1270ca2-a9ca-400b-9ca8-6ae061da59b9" method="POST">
-      <div className="form__group field">
-        <input
-          type="input"
-          className="form__field"
-          placeholder="Name"
-          name="name"
-          id="name"
-          required
-        />
-        <label htmlFor="name" className="form__label">
-          Your name
-        </label>
-      </div>
-      <div className="form__group field">
-        <input
-          type="input"
-          className="form__field"
-          placeholder="Email"
-          name="email"
-          id="email"
-          required
-        />
-        <label htmlFor="email" className="form__label">
-          Email
-        </label>
-      </div>
-      <div className="form__group field">
-        <input
-          type="input"
-          className="form__field"
-          placeholder="Project"
-          name="project"
-          id="project"
-          required
-        />
-        <label htmlFor="project" className="form__label">
-          Project
-        </label>
-      </div>
-      <div className="form__group field">
-        <input
-          type="input"
-          className="form__field"
-          placeholder="Budget"
-          name="budget"
-          id="budget"
-          required
-        />
-        <label htmlFor="budget" className="form__label">
-          Budget
-        </label>
-      </div>
-      <div className="buttonContainer">
-        <button type="submit">
-          Send
-          <span>
-            <img src="/icons/Send.svg" alt="send" />
-          </span>
-        </button>
-      </div>
+      <form
+        action="https://getform.io/f/d1270ca2-a9ca-400b-9ca8-6ae061da59b9"
+        method="POST"
+      >
+        <div className="form__group field">
+          <input
+            type="input"
+            className="form__field"
+            placeholder="Name"
+            name="name"
+            id="name"
+            value={state.name}
+            onChange={handleUserName}
+            handleUpdate={handleUpdate}
+            required
+          />
+          <label htmlFor="name" className="form__label">
+            Your name
+          </label>
+        </div>
+        <div className="form__group field">
+          <input
+            type="input"
+            className="form__field"
+            placeholder="Email"
+            name="email"
+            id="email"
+            value={state.email}
+            onChange={handleEmail}
+            handleUpdate={handleUpdate}
+            required
+          />
+          <label htmlFor="email" className="form__label">
+            Email
+          </label>
+        </div>
+        <div className="form__group field">
+          <input
+            type="input"
+            className="form__field"
+            placeholder="Project"
+            name="project"
+            id="project"
+            value={state.project}
+            onChange={handleProject}
+            handleUpdate={handleUpdate}
+            required
+          />
+          <label htmlFor="project" className="form__label">
+            Project
+          </label>
+        </div>
+        <div className="form__group field">
+          <input
+            type="input"
+            className="form__field"
+            placeholder="Budget"
+            name="budget"
+            id="budget"
+            value={state.budget}
+            onChange={handleBudget}
+            handleUpdate={handleUpdate}
+            required
+          />
+          <label htmlFor="budget" className="form__label">
+            Budget
+          </label>
+        </div>
+        <div className="buttonContainer">
+         
+          <button onClick={() => setState({ name: "", email: "", project: "", budget: ""})}>
+            Clear
+            <span>
+              {/* <img src="/" alt="clear" /> */}
+            </span>
+          </button> 
+          <button type="submit">
+            Send
+            <span>
+              <img src="/icons/Send.svg" alt="send" />
+            </span>
+          </button>
+        </div>
       </form>
     </ContactFormContainer>
   );
