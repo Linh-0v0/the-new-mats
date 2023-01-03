@@ -4,7 +4,9 @@
 *Date: Nov 2022 
 * Code version: none 
 *Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
-****************************************************************/ import { EventEmitter } from "events";
+****************************************************************/ 
+
+import { EventEmitter } from "events";
 //Sizes class: detect window size
 
 // EventEmitter: emits event that can be listened to and acted on
