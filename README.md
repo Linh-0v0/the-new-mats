@@ -46,7 +46,7 @@ This product which is made in the short time span, of course, still has things n
 ## Appendix
 Project Link: [https://thenewmats.netlify.app/](https://thenewmats.netlify.app/)
 
-User Manual: [Click here for further information](https://docs.google.com/document/d/1xmR6FyihcU-xv98nSHLlFfFjAmXl_crl/edit?usp=sharing&ouid=101359083017956086422&rtpof=true&sd=true)
+User Manual: [Click here for further information](https://drive.google.com/file/d/11yTIwaBCjetM3lDsrb62CZq8JJm7QNQU/view?usp=sharing)
 
 ## FAQ
 
