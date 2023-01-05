@@ -23,7 +23,7 @@
 </details>
 
 ## About the Project
-I've always wanted to try my hands on 3D model making. Now that I've finally got the time and chance to do it, with the help of the team, and this is the final product.
+I've always wanted to try my hands on 3D model making. Now that I've finally got the time and chance to do it, with the help of the team, this product has been completed. The product is a demo of what we can do.
 
 Here's what we offer you:
 
