@@ -5,15 +5,44 @@
     <link rel="icon" type="image/svg+xml" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The New Mats</title>
+    <style>
+      .model-progress-bar-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        right: 50%;
+        transform: translate(-50%, -50%);
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.4);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .model-progress-bar-label {
+        color: white;
+        font-size: 3rem;
+      }
+
+      #model-progress-bar {
+        width: 30%;
+        margin-top: 0.5%;
+        height: 2%;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
 
     <div class="model-progress-bar-container">
-      <label class="model-progress-bar-label" for="model-progress-bar">Loading...</label>
+      <label class="model-progress-bar-label" for="model-progress-bar"
+        >Loading...</label
+      >
       <progress id="model-progress-bar" value="0" max="100"></progress>
     </div>
-    
+
     <script type="module" src="./src/main.jsx"></script>
   </body>
 </html>
