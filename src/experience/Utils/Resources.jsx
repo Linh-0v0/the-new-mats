@@ -4,7 +4,9 @@
 *Date: Nov 2022 
 * Code version: none 
 *Availability: https://github.com/andrewwoan/abigail-bloom-portolio-bokoko33/tree/master/Experience (Nov 2022) 
-****************************************************************/ import { EventEmitter } from "events";
+****************************************************************/ 
+
+import { EventEmitter } from "events";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
@@ -34,17 +36,22 @@ export default class Resources extends EventEmitter {
   }
 
   setLoaders() {
-    const manager = new LoadingManager;
-    manager.onStart = () => {
-      sessionStorage.setItem("loadingState", true)
-      // console.log(
-      //   "MANAGER LOADING", sessionStorage.getItem("loadingState")
-      // );
-    };
+    // Progress bar when model is loading
+    const progressBar = document.getElementById('model-progress-bar');
+    const progressBarContainer = document.querySelector('.model-progress-bar-container');
 
+    const manager = new LoadingManager;
+    
+    // manager.onStart = () => {
+    // };
+
+    manager.onProgress = (url, loaded, total) => {
+      progressBar.value = (loaded / total) * 100;
+    }
+
+    //when completed
     manager.onLoad = () => {
-      // sessionStorage.setItem("loadingState", false)
-      // console.log("Loading complete!");
+      progressBarContainer.style.display = 'none';
     };
 
     this.loaders = {};
