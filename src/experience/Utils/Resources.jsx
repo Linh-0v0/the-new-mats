@@ -131,11 +131,12 @@ export default class Resources extends EventEmitter {
     } else if (this.currentPath == this.assets[7].urlPathname) {
       // file is the modelFile that needs to be loaded
       console.log("MODEL", this.loaded);
-      this.loaders.gltfLoader.load(this.assets[7].path, (file) => {
-        this.singleAssetLoaded(this.assets[7], file);
+      this.loaders.gltfLoader.load(this.assets[8].path, (file) => {
+        this.singleAssetLoaded(this.assets[8], file);
+        console.log("Collider done.")
 
-        this.loaders.gltfLoader.load(this.assets[8].path, (file) => {
-          this.singleAssetLoaded(this.assets[8], file);
+        this.loaders.gltfLoader.load(this.assets[7].path, (file) => {
+          this.singleAssetLoaded(this.assets[7], file);
           console.log("LOADEd", this.loaded);
 
           if (this.loaded == 2) {
@@ -143,6 +144,7 @@ export default class Resources extends EventEmitter {
             this.emit("ready");
           }
         });
+
       });
     }
   }
